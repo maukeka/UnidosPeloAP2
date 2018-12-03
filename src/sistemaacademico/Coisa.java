@@ -18,4 +18,5 @@ public abstract class Coisa {
     public abstract void alterar (int codigo);
     public abstract void consultar (int codigo);
     public abstract void excluir (int codigo);
+    public abstract void atualizar (int codigo);
 }
