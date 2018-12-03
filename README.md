@@ -6,4 +6,5 @@ public static void main (String[] args){
   System.out.println("Lenice"+"Sapão");
   Lenice.MaozinhaNaoFala;
   Tonim.MaozinhaFala;
+  System.out.println("Pare com isso, Sr. SanHeacles, por gentileza");
 }
