@@ -2,5 +2,8 @@
 uau
 Lenice Sapão
 public static void main (String[] args){
-  Olá Sr. SanHeacles!
+  String Tonim;
+  System.out.println("Lenice"+"Sapão");
+  Lenice.MaozinhaNaoFala;
+  Tonim.MaozinhaFala;
 }
