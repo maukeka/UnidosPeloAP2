@@ -18,6 +18,8 @@ public class Disciplina extends Coisa {
 
 	int                             situacao;
     
+	//System.out.println("lalala");
+    
     int                             curso;                  // 0 (zero) para disciplina sem curso vinculado
     Docente                         docenteResponsavel;     // Informação obrigatória
     Docente                         docenteAuxiliar;        // Null = docente inexistente
