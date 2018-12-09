@@ -9,7 +9,14 @@ package sistemaacademico;
 * Observacoes:
 */
 public class Disciplina extends Coisa {
-    int                             situacao;
+    
+	
+	public Disciplina() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	int                             situacao;
     
     int                             curso;                  // 0 (zero) para disciplina sem curso vinculado
     Docente                         docenteResponsavel;     // Informação obrigatória
@@ -52,6 +59,127 @@ public class Disciplina extends Coisa {
     public void excluir(int codigo) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+	public int getSituacao() {
+		return situacao;
+	}
+
+	public void setSituacao(int situacao) {
+		this.situacao = situacao;
+	}
+
+	public int getCurso() {
+		return curso;
+	}
+
+	public void setCurso(int curso) {
+		this.curso = curso;
+	}
+
+	public Docente getDocenteResponsavel() {
+		return docenteResponsavel;
+	}
+
+	public void setDocenteResponsavel(Docente docenteResponsavel) {
+		this.docenteResponsavel = docenteResponsavel;
+	}
+
+	public Docente getDocenteAuxiliar() {
+		return docenteAuxiliar;
+	}
+
+	public void setDocenteAuxiliar(Docente docenteAuxiliar) {
+		this.docenteAuxiliar = docenteAuxiliar;
+	}
+
+	public TecnicoAdministrativo getTecnicoAdministrativoResponsavel() {
+		return tecnicoAdministrativoResponsavel;
+	}
+
+	public void setTecnicoAdministrativoResponsavel(TecnicoAdministrativo tecnicoAdministrativoResponsavel) {
+		this.tecnicoAdministrativoResponsavel = tecnicoAdministrativoResponsavel;
+	}
+
+	public TecnicoAdministrativo getTecnicoAminAdministrativoAuxiliar() {
+		return tecnicoAminAdministrativoAuxiliar;
+	}
+
+	public void setTecnicoAminAdministrativoAuxiliar(TecnicoAdministrativo tecnicoAminAdministrativoAuxiliar) {
+		this.tecnicoAminAdministrativoAuxiliar = tecnicoAminAdministrativoAuxiliar;
+	}
+
+	public double getNumeroCreditos() {
+		return numeroCreditos;
+	}
+
+	public void setNumeroCreditos(double numeroCreditos) {
+		this.numeroCreditos = numeroCreditos;
+	}
+
+	public double getCargaHorariaTotal() {
+		return cargaHorariaTotal;
+	}
+
+	public void setCargaHorariaTotal(double cargaHorariaTotal) {
+		this.cargaHorariaTotal = cargaHorariaTotal;
+	}
+
+	public double getCargaHorariaTeorica() {
+		return cargaHorariaTeorica;
+	}
+
+	public void setCargaHorariaTeorica(double cargaHorariaTeorica) {
+		this.cargaHorariaTeorica = cargaHorariaTeorica;
+	}
+
+	public double getCargaHorariaPratica() {
+		return cargaHorariaPratica;
+	}
+
+	public void setCargaHorariaPratica(double cargaHorariaPratica) {
+		this.cargaHorariaPratica = cargaHorariaPratica;
+	}
+
+	public double getCargaHorariaSemanal() {
+		return cargaHorariaSemanal;
+	}
+
+	public void setCargaHorariaSemanal(double cargaHorariaSemanal) {
+		this.cargaHorariaSemanal = cargaHorariaSemanal;
+	}
+
+	public double getCargaHorariaMensal() {
+		return cargaHorariaMensal;
+	}
+
+	public void setCargaHorariaMensal(double cargaHorariaMensal) {
+		this.cargaHorariaMensal = cargaHorariaMensal;
+	}
+
+	public double getCustoFixo() {
+		return custoFixo;
+	}
+
+	public void setCustoFixo(double custoFixo) {
+		this.custoFixo = custoFixo;
+	}
+
+	public double getCustoBasicoTeorica() {
+		return custoBasicoTeorica;
+	}
+
+	public void setCustoBasicoTeorica(double custoBasicoTeorica) {
+		this.custoBasicoTeorica = custoBasicoTeorica;
+	}
+
+	public double getCustoBasicoPratica() {
+		return custoBasicoPratica;
+	}
+
+	public void setCustoBasicoPratica(double custoBasicoPratica) {
+		this.custoBasicoPratica = custoBasicoPratica;
+	}
+    
     
 }
 
