@@ -3,6 +3,8 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import java.util.InputMismatchException;
+import java.util.Iterator;
 /**
  *
  * @author Wanderley de Souza Alencar
@@ -22,6 +24,8 @@ public class Disciplina extends Coisa {
 		int                             situacao;
 		int 							vinculado;
 		int 							remover;
+		int 							auxiliar =1;
+		
 		
 		Scanner 						seEhVinculado = new Scanner(System.in);
 	    Scanner 						lerCurso = new Scanner(System.in);
@@ -45,46 +49,71 @@ public class Disciplina extends Coisa {
 	    double                          custoBasicoTeorica;     // Valores em Reais (R$)
 	    double                          custoBasicoPratica;     //
 
-	    //
-	    // A equipe responsável deverá verificar se há necessidade de outros
-	    // atributos e métodos para inseri-los.
-	    // 
+	   
+	     ArrayList<Disciplina> listaDeDisciplina = new ArrayList<Disciplina>();
+	   
 	    
-	    static ArrayList<String> ListaDeCurso = new ArrayList<String>();
-	    
+	    	
+	    public Disciplina(int situacao, String curso, Docente docenteResponsavel, Docente docenteAuxiliar,
+				TecnicoAdministrativo tecnicoAdministrativoResponsavel,
+				TecnicoAdministrativo tecnicoAminAdministrativoAuxiliar, double numeroCreditos,
+				double cargaHorariaTotal, double cargaHorariaTeorica, double cargaHorariaPratica,
+				double cargaHorariaSemanal, double cargaHorariaMensal, double custoFixo, double custoBasicoTeorica,
+				double custoBasicoPratica, ArrayList<Disciplina> listaDeDisciplina) {
+			super();
+			this.situacao = situacao;
+			this.curso = curso;
+			this.docenteResponsavel = docenteResponsavel;
+			this.docenteAuxiliar = docenteAuxiliar;
+			this.tecnicoAdministrativoResponsavel = tecnicoAdministrativoResponsavel;
+			this.tecnicoAminAdministrativoAuxiliar = tecnicoAminAdministrativoAuxiliar;
+			this.numeroCreditos = numeroCreditos;
+			this.cargaHorariaTotal = cargaHorariaTotal;
+			this.cargaHorariaTeorica = cargaHorariaTeorica;
+			this.cargaHorariaPratica = cargaHorariaPratica;
+			this.cargaHorariaSemanal = cargaHorariaSemanal;
+			this.cargaHorariaMensal = cargaHorariaMensal;
+			this.custoFixo = custoFixo;
+			this.custoBasicoTeorica = custoBasicoTeorica;
+			this.custoBasicoPratica = custoBasicoPratica;
+			this.listaDeDisciplina = listaDeDisciplina;
+		}
+
 	    
 	    
 	    @Override
 	    public void cadastrar() {
-	    	
-	    	
+	    	listaDeDisciplina.add(this);
 	    	
 	    	do {
 	    		
 	    		System.out.println("Digite 0 para não cadastrar um curso vinculado a uma disciplina (núcleo livre)"
 	        			+ "-1 para sair da adição de cursos ou "
 	        			+ "1 para adicionar um curso vinculado a disciplina ");
-	        	vinculado = seEhVinculado.nextInt();
+	        	try {
+	    		vinculado = seEhVinculado.nextInt();
+	    		
+	    		break;
+	    		}catch(InputMismatchException e) {
+	    			System.out.println("Número invalido");
+	    		}
+	    	   }while(auxiliar==1);
 	        	
 	    	switch (vinculado) {
 	    	case 0: 
-	    		this.curso = "Núcleo livre";
+	    		this.curso = "Núcleo livre";   		   		
 	    		
-	    		ListaDeCurso.add(curso);
-	    		System.out.println(Arrays.toString( ListaDeCurso.toArray() ));
 	    		break;
 	    	case 1:
 	    		System.out.println("Digite o curso ao qual essa disciplina está vinculada: ");
 	    		curso = lerCurso.next();
-			
-	    		ListaDeCurso.add(curso);
-	    		System.out.println(Arrays.toString( ListaDeCurso.toArray() ));
+			    		
 	    		break;
 	    	default: 	
 			break;
 	    	}
 	    	
-	    	} while (vinculado != -1); 
+	    	
 	    	//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	    }
 
@@ -94,8 +123,8 @@ public class Disciplina extends Coisa {
 	    	System.out.println("Digite o curso que deseja colocar no lugar: ");
 	    	curso = lerCurso.next();
 	    	
-	    	ListaDeCurso.add( ListaDeCurso.indexOf(codigo), curso);
-	    	System.out.println(Arrays.toString( ListaDeCurso.toArray() ));	
+	    	
+	    	System.out.println(Arrays.toString( listaDeDisciplina.toArray() ));	
 	    	//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	    
 	    }
@@ -105,7 +134,7 @@ public class Disciplina extends Coisa {
 	    	
 	    	try {
 	            
-	            System.out.println(ListaDeCurso.get(codigo));
+	            System.out.println(listaDeDisciplina.get(codigo));
 	            
 	          } catch (IndexOutOfBoundsException e) {
 	          	
@@ -114,7 +143,7 @@ public class Disciplina extends Coisa {
 	              
 	          }
 	    	//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	    	System.out.println(Arrays.toString( ListaDeCurso.toArray() ));
+	    	System.out.println(Arrays.toString( listaDeDisciplina.toArray() ));
 	    }
 
 	   
@@ -122,11 +151,11 @@ public class Disciplina extends Coisa {
 		public void excluir(int codigo) {
 	    	while(codigo != -1) {
 	    		
-	    		System.out.println(Arrays.toString( ListaDeCurso.toArray() ));
+	    		System.out.println(Arrays.toString( listaDeDisciplina.toArray() ));
 	         
 	            try {
 	              
-	              ListaDeCurso.remove(codigo);
+	              listaDeDisciplina.remove(codigo);
 	              
 	            } catch (IndexOutOfBoundsException e) {
 	            	
@@ -136,7 +165,7 @@ public class Disciplina extends Coisa {
 	            }
 	            
 	        	//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	            System.out.println(Arrays.toString( ListaDeCurso.toArray() ));
+	            System.out.println(Arrays.toString( listaDeDisciplina.toArray() ));
 	    	}
 			
 		}
