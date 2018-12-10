@@ -1,11 +1,16 @@
 package sistemaacademico;
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+
 /**
  *
  * @author Wanderley de Souza Alencar
  */
 /*
 * Nome.......: Disciplina
-* Objetivo...: Representar uma disciplina na instituiÃ§Ã£o de ensino
+* Objetivo...: Representar uma disciplina na instituição de ensino
 * Observacoes:
 */
 public class Disciplina extends Coisa {
@@ -15,53 +20,128 @@ public class Disciplina extends Coisa {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
+	int 							id;
 	int                             situacao;
+	int 							vinculado;
+	int 							remover;
+	
+	Scanner 						seEhVinculado = new Scanner(System.in);
+    Scanner 						lerCurso = new Scanner(System.in);
+    Scanner 						lerExclusao = new Scanner(System.in);
+    Scanner 						lerId = new Scanner(System.in);
     
-	//System.out.println("lalala");
-    
-    int                             curso;                  // 0 (zero) para disciplina sem curso vinculado
-    Docente                         docenteResponsavel;     // InformaÃ§Ã£o obrigatÃ³ria
+    String                          curso;                  // 0 (zero) para disciplina sem curso vinculado
+    Docente                         docenteResponsavel;     // Informação obrigatória
     Docente                         docenteAuxiliar;        // Null = docente inexistente
     TecnicoAdministrativo           tecnicoAdministrativoResponsavel; // Null = TA inexistente
     TecnicoAdministrativo           tecnicoAminAdministrativoAuxiliar; // Null = TA inexistente
     
-    double                          numeroCreditos;        // 0 - NÃ£o informada (Ã© opcional informar)
+    double                          numeroCreditos;        // 0 - Não informada (É opcional informar)
     double                          cargaHorariaTotal;      
     double                          cargaHorariaTeorica;
     double                          cargaHorariaPratica;
     double                          cargaHorariaSemanal;    // Opcional informar
     double                          cargaHorariaMensal;     // Opcional informar
     
-    double                          custoFixo;              // Todos sÃ£o opcionais...
+    double                          custoFixo;              // Todos são opcionais...
     double                          custoBasicoTeorica;     // Valores em Reais (R$)
     double                          custoBasicoPratica;     //
 
     //
-    // A equipe responsÃ¡vel deverÃ¡ verificar se hÃ¡ necessidade de outros
-    // atributos e mÃ©todos para inseri-los.
+    // A equipe responsável deverá verificar se há necessidade de outros
+    // atributos e métodos para inseri-los.
     // 
+    
+    static ArrayList<String> ListaDeCurso = new ArrayList<String>();
+    
+    
     
     @Override
     public void cadastrar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    	
+    	
+    	
+    	do {
+    		
+    		System.out.println("Digite 0 para não cadastrar um curso vinculado a uma disciplina (núcleo livre)"
+        			+ "-1 para sair da adição de cursos ou "
+        			+ "1 para adicionar um curso vinculado a disciplina ");
+        	vinculado = seEhVinculado.nextInt();
+        	
+    	switch (vinculado) {
+    	case 0: 
+    		this.curso = "Núcleo livre";
+    		
+    		ListaDeCurso.add(curso);
+    		System.out.println(Arrays.toString( ListaDeCurso.toArray() ));
+    		break;
+    	case 1:
+    		System.out.println("Digite o curso ao qual essa disciplina está vinculada: ");
+    		curso = lerCurso.next();
+		
+    		ListaDeCurso.add(curso);
+    		System.out.println(Arrays.toString( ListaDeCurso.toArray() ));
+    		break;
+    	default: 	
+		break;
+    	}
+    	
+    	} while (vinculado != -1); 
+    	//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void alterar(int codigo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void alterar(String nome) {
+    
+    	System.out.println("Digite o curso que deseja colocar no lugar: ");
+    	curso = lerCurso.next();
+    	
+    	ListaDeCurso.add( ListaDeCurso.indexOf(nome), curso);
+    	System.out.println(Arrays.toString( ListaDeCurso.toArray() ));	
+    	//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
     }
 
     @Override
     public void consultar(int codigo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    	
+    	try {
+            
+            System.out.println(ListaDeCurso.get(codigo));
+            
+          } catch (IndexOutOfBoundsException e) {
+          	
+              System.out.printf("\nErro: posição inválida.",
+                e.getMessage());
+              
+          }
+    	//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    	System.out.println(Arrays.toString( ListaDeCurso.toArray() ));
     }
 
+   
     @Override
-    public void excluir(int codigo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+	public void excluir(int codigo) {
+    	while(codigo != -1) {
+    		
+    		System.out.println(Arrays.toString( ListaDeCurso.toArray() ));
+         
+            try {
+              
+              ListaDeCurso.remove(codigo);
+              
+            } catch (IndexOutOfBoundsException e) {
+            	
+                System.out.printf("\nErro: posição inválida.",
+                  e.getMessage());
+                
+            }
+            
+        	//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            System.out.println(Arrays.toString( ListaDeCurso.toArray() ));
+    	}
+		
+	}
 	public int getSituacao() {
 		return situacao;
 	}
@@ -70,11 +150,11 @@ public class Disciplina extends Coisa {
 		this.situacao = situacao;
 	}
 
-	public int getCurso() {
+	public String getCurso() {
 		return curso;
 	}
 
-	public void setCurso(int curso) {
+	public void setCurso(String curso) {
 		this.curso = curso;
 	}
 
@@ -181,7 +261,20 @@ public class Disciplina extends Coisa {
 	public void setCustoBasicoPratica(double custoBasicoPratica) {
 		this.custoBasicoPratica = custoBasicoPratica;
 	}
-    
+
+	@Override
+	public String toString() {
+		return "Disciplina [situacao=" + situacao + ", curso=" + curso + ", docenteResponsavel=" + docenteResponsavel
+				+ ", docenteAuxiliar=" + docenteAuxiliar + ", tecnicoAdministrativoResponsavel="
+				+ tecnicoAdministrativoResponsavel + ", tecnicoAminAdministrativoAuxiliar="
+				+ tecnicoAminAdministrativoAuxiliar + ", numeroCreditos=" + numeroCreditos + ", cargaHorariaTotal="
+				+ cargaHorariaTotal + ", cargaHorariaTeorica=" + cargaHorariaTeorica + ", cargaHorariaPratica="
+				+ cargaHorariaPratica + ", cargaHorariaSemanal=" + cargaHorariaSemanal + ", cargaHorariaMensal="
+				+ cargaHorariaMensal + ", custoFixo=" + custoFixo + ", custoBasicoTeorica=" + custoBasicoTeorica
+				+ ", custoBasicoPratica=" + custoBasicoPratica + "]";
+	}
+
+	
     
 }
 

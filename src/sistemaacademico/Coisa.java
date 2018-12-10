@@ -15,8 +15,10 @@ public abstract class Coisa {
     String                          nomeCompleto;
     
     public abstract void cadastrar();
-    public abstract void alterar (int codigo);
+    public abstract void alterar (String nome);
     public abstract void consultar (int codigo);
     public abstract void excluir (int codigo);
+		// TODO Auto-generated method stub
+		
+	}
     
-}
