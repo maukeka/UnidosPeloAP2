@@ -20,9 +20,11 @@ public class Disciplina extends Coisa {
 			super();
 			// TODO Auto-generated constructor stub
 		}
-		int 							id;
+		int 							codigo;
 		int                             situacao;
 		int 							vinculado;
+	
+	
 		int 							remover;
 		int 							auxiliar =1;
 		
@@ -31,7 +33,8 @@ public class Disciplina extends Coisa {
 	    Scanner 						lerCurso = new Scanner(System.in);
 	    Scanner 						lerExclusao = new Scanner(System.in);
 	    Scanner 						lerId = new Scanner(System.in);
-	    
+	    String 							nomeCompleto;
+	    String 							nomeAbreviado;
 	    String                          curso;                  // 0 (zero) para disciplina sem curso vinculado
 	    Docente                         docenteResponsavel;     // Informação obrigatória
 	    Docente                         docenteAuxiliar;        // Null = docente inexistente
@@ -80,7 +83,40 @@ public class Disciplina extends Coisa {
 		}
 
 	    
-	    
+		public int getCodigo() {
+			return codigo;
+		}
+
+
+
+		public void setCodigo(int codigo) {
+			this.codigo = codigo;
+		}
+
+
+
+		public String getNomeCompleto() {
+			return nomeCompleto;
+		}
+
+
+
+		public void setNomeCompleto(String nomeCompleto) {
+			this.nomeCompleto = nomeCompleto;
+		}
+
+
+
+		public String getNomeAbreviado() {
+			return nomeAbreviado;
+		}
+
+
+
+		public void setNomeAbreviado(String nomeAbreviado) {
+			this.nomeAbreviado = nomeAbreviado;	
+		}
+		
 	    @Override
 	    public void cadastrar() {
 	    	listaDeDisciplina.add(this);

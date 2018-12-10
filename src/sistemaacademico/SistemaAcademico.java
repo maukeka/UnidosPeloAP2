@@ -23,6 +23,9 @@ public class SistemaAcademico {
         int i;
         int leitura;
         Scanner ler = new Scanner(System.in);
+        
+        Disciplina disciplina = new Disciplina();
+        
         disciplinas             = new ArrayList<>();
 
         System.out.println("Digite um dos seguintes números para acessar: "
@@ -32,7 +35,9 @@ public class SistemaAcademico {
         		+ "\n4 - Consultar uma disciplina.");
         leitura = ler.nextInt();
         switch (leitura) {
-        case 1:	    	
+        case 1:	System.out.println("BEM VINDO AO SISTEMA DE CADASTRAMENTO DE DISCIPLINAS! <3 ");
+        		System.out.println("\n Digite o nome completo da disciplina que deseja cadastrar: ");
+        		disciplina.getNomeCompleto();
 
         	break;
         }
