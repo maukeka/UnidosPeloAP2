@@ -2,7 +2,7 @@ package sistemaacademico;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
+
 
 /**
  *
@@ -59,8 +59,6 @@ public class Disciplina extends Coisa {
     @Override
     public void cadastrar() {
     	
-    	
-    	
     	do {
     		
     		System.out.println("Digite 0 para não cadastrar um curso vinculado a uma disciplina (núcleo livre)"
@@ -83,8 +81,8 @@ public class Disciplina extends Coisa {
     		System.out.println(Arrays.toString( ListaDeCurso.toArray() ));
     		break;
     	default: 	
-		break;
-    	}
+    		break;
+    		}
     	
     	} while (vinculado != -1); 
     	//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -92,18 +90,23 @@ public class Disciplina extends Coisa {
 
     @Override
     public void alterar(String nome) {
-    
+    	
+    	System.out.println(Arrays.toString( ListaDeCurso.toArray() ));
+    	
     	System.out.println("Digite o curso que deseja colocar no lugar: ");
     	curso = lerCurso.next();
     	
     	ListaDeCurso.add( ListaDeCurso.indexOf(nome), curso);
-    	System.out.println(Arrays.toString( ListaDeCurso.toArray() ));	
+    	System.out.println(Arrays.toString( ListaDeCurso.toArray() ));
+    	
     	//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     
     }
 
     @Override
     public void consultar(int codigo) {
+    	
+    	System.out.println(Arrays.toString( ListaDeCurso.toArray() ));
     	
     	try {
             
@@ -115,13 +118,16 @@ public class Disciplina extends Coisa {
                 e.getMessage());
               
           }
+    	
     	//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    	
     	System.out.println(Arrays.toString( ListaDeCurso.toArray() ));
     }
 
    
     @Override
 	public void excluir(int codigo) {
+    	
     	while(codigo != -1) {
     		
     		System.out.println(Arrays.toString( ListaDeCurso.toArray() ));
@@ -142,6 +148,7 @@ public class Disciplina extends Coisa {
     	}
 		
 	}
+    
 	public int getSituacao() {
 		return situacao;
 	}
