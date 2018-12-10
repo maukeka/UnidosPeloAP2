@@ -2,35 +2,18 @@
  * Sistema de Gestão Acadêmica 
  */
 package sistemaacademico;
-
+import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * @author Wanderley de Souza Alencar
  */
 public class SistemaAcademico {
-        //
-        // Aqui estão sendo declarados objetos das principais classes.
-        // Evidentemente cada equipe utilizará somente alguns deles para 
-        // implementar sua porção do sistema. 
-        //
-        // Todos os objetos foram declarados como sendo ArrayList e, portanto, 
-        // ao finalizar uma execução da aplicação todos os dados serão perdidos
-        //
-        // 
-        // Observação: Exclua as declarações que não necessitar...
-        //
-        //
-        private static ArrayList <Curso>                   cursos;
-        private static ArrayList <Academico>               academicos;
-        private static ArrayList <Docente>                 docentes;
-        private static ArrayList <TecnicoAdministrativo>   tecnicosAdministrativos;
+
         private static ArrayList <Disciplina>              disciplinas;
-        private static ArrayList <RegistroAcademico>       historicos;
-        //
-        // Atributos auxiliares...
-        //
-        private static UnidadesFederativas            unidadesFederativas;
+
+
         
         
      /**
@@ -38,20 +21,33 @@ public class SistemaAcademico {
      */
     public static void main(String[] args) {  
         int i;
-        cursos                  = new ArrayList<>();
-        academicos              = new ArrayList<>();
-        docentes                = new ArrayList<>();
-        tecnicosAdministrativos = new ArrayList<>();
+        int leitura;
+        Scanner ler = new Scanner(System.in);
         disciplinas             = new ArrayList<>();
-        historicos              = new ArrayList<>();
-        //
-        // Exemplo de uso...
-        //
-        unidadesFederativas       = new UnidadesFederativas();
-        for (i = 0; (i < unidadesFederativas.size()); i++) {
-            unidadesFederativas.show(i);
+
+        System.out.println("Digite um dos seguintes n�meros para acessar: "
+        		+ "\n1 - Cadastrar informa��es sobre a disciplina."
+        		+ "\n2 - Alterar informa��es sobre a disciplina."
+        		+ "\n3 - Excluir a disciplina."
+        		+ "\n4 - Consultar uma disciplina.");
+        leitura = ler.nextInt();
+        switch (leitura) {
+        case 1:	    	
+
+        	break;
         }
-        System.out.println("Fim");
+        
+        
+        
+        
+        
+        
+        
+        
+        ///for (i = 0; (i < unidadesFederativas.size()); i++) {
+       //     unidadesFederativas.show(i);
+       // }
+       // System.out.println("Fim");
     }
     
 }

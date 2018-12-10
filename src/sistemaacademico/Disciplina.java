@@ -2,7 +2,7 @@ package sistemaacademico;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
+
 /**
  *
  * @author Wanderley de Souza Alencar
@@ -271,16 +271,6 @@ public class Disciplina extends Coisa {
 					+ cargaHorariaMensal + ", custoFixo=" + custoFixo + ", custoBasicoTeorica=" + custoBasicoTeorica
 					+ ", custoBasicoPratica=" + custoBasicoPratica + "]";
 		}
-
-		@Override
-		public void atualizar(int codigo) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		
-	    
-	
 }
 
 
