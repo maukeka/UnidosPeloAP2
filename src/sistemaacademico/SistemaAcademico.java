@@ -84,12 +84,29 @@ public class SistemaAcademico {
                		
                		System.out.println("DOCENTES ASSOCIADOS");
                		System.out.println("Insira o nome no docente responsável: ");
-               		
                		disciplina.setDocenteResponsavel(ler.nextLine());
+               		System.out.println("Há docentes auxiliares?"
+               				+ "1-SIM"
+               				+ "2-NÃO");
+               		int doc = ler.nextInt();
+               		
+               		do {
+               		
+               			switch(doc){
+               				case 1:
+               					System.out.println("Insira o nome do docente auxiliar");
+               					disciplina.setDocenteAuxiliar(ler.nextLine());//help********** pq n deu?
+               					break;
+               				case 2:
+               					break;
+               				default:
+               					System.out.println("Entrada inválida.");
+               			}
+               		
                		
         	
-        }
-			
+               		}while(auxiliar==1);
+        }		
         
         
         
@@ -103,5 +120,13 @@ public class SistemaAcademico {
        // }
        // System.out.println("Fim");
     }
+
+
+
+
+	private static void swicth(int doc) {
+		// TODO Auto-generated method stub
+		
+	}
     
 }
