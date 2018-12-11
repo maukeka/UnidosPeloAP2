@@ -5,6 +5,7 @@ package sistemaacademico;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.InputMismatchException;
 
 /**
  * @author Wanderley de Souza Alencar
@@ -23,24 +24,72 @@ public class SistemaAcademico {
         int i;
         int leitura;
         Scanner ler = new Scanner(System.in);
+        Scanner seEhVinculado = new Scanner(System.in);
+        int vinculado = 0;
+        Scanner lerCurso = new Scanner(System.in);
+        int auxiliar = 1;
+        String curso;
+        Docente docenteResponsavel, docenteAuxiliar;
         
         Disciplina disciplina = new Disciplina();
         
-        disciplinas             = new ArrayList<>();
+        disciplinas = new ArrayList<>();
 
-        System.out.println("Digite um dos seguintes números para acessar: "
+        System.out.println("Digite um dos seguintes números para acessar: " //try catch
         		+ "\n1 - Cadastrar informações sobre a disciplina."
         		+ "\n2 - Alterar informações sobre a disciplina."
         		+ "\n3 - Excluir a disciplina."
         		+ "\n4 - Consultar uma disciplina.");
         leitura = ler.nextInt();
+		
         switch (leitura) {
-        case 1:	System.out.println("BEM VINDO AO SISTEMA DE CADASTRAMENTO DE DISCIPLINAS! <3 ");
-        		System.out.println("\n Digite o nome completo da disciplina que deseja cadastrar: ");
-        		disciplina.getNomeCompleto();
+        	
+        	case 1:	System.out.println("BEM VINDO AO SISTEMA DE CADASTRAMENTO DE DISCIPLINAS! <3 ");
+               		System.out.println("\n Digite o nome completo da disciplina que deseja cadastrar: ");
+               		disciplina.setNomeCompleto(ler.nextLine()); //try catch ********************************************
+               		System.out.println("\n Digite a sigla de abreviação da disciplina com no máximo três letras:");
+               		disciplina.setNomeAbreviado(ler.nextLine()); //try catch***************************************
+               		System.out.println("\n Adicione o código da disciplina (máximo de 6 dígitos): ");
+               		disciplina.setCodigo(ler.nextInt()); //try catch*****************************
+		
+               		do {
+    	    		
+               			try {
 
-        	break;
+               				System.out.println("\nCADASTRO DE CURSO VINCULADO A DISCIPLINA:"
+        	    						+ "\n0 disciplina de núcleo livre;"
+        	    						+ "\n1 adicionar um curso vinculado a disciplina;"
+        	        					+ "\nqualquer outro número para sair.");
+               				vinculado = seEhVinculado.nextInt();
+    	    		
+               				break;
+    	    		
+               			}catch(InputMismatchException e) {// mudar exception **************************************************************************************
+    	    			System.out.println("Número invalido");
+               			}
+               		}while(auxiliar==1);
+    	        	
+			
+               		switch (vinculado) {
+               			case 0: 
+               				disciplina.setCurso("Núcleo livre"); 	   		
+               				break;
+               			case 1:
+               				System.out.println("Digite o curso ao qual essa disciplina está vinculada: ");
+               				disciplina.setCurso(ler.nextLine()); //try catch******************************************
+               				break;
+               			default: 	
+               				break;
+               		}
+               		
+               		System.out.println("DOCENTES ASSOCIADOS");
+               		System.out.println("Insira o nome no docente responsável: ");
+               		
+               		disciplina.setDocenteResponsavel(ler.nextLine());
+               		
+        	
         }
+			
         
         
         

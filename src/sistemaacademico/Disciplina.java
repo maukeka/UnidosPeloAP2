@@ -57,28 +57,9 @@ public class Disciplina extends Coisa {
 	   
 	    
 	    	
-	    public Disciplina(int situacao, String curso, Docente docenteResponsavel, Docente docenteAuxiliar,
-				TecnicoAdministrativo tecnicoAdministrativoResponsavel,
-				TecnicoAdministrativo tecnicoAminAdministrativoAuxiliar, double numeroCreditos,
-				double cargaHorariaTotal, double cargaHorariaTeorica, double cargaHorariaPratica,
-				double cargaHorariaSemanal, double cargaHorariaMensal, double custoFixo, double custoBasicoTeorica,
-				double custoBasicoPratica, ArrayList<Disciplina> listaDeDisciplina) {
+	    public Disciplina(ArrayList<Disciplina> listaDeDisciplina) {
 			super();
-			this.situacao = situacao;
-			this.curso = curso;
-			this.docenteResponsavel = docenteResponsavel;
-			this.docenteAuxiliar = docenteAuxiliar;
-			this.tecnicoAdministrativoResponsavel = tecnicoAdministrativoResponsavel;
-			this.tecnicoAminAdministrativoAuxiliar = tecnicoAminAdministrativoAuxiliar;
-			this.numeroCreditos = numeroCreditos;
-			this.cargaHorariaTotal = cargaHorariaTotal;
-			this.cargaHorariaTeorica = cargaHorariaTeorica;
-			this.cargaHorariaPratica = cargaHorariaPratica;
-			this.cargaHorariaSemanal = cargaHorariaSemanal;
-			this.cargaHorariaMensal = cargaHorariaMensal;
-			this.custoFixo = custoFixo;
-			this.custoBasicoTeorica = custoBasicoTeorica;
-			this.custoBasicoPratica = custoBasicoPratica;
+			
 			this.listaDeDisciplina = listaDeDisciplina;
 		}
 
@@ -121,33 +102,6 @@ public class Disciplina extends Coisa {
 	    public void cadastrar() {
 	    	listaDeDisciplina.add(this);
 	    	
-	    	do {
-	    		
-	    		System.out.println("Digite 0 para não cadastrar um curso vinculado a uma disciplina (núcleo livre)"
-	        			+ "-1 para sair da adição de cursos ou "
-	        			+ "1 para adicionar um curso vinculado a disciplina ");
-	        	try {
-	    		vinculado = seEhVinculado.nextInt();
-	    		
-	    		break;
-	    		}catch(InputMismatchException e) {
-	    			System.out.println("Número invalido");
-	    		}
-	    	   }while(auxiliar==1);
-	        	
-	    	switch (vinculado) {
-	    	case 0: 
-	    		this.curso = "Núcleo livre";   		   		
-	    		
-	    		break;
-	    	case 1:
-	    		System.out.println("Digite o curso ao qual essa disciplina está vinculada: ");
-	    		curso = lerCurso.next();
-			    		
-	    		break;
-	    	default: 	
-			break;
-	    	}
 	    	
 	    	
 	    	//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
