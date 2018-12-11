@@ -76,7 +76,7 @@ public class SistemaAcademico {
                				break;
                			case 1:
                				System.out.println("Digite o curso ao qual essa disciplina está vinculada: ");
-               				disciplina.setCurso(ler.nextLine()); //try catch *****TIPO DE ENTRADA SER VÁLIDA*******
+               				disciplina.setCurso(ler.nextLine()); //try catch *****TIPO DE ENTRADA SER VÁLIDA********
                				break;
                			default: 	
                				break;
