@@ -86,8 +86,8 @@ public class SistemaAcademico {
                		System.out.println("Insira o nome no docente responsável: ");
                		disciplina.setDocenteResponsavel(ler.nextLine());
                		System.out.println("Há docentes auxiliares?"
-               				+ "1-SIM"
-               				+ "2-NÃO");
+               				+ "\n1-SIM"
+               				+ "\n12-NÃO");
                		int doc = ler.nextInt();
                		
                		do {
@@ -95,7 +95,7 @@ public class SistemaAcademico {
                			switch(doc){
                				case 1:
                					System.out.println("Insira o nome do docente auxiliar");
-               					disciplina.setDocenteAuxiliar(ler.nextLine());//help********** pq n deu?
+               					disciplina.setDocenteAuxiliar(ler.nextLine());
                					break;
                				case 2:
                					break;
