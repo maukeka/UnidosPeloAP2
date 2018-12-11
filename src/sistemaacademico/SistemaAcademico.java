@@ -35,7 +35,7 @@ public class SistemaAcademico {
         
         disciplinas = new ArrayList<>();
 
-        System.out.println("Digite um dos seguintes números para acessar: " //try catch
+        System.out.println("Digite um dos seguintes números para acessar: " //try catch ***TIPO DE ENTRADA SER VÁLIDA (INT) E CASO FOR DIFERENTE DE 1,2,3 E 4***
         		+ "\n1 - Cadastrar informações sobre a disciplina."
         		+ "\n2 - Alterar informações sobre a disciplina."
         		+ "\n3 - Excluir a disciplina."
@@ -46,11 +46,11 @@ public class SistemaAcademico {
         	
         	case 1:	System.out.println("BEM VINDO AO SISTEMA DE CADASTRAMENTO DE DISCIPLINAS! <3 ");
                		System.out.println("\n Digite o nome completo da disciplina que deseja cadastrar: ");
-               		disciplina.setNomeCompleto(ler.nextLine()); //try catch ********************************************
+               		disciplina.setNomeCompleto(ler.nextLine()); //try catch *****TIPO DE ENTRADA SER VÁLIDA (STRING)*******
                		System.out.println("\n Digite a sigla de abreviação da disciplina com no máximo três letras:");
-               		disciplina.setNomeAbreviado(ler.nextLine()); //try catch***************************************
+               		disciplina.setNomeAbreviado(ler.nextLine()); //try catch  *****TIPO DE ENTRADA SER VÁLIDA (STRING)*******
                		System.out.println("\n Adicione o código da disciplina (máximo de 6 dígitos): ");
-               		disciplina.setCodigo(ler.nextInt()); //try catch*****************************
+               		disciplina.setCodigo(ler.nextInt()); //try catch  *****TIPO DE ENTRADA SER VÁLIDA (STRING)*******
 		
                		do {
     	    		
@@ -59,12 +59,12 @@ public class SistemaAcademico {
                				System.out.println("\nCADASTRO DE CURSO VINCULADO A DISCIPLINA:"
         	    						+ "\n0 disciplina de núcleo livre;"
         	    						+ "\n1 adicionar um curso vinculado a disciplina;"
-        	        					+ "\nqualquer outro número para sair.");
+        	        					+ "\nQualquer outro número para sair.");
                				vinculado = seEhVinculado.nextInt();
     	    		
                				break;
     	    		
-               			}catch(InputMismatchException e) {// mudar exception **************************************************************************************
+               			}catch(InputMismatchException e) {// mudar exception **TIPO DE ENTRADA SER VÁLIDA (INT)***
     	    			System.out.println("Número invalido");
                			}
                		}while(auxiliar==1);
@@ -76,7 +76,7 @@ public class SistemaAcademico {
                				break;
                			case 1:
                				System.out.println("Digite o curso ao qual essa disciplina está vinculada: ");
-               				disciplina.setCurso(ler.nextLine()); //try catch******************************************
+               				disciplina.setCurso(ler.nextLine()); //try catch *****TIPO DE ENTRADA SER VÁLIDA********
                				break;
                			default: 	
                				break;
