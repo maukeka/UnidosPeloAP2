@@ -199,6 +199,30 @@ public class SistemaAcademico {
                					break; 
                					}
                		}while(auxiliar==1);
+               		
+               		System.out.println("NÚMERO DE CRÉDITOS");
+               		
+               		
+               		do{
+               			System.out.println("Insira o número de créditos associado à disciplina variando de 0 à 9");
+               				
+               			String creditos = ler.nextLine();
+               			
+               			if(creditos.length()==1) {
+               				try{
+               					int creditos2 = Integer.parseInt(creditos);
+               					disciplina.setCodigo(creditos2);
+               					break;
+               				}catch(NumberFormatException erro) {
+               					System.out.println("\tNão insira letras apenas números!");
+               				}
+               				
+               			}
+               			else
+               				System.out.println("\tQuantidade Incorreta!");
+               			
+               		}while(auxiliar==1);
+               		
         	
    }
         
