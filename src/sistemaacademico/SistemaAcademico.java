@@ -145,6 +145,7 @@ public class SistemaAcademico {
                					break;
                				case 0:
                					break;
+<<<<<<< HEAD
                					}
                	        //adicionar cargaHorariaPratica e cargaHorariaTeorica 
                	        disciplina.cadastrar();
@@ -153,6 +154,36 @@ public class SistemaAcademico {
         
   int aleatoria;      
 
+=======
+               				}catch(NumberFormatException erro) {
+               					System.out.println("\tNão insira letras apenas números!");
+               				}
+               				
+               			}
+               			else
+               				System.out.println("\tQuantidade Incorreta!");
+               			
+               		}while(auxiliar==1);
+               		
+               	}
+        }
+               		        
+        SituacaoDisciplina situacaoDisciplina = new SituacaoDisciplina();
+        for (int x=0; x < situacaoDisciplina.size(); x++) {
+        	situacaoDisciplina.show(x);
+        }
+        
+      
+        
+        
+        
+        
+        
+        ///for (i = 0; (i < unidadesFederativas.size()); i++) {
+       //     unidadesFederativas.show(i);
+       // }
+       // System.out.println("Fim");
+>>>>>>> parent of 293c3c2... Rodolfinho golfinho
     }
 
 
