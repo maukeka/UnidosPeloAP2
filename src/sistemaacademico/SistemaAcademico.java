@@ -1,5 +1,5 @@
 /*
- * Sistema de GestÃ£o AcadÃªmica 
+ * Sistema de Gestão Acadêmica 
  */
 package sistemaacademico;
 import java.util.Scanner;
@@ -173,7 +173,7 @@ public class SistemaAcademico {
                				+ "\n2-NÃO");
                		try {
                				tec = Integer.parseInt(ler.nextLine());}catch(NumberFormatException erro) {
-               					System.out.println("\nNão insira letras apenas números!");
+               					System.out.println("\nNão insira letras apenas números!");}
                		}while(tec<1||tec>2);
                		do {
                		
@@ -199,7 +199,7 @@ public class SistemaAcademico {
                		try {
                		 tecA = Integer.parseInt(ler.nextLine());
                		 }catch(NumberFormatException erro) {
-        					System.out.println("\nNão insira letras apenas números!");
+        					System.out.println("\nNão insira letras apenas números!");}
                		
                		
 
@@ -244,7 +244,8 @@ public class SistemaAcademico {
                			
                		}while(auxiliar==1);
                		
-       }
+               	}
+        }
                		        
         SituacaoDisciplina situacaoDisciplina = new SituacaoDisciplina();
         for (int x=0; x < situacaoDisciplina.size(); x++) {
