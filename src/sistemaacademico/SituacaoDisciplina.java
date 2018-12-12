@@ -6,26 +6,67 @@ import java.util.ArrayList;
  *
  * @author Wanderley de Souza Alencar
  */
-/*
-* Nome.......: SituacaoDisciplina
-* Objetivo...: Representa as possíveis situações em que uma disciplina pode estar.
-* Observacoes: Se for desconhecido, utilize o tipo 0 - DS - Desconhecido.
-*/
+
 public class SituacaoDisciplina{
     private final int                           NUMERO_SITUACAO_DISCIPLINA = 5;
     private ArrayList <ElementoDescritivo>      situacaoDisciplina;
-    /**
-     * Implementar de maneira semelhante à UnidadeFederativa.
-     * 
-   Cod. Descrição Comp.   Descrição Abreviada
-    00 - Desconhecida       DS
-    01 - Aberta             ABR          (ou seja, com matrícula aberta para ela)
-    02 - Ativa              ATV          (em funcionamento, mas não permite matrículas)
-    03 - Inativa            INT          (não permite matricula)
-    04 - Concluída          CON          (disciplina já ofertada e encerrada)
-    05 - Outra              OUT          
-   * 
-   */
+    
+    public SituacaoDisciplina() {
+    	ElementoDescritivo elementoDescritivo;
+    	
+    	this.situacaoDisciplina = new ArrayList();
+    	elementoDescritivo = new ElementoDescritivo();
+    	elementoDescritivo.setElementoDescritivo(00, "DS", "Desconhecida");
+    	this.situacaoDisciplina.add(elementoDescritivo);
+    	elementoDescritivo = new ElementoDescritivo();
+    	elementoDescritivo.setElementoDescritivo(01, "ABR", "Aberta");
+    	this.situacaoDisciplina.add(elementoDescritivo);
+    	elementoDescritivo = new ElementoDescritivo();
+    	elementoDescritivo.setElementoDescritivo(02, "ATV", "Ativa");
+    	this.situacaoDisciplina.add(elementoDescritivo);
+    	elementoDescritivo = new ElementoDescritivo();
+    	elementoDescritivo.setElementoDescritivo(03, "INT", "Inativa");
+    	this.situacaoDisciplina.add(elementoDescritivo);
+    	elementoDescritivo = new ElementoDescritivo();
+    	elementoDescritivo.setElementoDescritivo(04, "CON", "Conclu�da");
+    	this.situacaoDisciplina.add(elementoDescritivo);
+    	elementoDescritivo = new ElementoDescritivo();
+    	elementoDescritivo.setElementoDescritivo(05, "OUT", "Outra");
+    }
+    public ArrayList<ElementoDescritivo> getSituacaoDisciplina() {
+        return (this.situacaoDisciplina);
+    }
+    public ElementoDescritivo getsituacaoDisciplina(int index) {
+        if ((index >= 0) && (index < situacaoDisciplina.size())) {
+            return (this.situacaoDisciplina.get(index));
+        }
+        else {
+            return (new ElementoDescritivo());
+        }
+    }
+    public int indexOf(String str) {
+        int i;
+        for (i = 0; (i < this.situacaoDisciplina.size()); i++) {
+            if (this.situacaoDisciplina.get(i).getDescricaoAbreviada().equalsIgnoreCase(str)) {
+                return (i);
+            }
+        }
+        return (-1);
+    }
+    public int size() {
+        return(this.situacaoDisciplina.size());
+    }
+    public void show(int index) {
+        System.out.println();
+        System.out.println("------------------");
+        System.out.println("Unidade Federativa");
+        System.out.println("------------------");
+        System.out.println("C�digo..........: " + this.getsituacaoDisciplina(index).getCodigo());
+        System.out.println("Descr. Abreviada: " + this.getsituacaoDisciplina(index).getDescricaoAbreviada());
+        System.out.println("Descr. Completa.: " + this.getsituacaoDisciplina(index).getDescricaoCompleta());
+        System.out.println("------------------");
+    }
+    
     
 }
     
