@@ -32,7 +32,7 @@ public class SistemaAcademico {
         Disciplina disciplina = new Disciplina();
         
         Docente docResponsavel = new Docente();
-        Docente docAuxliar = new Docente();
+        Docente docAuxiliar = new Docente();
         
         disciplinas = new ArrayList<>();
 
@@ -122,16 +122,15 @@ public class SistemaAcademico {
                			switch(doc){
                				case 1:
                					System.out.println("Insira o nome do docente auxiliar");
-               					
-               					Docente docAuxiliar;
+               					String nomeA = ler.nextLine();
+               					docAuxiliar.setNome(nomeA);
+               					disciplina.setDocenteAuxiliar(docAuxiliar);
                					break;
                				case 2:
                					break; 
                				
                			}
-               		
-               		
-        	
+               		              		       	
                		}while(auxiliar==1);
         }		
         
