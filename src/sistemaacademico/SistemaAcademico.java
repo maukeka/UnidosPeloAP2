@@ -105,10 +105,10 @@ public class SistemaAcademico {
         	        					+ "\nOutro dado - Sair do cadastro do curso.");
                				try {
                					
-               					 vinculado = Integer.parseInt(ler.nextLine()); // resolver quando é dado uma letra*** 	    		
+               					 vinculado = Integer.parseInt(ler.nextLine()); //     		
                					 break;
     	    		
-               			}catch(NumberFormatException erro) {// mudar exception **TIPO DE ENTRADA SER VÁLIDA (INT)***
+               			}catch(NumberFormatException erro) {
     	    			System.out.println("Valor inválido. Digite um número inteiro.");
                			}
                		}while(auxiliar==1);
@@ -121,7 +121,7 @@ public class SistemaAcademico {
                			case 1:
                				System.out.println("Digite o curso ao qual essa disciplina está vinculada: ");
                				String curso = ler.nextLine();
-               				disciplina.setCurso(curso.toUpperCase()); //try catch *****TIPO DE ENTRADA SER VÁLIDA********
+               				disciplina.setCurso(curso.toUpperCase()); //try catch *****SOMENTE LETRAS********
                				break;
                			default: 	
                				break;
@@ -132,14 +132,14 @@ public class SistemaAcademico {
                		String nome = ler.nextLine();
                		docResponsavel.setNome(nome.toUpperCase());
                		disciplina.setDocenteResponsavel(docResponsavel);
-               		
-               		
+               		int doc;
+               		do {
                		System.out.println("Há docentes auxiliares?"
                				+ "\n1-SIM"
 
-               				+ "\n12-NÃO");
-               		int doc = Integer.parseInt(ler.nextLine()); //**********DEIXAR PASSAR SÓ 1 OU 2***
-               		
+               				+ "\n2-NÃO");
+               		doc = Integer.parseInt(ler.nextLine()); //***SOMENTE NÚMEROS**
+               		}while(doc<1||doc>2);
                		do {
                		
                			switch(doc){
@@ -158,12 +158,14 @@ public class SistemaAcademico {
                		}while(auxiliar==1);
                		
                		System.out.println("TÉCNICOS ADMINISTRATIVOS");
+               		int tec;
+               		do {
                		System.out.println("Há um técnico responsável?"
                				+ "\n1-SIM"
 
-               				+ "\n12-NÃO");
-               		int tec = Integer.parseInt(ler.nextLine()); //**********DEIXAR PASSAR SÓ 1 OU 2***
-               		
+               				+ "\n2-NÃO");
+               				tec = Integer.parseInt(ler.nextLine()); //***SOMENTE NÚMEROS***
+               		}while(tec<1||tec>2);
                		do {
                		
                			switch(tec){
