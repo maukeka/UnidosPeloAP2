@@ -32,7 +32,6 @@ public class SistemaAcademico {
         int tec = 0;
         int tecA = 0;
         
-
         int leitura;
         do {
         	do {
