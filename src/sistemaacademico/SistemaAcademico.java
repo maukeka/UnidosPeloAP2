@@ -54,7 +54,7 @@ public class SistemaAcademico {
                				nomeCompleto = ler.nextLine();
                        		disciplina.setNomeCompleto(nomeCompleto);
                        		if(checkLetters(nomeCompleto)==false) {
-                       			System.out.println("Nome inválido.");
+                       			System.out.println("Nome inválido. ");
                        		}
                			}
                			while(checkLetters(nomeCompleto)==false);
