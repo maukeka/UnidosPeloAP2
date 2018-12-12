@@ -71,22 +71,42 @@ public class SistemaAcademico {
                				System.out.println("Abreviação Inválida");
                		}while(auxiliar==1);
                		
-               		System.out.println("\n Adicione o código da disciplina (máximo de 4 dígitos): ");
-               		int codigo = Integer.parseInt(ler.nextLine());
-               		disciplina.setCodigo(codigo); //try catch  *****SÓ ACEITAR NÚMEROS E QUANDO ESTÁ VAZIO*****
+               		do{
+               			System.out.println("\n Adicione o código da disciplina (4 dígitos): ");
+               			String codigo = ler.nextLine();
+               			
+               			if(codigo.length()==4) {
+               				try{
+               					int codigo2 = Integer.parseInt(codigo);
+               					disciplina.setCodigo(codigo2);
+               					break;
+               				}catch(NumberFormatException erro) {
+               					System.out.println("\tNão insira letras apenas números!");
+               				}
+               				
+               			}
+               			else
+               				System.out.println("\tQuantidade Insufciente!");
+               			
+               		}while(auxiliar==1);
+               		
+               		
+               		 //try catch  *****SÓ ACEITAR NÚMEROS E QUANDO ESTÁ VAZIO*****
 		
                		do {
     	    		
-               			try {
+               			
                				System.out.println("\nCADASTRO DE CURSO VINCULADO A DISCIPLINA:"
         	    						+ "\n0 - Disciplina de núcleo livre;"
         	    						+ "\n1 - Adicionar um curso vinculado a disciplina;"
         	        					+ "\nOutro dado - Sair do cadastro do curso.");
-               				vinculado = ler.nextInt(); // resolver quando é dado uma letra*** 	    		
-               				break;
+               				try {
+               					
+               					 vinculado = Integer.parseInt(ler.nextLine()); // resolver quando é dado uma letra*** 	    		
+               					 break;
     	    		
                			}catch(NumberFormatException erro) {// mudar exception **TIPO DE ENTRADA SER VÁLIDA (INT)***
-    	    			System.out.println("Valor invalido. Digite um número inteiro.");
+    	    			System.out.println("Valor inválido. Digite um número inteiro.");
                			}
                		}while(auxiliar==1);
     	        	
@@ -125,6 +145,7 @@ public class SistemaAcademico {
                					String nomeA = ler.nextLine();
                					docAuxiliar.setNome(nomeA);
                					disciplina.setDocenteAuxiliar(docAuxiliar);
+               					auxiliar=2;
                					break;
                				case 2:
                					break; 
