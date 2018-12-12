@@ -50,7 +50,7 @@ public class SistemaAcademico {
                		disciplina.setNomeCompleto(nomeCompleto);
                		if(checkLetters(nomeCompleto)==false) {
                			do {
-               				System.out.println("\n Digite o nome completo da disciplina que deseja cadastrar: \n Obs: Neste campo não é válido o uso de números. ");
+               				System.out.println("\n Digite o nome completo da disciplina que deseja cadastrar: \n Obs: Neste campo não é válido o uso de números.");
                				nomeCompleto = ler.nextLine();
                        		disciplina.setNomeCompleto(nomeCompleto);
                        		if(checkLetters(nomeCompleto)==false) {
