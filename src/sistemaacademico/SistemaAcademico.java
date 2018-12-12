@@ -42,20 +42,23 @@ public class SistemaAcademico {
 		
         switch (leitura) {
         	
-        	case 1:	System.out.println("\n\n\nBEM VINDO AO SISTEMA DE CADASTRAMENTO DE DISCIPLINAS! <3 ");
+        	case 1:	System.out.println("\n\tBEM VINDO AO SISTEMA DE CADASTRAMENTO DE DISCIPLINAS! <3 ");
                		String nomeCompleto = ler.nextLine();
                		disciplina.setNomeCompleto(nomeCompleto);
                		if(checkLetters(nomeCompleto)==false) {
                			do {
-               				System.out.println("\n Digite o nome completo da disciplina que deseja cadastrar (Neste campo não é válido o uso de números.): ");
+               				System.out.println("\n Digite o nome completo da disciplina que deseja cadastrar: \n Obs: Neste campo não é válido o uso de números. ");
                				nomeCompleto = ler.nextLine();
                        		disciplina.setNomeCompleto(nomeCompleto);
+                       		if(checkLetters(nomeCompleto)==false) {
+                       			System.out.println("Nome inválido.");
+                       		}
                			}
                			while(checkLetters(nomeCompleto)==false);
                		}
 
                		do {
-               			System.out.println("\n Digite a sigla de abreviação da disciplina com no máximo três letras:");
+               			System.out.println("\n Digite a sigla de abreviação da disciplina com no máximo três letras:\n Obs: Neste campo é válido o uso de números");
                			String nomeAbreviado = ler.nextLine();
                			if(nomeAbreviado.length()>0&nomeAbreviado.length()<4) {
                				disciplina.setNomeAbreviado(nomeAbreviado);
@@ -65,24 +68,22 @@ public class SistemaAcademico {
                				System.out.println("Abreviação Inválida");
                		}while(auxiliar==1);
                		
-               		System.out.println("\n Adicione o código da disciplina (máximo de 6 dígitos): ");
+               		System.out.println("\n Adicione o código da disciplina (máximo de 4 dígitos): ");
                		int codigo = Integer.parseInt(ler.nextLine());
-               		disciplina.setCodigo(codigo); //try catch  *****TIPO DE ENTRADA SER VÁLIDA (STRING)*******
+               		disciplina.setCodigo(codigo); //try catch  *****SÓ ACEITAR NÚMEROS E QUANDO ESTÁ VAZIO*******
 		
                		do {
     	    		
                			try {
-
                				System.out.println("\nCADASTRO DE CURSO VINCULADO A DISCIPLINA:"
-        	    						+ "\n0 disciplina de núcleo livre;"
-        	    						+ "\n1 adicionar um curso vinculado a disciplina;"
-        	        					+ "\nQualquer outro número para sair.");
-               				vinculado = ler.nextInt();
-    	    		
+        	    						+ "\n0 - Disciplina de núcleo livre;"
+        	    						+ "\n1 - Adicionar um curso vinculado a disciplina;"
+        	        					+ "\nOutro dado - Sair do cadastro do curso.");
+               				vinculado = ler.nextInt(); // resolver quando é dado uma letra 	    		
                				break;
     	    		
-               			}catch(InputMismatchException e) {// mudar exception **TIPO DE ENTRADA SER VÁLIDA (INT)***
-    	    			System.out.println("Número invalido");
+               			}catch(NumberFormatException erro) {// mudar exception **TIPO DE ENTRADA SER VÁLIDA (INT)***
+    	    			System.out.println("Valor invalido. Digite um número inteiro.");
                			}
                		}while(auxiliar==1);
     	        	
