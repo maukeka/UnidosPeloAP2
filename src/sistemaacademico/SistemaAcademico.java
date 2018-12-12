@@ -146,6 +146,7 @@ public class SistemaAcademico {
                				case 0:
                					break;
                					}
+               	        //adicionar cargaHorariaPratica e cargaHorariaTeorica 
                	        disciplina.cadastrar();
         }		
         

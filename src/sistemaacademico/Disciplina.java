@@ -33,9 +33,11 @@ public class Disciplina extends Coisa {
 	    Scanner 						lerCurso = new Scanner(System.in);
 	    Scanner 						lerExclusao = new Scanner(System.in);
 	    Scanner 						lerId = new Scanner(System.in);
+	    
 	    String 							nomeCompleto;
 	    String 							nomeAbreviado;
 	    String                          curso;                  // 0 (zero) para disciplina sem curso vinculado
+	   
 	    Docente                         docenteResponsavel;     // Informação obrigatória
 	    Docente	                        docenteAuxiliar;        // Null = docente inexistente
 	    TecnicoAdministrativo           tecnicoAdministrativoResponsavel; // Null = TA inexistente
@@ -46,8 +48,7 @@ public class Disciplina extends Coisa {
 	    double                          cargaHorariaTeorica;
 	    double                          cargaHorariaPratica;
 	    double                          cargaHorariaSemanal;    // Opcional informar
-	    double                          cargaHorariaMensal;     // Opcional informar
-	    
+	    double                          cargaHorariaMensal;     // Opcional informar 
 	    double                          custoFixo;              // Todos são opcionais...
 	    double                          custoBasicoTeorica;     // Valores em Reais (R$)
 	    double                          custoBasicoPratica;     //
