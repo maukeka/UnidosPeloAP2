@@ -245,13 +245,12 @@ public class SistemaAcademico {
                		}while(auxiliar==1);
                		
                	}
-        }
-               		        
         SituacaoDisciplina situacaoDisciplina = new SituacaoDisciplina();
         for (int x=0; x < situacaoDisciplina.size(); x++) {
         	situacaoDisciplina.show(x);
         }
-        
+       }
+
       
         
         
@@ -262,7 +261,6 @@ public class SistemaAcademico {
        //     unidadesFederativas.show(i);
        // }
        // System.out.println("Fim");
-    }
 
 
 
