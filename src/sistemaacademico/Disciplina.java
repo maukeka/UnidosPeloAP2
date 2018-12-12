@@ -176,6 +176,10 @@ public class Disciplina extends Coisa {
 		}
 
 		
+		public Docente getDocenteResponsavel() {
+			return docenteResponsavel;
+		}
+
 
 		public void setDocenteResponsavel(Docente docenteResponsavel) {
 			this.docenteResponsavel = docenteResponsavel;

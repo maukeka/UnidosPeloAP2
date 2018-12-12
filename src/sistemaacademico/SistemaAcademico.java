@@ -107,6 +107,7 @@ public class SistemaAcademico {
                		System.out.println("Insira o nome no docente responsável: ");
                		String nome = ler.nextLine();
                		docResponsavel.setNome(nome);
+               		disciplina.setDocenteResponsavel(docResponsavel);
                		
                		
                		System.out.println("Há docentes auxiliares?"
