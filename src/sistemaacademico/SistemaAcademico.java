@@ -129,7 +129,7 @@ public class SistemaAcademico {
         }		
         
         
-        
+  int aleatoria;      
         
         
         

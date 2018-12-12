@@ -11,7 +11,15 @@ package sistemaacademico;
 
 public class Docente extends Empregado {
 
-	int nome;
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	String nome;
     @Override
     public void cadastrar() {
         
