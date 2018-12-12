@@ -34,6 +34,9 @@ public class SistemaAcademico {
         Docente docResponsavel = new Docente();
         Docente docAuxiliar = new Docente();
         
+        TecnicoAdministrativo tecnicoAdministrativoResponsavel = new TecnicoAdministrativo();
+        TecnicoAdministrativo tecnicoAminAdministrativoAuxiliar = new TecnicoAdministrativo();
+        
         disciplinas = new ArrayList<>();
 
         System.out.println("Digite um dos seguintes números para acessar: " //try catch ***TIPO DE ENTRADA SER VÁLIDA (INT) E CASO FOR DIFERENTE DE 1,2,3 E 4***
@@ -47,12 +50,12 @@ public class SistemaAcademico {
         	
         	case 1:	System.out.println("\n\tBEM VINDO AO SISTEMA DE CADASTRAMENTO DE DISCIPLINAS! <3 ");
                		String nomeCompleto = ler.nextLine();
-               		disciplina.setNomeCompleto(nomeCompleto);
+               		disciplina.setNomeCompleto(nomeCompleto.toUpperCase());
                		if(checkLetters(nomeCompleto)==false) {
                			do {
                				System.out.println("\n Digite o nome completo da disciplina que deseja cadastrar: \n Obs: Neste campo não é válido o uso de números.");
                				nomeCompleto = ler.nextLine();
-                       		disciplina.setNomeCompleto(nomeCompleto);
+                       		disciplina.setNomeCompleto(nomeCompleto.toUpperCase());
                        		if(checkLetters(nomeCompleto)==false) {
                        			System.out.println("Nome inválido. ");
                        		}
@@ -64,7 +67,7 @@ public class SistemaAcademico {
                			System.out.println("\n Digite a sigla de abreviação da disciplina com no máximo três letras:\n Obs: Neste campo é válido o uso de números");
                			String nomeAbreviado = ler.nextLine();
                			if(nomeAbreviado.length()>0&nomeAbreviado.length()<4) {
-               				disciplina.setNomeAbreviado(nomeAbreviado);
+               				disciplina.setNomeAbreviado(nomeAbreviado.toUpperCase());
                				break;
                			}
                			else
@@ -113,12 +116,12 @@ public class SistemaAcademico {
 			
                		switch (vinculado) {
                			case 0: 
-               				disciplina.setCurso("Núcleo livre"); 	   		
+               				disciplina.setCurso("NÚCLEO LIVRE"); 	   		
                				break;
                			case 1:
                				System.out.println("Digite o curso ao qual essa disciplina está vinculada: ");
                				String curso = ler.nextLine();
-               				disciplina.setCurso(curso); //try catch *****TIPO DE ENTRADA SER VÁLIDA********
+               				disciplina.setCurso(curso.toUpperCase()); //try catch *****TIPO DE ENTRADA SER VÁLIDA********
                				break;
                			default: 	
                				break;
@@ -127,7 +130,7 @@ public class SistemaAcademico {
                		System.out.println("DOCENTES ASSOCIADOS");
                		System.out.println("Insira o nome no docente responsável: ");
                		String nome = ler.nextLine();
-               		docResponsavel.setNome(nome);
+               		docResponsavel.setNome(nome.toUpperCase());
                		disciplina.setDocenteResponsavel(docResponsavel);
                		
                		
@@ -143,7 +146,7 @@ public class SistemaAcademico {
                				case 1:
                					System.out.println("Insira o nome do docente auxiliar");
                					String nomeA = ler.nextLine();
-               					docAuxiliar.setNome(nomeA);
+               					docAuxiliar.setNome(nomeA.toUpperCase());
                					disciplina.setDocenteAuxiliar(docAuxiliar);
                					auxiliar=2;
                					break;
@@ -153,7 +156,51 @@ public class SistemaAcademico {
                			}
                		              		       	
                		}while(auxiliar==1);
-        }		
+               		
+               		System.out.println("TÉCNICOS ADMINISTRATIVOS");
+               		System.out.println("Há um técnico responsável?"
+               				+ "\n1-SIM"
+
+               				+ "\n12-NÃO");
+               		int tec = Integer.parseInt(ler.nextLine()); //**********DEIXAR PASSAR SÓ 1 OU 2***
+               		
+               		do {
+               		
+               			switch(tec){
+               				case 1:
+               					System.out.println("Insira o nome do técnico responsável");
+               					String nomeT = ler.nextLine();
+               					tecnicoAdministrativoResponsavel.setNome(nomeT.toUpperCase());
+               					disciplina.setTecnicoAdministrativoResponsavel(tecnicoAdministrativoResponsavel);
+               					auxiliar=2;
+               					break;
+               				case 2:
+               					break; 
+               					}
+               		}while(auxiliar==1);
+               		
+               		System.out.println("Há um técnico auxiliar?"
+               				+ "\n1-SIM"
+
+               				+ "\n12-NÃO");
+               		int tecA = Integer.parseInt(ler.nextLine()); //**********DEIXAR PASSAR SÓ 1 OU 2***
+               		
+               		do {
+               		
+               			switch(tecA){
+               				case 1:
+               					System.out.println("Insira o nome do técnico auxiliar");
+               					String nomeTA = ler.nextLine();
+               					tecnicoAdministrativoResponsavel.setNome(nomeTA.toUpperCase());
+               					disciplina.setTecnicoAminAdministrativoAuxiliar(tecnicoAminAdministrativoAuxiliar);
+               					auxiliar=2;
+               					break;
+               				case 2:
+               					break; 
+               					}
+               		}while(auxiliar==1);
+        	
+   }
         
         
       
