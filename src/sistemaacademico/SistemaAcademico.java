@@ -26,7 +26,9 @@ public class SistemaAcademico {
         int i;
         int vinculado = 0;
         int auxiliar = 1;
-       
+        int doc = 0;
+        int tec = 0;
+        int tecA = 0;
         Scanner ler = new Scanner(System.in);
         
         Disciplina disciplina = new Disciplina();
@@ -100,7 +102,7 @@ public class SistemaAcademico {
                				System.out.println("\nCADASTRO DE CURSO VINCULADO A DISCIPLINA:"
         	    						+ "\n0 - Disciplina de núcleo livre;"
         	    						+ "\n1 - Adicionar um curso vinculado a disciplina;"
-        	        					+ "\nOutro dado - Sair do cadastro do curso.");
+        	        					+ "\nOutro número - Sair do cadastro do curso.");
                				try {
                					
                					 vinculado = Integer.parseInt(ler.nextLine()); //     		
@@ -130,14 +132,20 @@ public class SistemaAcademico {
                		String nome = ler.nextLine();
                		docResponsavel.setNome(nome.toUpperCase());
                		disciplina.setDocenteResponsavel(docResponsavel);
-               		int doc;
+               		
                		do {
                		System.out.println("Há docentes auxiliares?"
                				+ "\n1-SIM"
 
                				+ "\n2-NÃO");
-               		doc = Integer.parseInt(ler.nextLine()); //***SOMENTE NÚMEROS**
+               		try {
+               			 doc = Integer.parseInt(ler.nextLine()); 
+               			 
+               		}catch(NumberFormatException erro) {
+       					System.out.println("\nNão insira letras apenas números!");
+       				}
                		}while(doc<1||doc>2);
+               		
                		do {
                		
                			switch(doc){
@@ -149,6 +157,7 @@ public class SistemaAcademico {
                					auxiliar=2;
                					break;
                				case 2:
+               					auxiliar=2;
                					break; 
                				
                			}
@@ -156,13 +165,15 @@ public class SistemaAcademico {
                		}while(auxiliar==1);
                		
                		System.out.println("TÉCNICOS ADMINISTRATIVOS");
-               		int tec;
+               		
                		do {
                		System.out.println("Há um técnico responsável?"
                				+ "\n1-SIM"
 
                				+ "\n2-NÃO");
-               				tec = Integer.parseInt(ler.nextLine()); //***SOMENTE NÚMEROS***
+               		try {
+               				tec = Integer.parseInt(ler.nextLine());}catch(NumberFormatException erro) {
+               					System.out.println("\nNão insira letras apenas números!");
                		}while(tec<1||tec>2);
                		do {
                		
@@ -178,14 +189,23 @@ public class SistemaAcademico {
                					break; 
                					}
                		}while(auxiliar==1);
-               		int tecA;
+               		
                		do {
                		System.out.println("Há um técnico auxiliar?"
                				+ "\n1-SIM"
 
                				+ "\n2-NÃO");
-               		tecA = Integer.parseInt(ler.nextLine()); //******SOMENTE NÚMEROS****
+
+               		try {
+               		 tecA = Integer.parseInt(ler.nextLine());
+               		 }catch(NumberFormatException erro) {
+        					System.out.println("\nNão insira letras apenas números!");
+               		
+               		
+
+               		//******SOMENTE NÚMEROS****
                		}while(tecA<1||tecA>2);
+
                		do {
                		
                			switch(tecA){
@@ -224,9 +244,8 @@ public class SistemaAcademico {
                			
                		}while(auxiliar==1);
                		
-        	
-   }
-        
+       }
+               		        
         SituacaoDisciplina situacaoDisciplina = new SituacaoDisciplina();
         for (int x=0; x < situacaoDisciplina.size(); x++) {
         	situacaoDisciplina.show(x);
