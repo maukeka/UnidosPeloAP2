@@ -1,4 +1,9 @@
 package sistemaacademico;
+
+import java.util.List;
+
+import com.sun.javafx.collections.MappingChange.Map;
+
 /**
  *
  * @author Wanderley de Souza Alencar
@@ -14,8 +19,8 @@ public abstract class Coisa {
     String                          nomeAbreviado;
     String                          nomeCompleto;
     
-    public abstract void cadastrar();
-    public abstract void alterar (int codigo);
-    public abstract void consultar (int codigo);
+    public abstract void cadastrar(Disciplina disciplina);
+    public abstract void alterar (Disciplina disciplina);
+    public abstract List<Disciplina> consultar (String paramentro, String chave);
     public abstract void excluir (int codigo);
 }

@@ -14,12 +14,8 @@ import java.util.Iterator;
 * Objetivo...: Representar uma disciplina na instituiÃ§Ã£o de ensino
 * Observacoes:
 */
-public class Disciplina extends Coisa {
+public class Disciplina {
 		
-		public Disciplina() {
-			super();
-			// TODO Auto-generated constructor stub
-		}
 		int 							codigo;
 		int                             situacao;
 		int 							vinculado;
@@ -53,15 +49,13 @@ public class Disciplina extends Coisa {
 	    double                          custoBasicoTeorica;     // Valores em Reais (R$)
 	    double                          custoBasicoPratica;     //
 
-	   
-	     ArrayList<Disciplina> listaDeDisciplina = new ArrayList<Disciplina>();
-	   
 	    
 	    	
-	    public Disciplina(ArrayList<Disciplina> listaDeDisciplina) {
-			super();
-			
-			this.listaDeDisciplina = listaDeDisciplina;
+	    public Disciplina() {
+	    	this.docenteResponsavel = new Docente();
+	    	this.docenteAuxiliar= new Docente();
+	    	this.tecnicoAdministrativoResponsavel = new TecnicoAdministrativo();
+	    	this.tecnicoAminAdministrativoAuxiliar = new TecnicoAdministrativo();
 		}
 
 	    
@@ -99,67 +93,6 @@ public class Disciplina extends Coisa {
 			this.nomeAbreviado = nomeAbreviado;	
 		}
 		
-	    @Override
-	    public void cadastrar() {
-	    	listaDeDisciplina.add(this);
-	    	
-	    	
-	    	
-	    	//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	    }
-
-	    @Override
-	    public void alterar(int codigo) {
-	    
-	    	System.out.println("Digite o curso que deseja colocar no lugar: ");
-	    	curso = lerCurso.next();
-	    	
-	    	
-	    	System.out.println(Arrays.toString( listaDeDisciplina.toArray() ));	
-	    	//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	    
-	    }
-
-	    @Override
-	    public void consultar(int codigo) {
-	    	
-	    	try {
-	            
-	            System.out.println(listaDeDisciplina.get(codigo));
-	            
-	          } catch (IndexOutOfBoundsException e) {
-	          	
-	              System.out.printf("\nErro: posição inválida.",
-	                e.getMessage());
-	              
-	          }
-	    	//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	    	System.out.println(Arrays.toString( listaDeDisciplina.toArray() ));
-	    }
-
-	   
-	    @Override
-		public void excluir(int codigo) {
-	    	while(codigo != -1) {
-	    		
-	    		System.out.println(Arrays.toString( listaDeDisciplina.toArray() ));
-	         
-	            try {
-	              
-	              listaDeDisciplina.remove(codigo);
-	              
-	            } catch (IndexOutOfBoundsException e) {
-	            	
-	                System.out.printf("\nErro: posição inválida.",
-	                  e.getMessage());
-	                
-	            }
-	            
-	        	//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	            System.out.println(Arrays.toString( listaDeDisciplina.toArray() ));
-	    	}
-			
-		}
 		public int getSituacao() {
 			return situacao;
 		}
@@ -282,18 +215,6 @@ public class Disciplina extends Coisa {
 			this.custoBasicoPratica = custoBasicoPratica;
 		}
 		
-
-		@Override
-		public String toString() {
-			return "Disciplina [situacao=" + situacao + ", curso=" + curso + ", docenteResponsavel=" + docenteResponsavel
-					+ ", docenteAuxiliar=" + docenteAuxiliar + ", tecnicoAdministrativoResponsavel="
-					+ tecnicoAdministrativoResponsavel + ", tecnicoAminAdministrativoAuxiliar="
-					+ tecnicoAminAdministrativoAuxiliar + ", numeroCreditos=" + numeroCreditos + ", cargaHorariaTotal="
-					+ cargaHorariaTotal + ", cargaHorariaTeorica=" + cargaHorariaTeorica + ", cargaHorariaPratica="
-					+ cargaHorariaPratica + ", cargaHorariaSemanal=" + cargaHorariaSemanal + ", cargaHorariaMensal="
-					+ cargaHorariaMensal + ", custoFixo=" + custoFixo + ", custoBasicoTeorica=" + custoBasicoTeorica
-					+ ", custoBasicoPratica=" + custoBasicoPratica + "]";
-		}
 }
 
 
