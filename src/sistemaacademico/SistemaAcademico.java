@@ -180,13 +180,14 @@ public class SistemaAcademico {
                					break; 
                					}
                		}while(auxiliar==1);
-               		
+               		int tecA;
+               		do {
                		System.out.println("Há um técnico auxiliar?"
                				+ "\n1-SIM"
 
                				+ "\n12-NÃO");
-               		int tecA = Integer.parseInt(ler.nextLine()); //**********DEIXAR PASSAR SÓ 1 OU 2***
-               		
+               		tecA = Integer.parseInt(ler.nextLine()); //********SOMENTE NÚMEROS***
+               		}while(tecA<1||tecA>2);
                		do {
                		
                			switch(tecA){
