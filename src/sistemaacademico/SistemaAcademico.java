@@ -168,7 +168,7 @@ public class SistemaAcademico {
        // System.out.println("Fim");
     }
 
-
+ int aleatorio;
 
 
 	private static void swicth(int doc) {
