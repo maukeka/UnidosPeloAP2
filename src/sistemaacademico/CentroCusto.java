@@ -12,20 +12,63 @@ import java.util.ArrayList;
 * Observacoes: Se for desconhecido, utilize o tipo 0 - DS - Desconhecido.
 */
 public class CentroCusto {
-    private final int                       NUMERO_CENTRO_CUSTO = 4;
+	
     private ArrayList <ElementoDescritivo>  centroCusto;
     
-    /**
-     * Implemente de maneira similar √† UnidadeFederativa.
-     * 
-     * C√≥digo Descri√ß√£o Abreviada   Descri√ß√£o Completa
-     * 	00  - DS                    Desconhecido
-	01  - UFG-I                 UFG - Goi√¢nia (C√¢mpus I)
-	02  - UFG-II                UFG - Goi√¢nia (C√¢mpus II)
-	03  - UFG-CAT               UFG - Catal√£o
-        04  - UFG-JAT               UFG - Jata√≠
-	05  - OUT                   Outro
-
-     */
+    public CentroCusto() {
+    	ElementoDescritivo elementoDescritivo;
+    	
+    	this.centroCusto = new ArrayList();
+    	elementoDescritivo = new ElementoDescritivo();
+    	elementoDescritivo.setElementoDescritivo(00, "DS", "Desconhecido");
+    	this.centroCusto.add(elementoDescritivo);
+    	elementoDescritivo = new ElementoDescritivo();
+    	elementoDescritivo.setElementoDescritivo(01, "UFG - I", "UFG - Goi‚nia (C‚mpus I)");
+    	this.centroCusto.add(elementoDescritivo);
+    	elementoDescritivo = new ElementoDescritivo();
+    	elementoDescritivo.setElementoDescritivo(02, "UFG - II", "UFG - Goi‚nia (C‚mpus II)");
+    	this.centroCusto.add(elementoDescritivo);
+    	elementoDescritivo = new ElementoDescritivo();
+    	elementoDescritivo.setElementoDescritivo(03, "UFG - CAT", "UFG - Catal„o");
+    	this.centroCusto.add(elementoDescritivo);
+    	elementoDescritivo = new ElementoDescritivo();
+    	elementoDescritivo.setElementoDescritivo(04, "UFG - JAT", "UFG - JataÌ");
+    	this.centroCusto.add(elementoDescritivo);
+    	elementoDescritivo = new ElementoDescritivo();
+    	elementoDescritivo.setElementoDescritivo(05, "OUT", "Outro");
+    }
+    public ArrayList<ElementoDescritivo> getCentroCusto() {
+        return (this.centroCusto);
+    }
+    public ElementoDescritivo getcentroCusto(int index) {
+        if ((index >= 0) && (index < centroCusto.size())) {
+            return (this.centroCusto.get(index));
+        }
+        else {
+            return (new ElementoDescritivo());
+        }
+    }
+    public int indexOf(String str) {
+        int i;
+        for (i = 0; (i < this.centroCusto.size()); i++) {
+            if (this.centroCusto.get(i).getDescricaoAbreviada().equalsIgnoreCase(str)) {
+                return (i);
+            }
+        }
+        return (-1);
+    }
+    public int size() {
+        return(this.centroCusto.size());
+    }
+    public void show(int index) {
+        System.out.println();
+        System.out.println("------------------");
+        System.out.println("Centro de Custo");
+        System.out.println("------------------");
+        System.out.println("CÛdigo..........: " + this.getcentroCusto(index).getCodigo());
+        System.out.println("Descr. Abreviada: " + this.getcentroCusto(index).getDescricaoAbreviada());
+        System.out.println("Descr. Completa.: " + this.getcentroCusto(index).getDescricaoCompleta());
+        System.out.println("------------------");
+    }
     
 }

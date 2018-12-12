@@ -185,7 +185,7 @@ public class SistemaAcademico {
                		System.out.println("Há um técnico auxiliar?"
                				+ "\n1-SIM"
 
-               				+ "\n12-NÃO");
+               				+ "\n2-NÃO");
                		tecA = Integer.parseInt(ler.nextLine()); //******SOMENTE NÚMEROS****
                		}while(tecA<1||tecA>2);
                		do {

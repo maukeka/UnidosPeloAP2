@@ -8,7 +8,6 @@ import java.util.ArrayList;
  */
 
 public class SituacaoDisciplina{
-    private final int                           NUMERO_SITUACAO_DISCIPLINA = 5;
     private ArrayList <ElementoDescritivo>      situacaoDisciplina;
     
     public SituacaoDisciplina() {
@@ -41,7 +40,7 @@ public class SituacaoDisciplina{
             return (this.situacaoDisciplina.get(index));
         }
         else {
-            return (new ElementoDescritivo());// KAGE BUNSHIN NO JUTSU
+            return (new ElementoDescritivo());
         }
     }
     public int indexOf(String str) {
