@@ -14,9 +14,11 @@ public class SistemaAcademico {
 
         private static ArrayList <Disciplina>              disciplinas;
 
-
-        
-        
+        public static boolean checkLetters(String str) 
+        {
+            return str.matches("[a-zA-Z]+");
+        }
+              
      /**
      * @param args the command line arguments
      */
@@ -43,11 +45,18 @@ public class SistemaAcademico {
 		
         switch (leitura) {
         	
-        	case 1:	System.out.println("BEM VINDO AO SISTEMA DE CADASTRAMENTO DE DISCIPLINAS! <3 ");
-               		System.out.println("\n Digite o nome completo da disciplina que deseja cadastrar: ");
+        	case 1:	System.out.println("\n\n\nBEM VINDO AO SISTEMA DE CADASTRAMENTO DE DISCIPLINAS! <3 ");
                		String nomeCompleto = ler.nextLine();
                		disciplina.setNomeCompleto(nomeCompleto);
-               		//try catch *****TIPO DE ENTRADA SER VÁLIDA (STRING)*******
+               		if(checkLetters(nomeCompleto)==false) {
+               			do {
+               				System.out.println("\n Digite o nome completo da disciplina que deseja cadastrar (Neste campo não é válido o uso de números.): ");
+               				nomeCompleto = ler.nextLine();
+                       		disciplina.setNomeCompleto(nomeCompleto);
+               			}
+               			while(checkLetters(nomeCompleto)==false);
+               		}
+
                		System.out.println("\n Digite a sigla de abreviação da disciplina com no máximo três letras:");
                		String nomeAbreviado = ler.nextLine();
                		disciplina.setNomeAbreviado(nomeAbreviado); //try catch  *****TIPO DE ENTRADA SER VÁLIDA (STRING)*******
@@ -90,7 +99,7 @@ public class SistemaAcademico {
                		disciplina.setDocenteResponsavel(ler.nextLine());
                		System.out.println("Há docentes auxiliares?"
                				+ "\n1-SIM"
-               				+ "\n12-NÃO");
+               				+ "\n2-NÃO");
                		int doc = ler.nextInt();
                		
                		do {
