@@ -22,14 +22,13 @@ public class SistemaAcademico {
      */
     public static void main(String[] args) {  
         int i;
-        int leitura;
+       
         Scanner ler = new Scanner(System.in);
         Scanner seEhVinculado = new Scanner(System.in);
         int vinculado = 0;
-        Scanner lerCurso = new Scanner(System.in);
         int auxiliar = 1;
         String curso;
-        Docente docenteResponsavel, docenteAuxiliar;
+       
         
         Disciplina disciplina = new Disciplina();
         
@@ -40,17 +39,21 @@ public class SistemaAcademico {
         		+ "\n2 - Alterar informações sobre a disciplina."
         		+ "\n3 - Excluir a disciplina."
         		+ "\n4 - Consultar uma disciplina.");
-        leitura = ler.nextInt();
+        int leitura = ler.nextInt();
 		
         switch (leitura) {
         	
         	case 1:	System.out.println("BEM VINDO AO SISTEMA DE CADASTRAMENTO DE DISCIPLINAS! <3 ");
                		System.out.println("\n Digite o nome completo da disciplina que deseja cadastrar: ");
-               		disciplina.setNomeCompleto(ler.nextLine()); //try catch *****TIPO DE ENTRADA SER VÁLIDA (STRING)*******
+               		String nomeCompleto = ler.nextLine();
+               		disciplina.setNomeCompleto(nomeCompleto);
+               		//try catch *****TIPO DE ENTRADA SER VÁLIDA (STRING)*******
                		System.out.println("\n Digite a sigla de abreviação da disciplina com no máximo três letras:");
-               		disciplina.setNomeAbreviado(ler.nextLine()); //try catch  *****TIPO DE ENTRADA SER VÁLIDA (STRING)*******
+               		String nomeAbreviado = ler.nextLine();
+               		disciplina.setNomeAbreviado(nomeAbreviado); //try catch  *****TIPO DE ENTRADA SER VÁLIDA (STRING)*******
                		System.out.println("\n Adicione o código da disciplina (máximo de 6 dígitos): ");
-               		disciplina.setCodigo(ler.nextInt()); //try catch  *****TIPO DE ENTRADA SER VÁLIDA (STRING)*******
+               		int codigo = Integer.parseInt(ler.nextLine());
+               		disciplina.setCodigo(codigo); //try catch  *****TIPO DE ENTRADA SER VÁLIDA (STRING)*******
 		
                		do {
     	    		
