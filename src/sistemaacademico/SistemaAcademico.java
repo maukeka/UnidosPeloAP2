@@ -14,20 +14,20 @@ public class SistemaAcademico {
 
         private static ArrayList <Disciplina>              disciplinas;
 
-
-        
-        
+        public static boolean checkLetters(String str) 
+        {
+            return str.matches("[a-zA-Z]+");
+        }
+              
      /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {  
         int i;
-       
-        Scanner ler = new Scanner(System.in);
         int vinculado = 0;
         int auxiliar = 1;
        
-       
+        Scanner ler = new Scanner(System.in);
         
         Disciplina disciplina = new Disciplina();
         
@@ -42,14 +42,29 @@ public class SistemaAcademico {
 		
         switch (leitura) {
         	
-        	case 1:	System.out.println("BEM VINDO AO SISTEMA DE CADASTRAMENTO DE DISCIPLINAS! <3 ");
-               		System.out.println("\n Digite o nome completo da disciplina que deseja cadastrar: ");
+        	case 1:	System.out.println("\n\n\nBEM VINDO AO SISTEMA DE CADASTRAMENTO DE DISCIPLINAS! <3 ");
                		String nomeCompleto = ler.nextLine();
                		disciplina.setNomeCompleto(nomeCompleto);
-               		//try catch *****TIPO DE ENTRADA SER VÁLIDA (STRING)*******
-               		System.out.println("\n Digite a sigla de abreviação da disciplina com no máximo três letras:");
-               		String nomeAbreviado = ler.nextLine();
-               		disciplina.setNomeAbreviado(nomeAbreviado); //try catch  *****TIPO DE ENTRADA SER VÁLIDA (STRING)*******
+               		if(checkLetters(nomeCompleto)==false) {
+               			do {
+               				System.out.println("\n Digite o nome completo da disciplina que deseja cadastrar (Neste campo não é válido o uso de números.): ");
+               				nomeCompleto = ler.nextLine();
+                       		disciplina.setNomeCompleto(nomeCompleto);
+               			}
+               			while(checkLetters(nomeCompleto)==false);
+               		}
+
+               		do {
+               			System.out.println("\n Digite a sigla de abreviação da disciplina com no máximo três letras:");
+               			String nomeAbreviado = ler.nextLine();
+               			if(nomeAbreviado.length()>0&nomeAbreviado.length()<4) {
+               				disciplina.setNomeAbreviado(nomeAbreviado);
+               				break;
+               			}
+               			else
+               				System.out.println("Abreviação Inválida");
+               		}while(auxiliar==1);
+               		
                		System.out.println("\n Adicione o código da disciplina (máximo de 6 dígitos): ");
                		int codigo = Integer.parseInt(ler.nextLine());
                		disciplina.setCodigo(codigo); //try catch  *****TIPO DE ENTRADA SER VÁLIDA (STRING)*******
@@ -87,10 +102,11 @@ public class SistemaAcademico {
                		
                		System.out.println("DOCENTES ASSOCIADOS");
                		System.out.println("Insira o nome no docente responsável: ");
-               		String docResponsavel = ler.nextLine();
-               		disciplina.setDocenteResponsavel(docResponsavel);
+               		Docente docResponsavel;
+               		
                		System.out.println("Há docentes auxiliares?"
                				+ "\n1-SIM"
+
                				+ "\n12-NÃO");
                		int doc = Integer.parseInt(ler.nextLine()); //**********DEIXAR PASSAR SÓ 1 OU 2***
                		
@@ -99,8 +115,8 @@ public class SistemaAcademico {
                			switch(doc){
                				case 1:
                					System.out.println("Insira o nome do docente auxiliar");
-               					String docAuxiliar = ler.nextLine();
-               					disciplina.setDocenteAuxiliar(docAuxiliar);
+               					
+               					Docente docAuxiliar;
                					break;
                				case 2:
                					break; 

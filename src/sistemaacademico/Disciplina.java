@@ -36,8 +36,8 @@ public class Disciplina extends Coisa {
 	    String 							nomeCompleto;
 	    String 							nomeAbreviado;
 	    String                          curso;                  // 0 (zero) para disciplina sem curso vinculado
-	    String                          docenteResponsavel;     // Informação obrigatória
-	    String	                        docenteAuxiliar;        // Null = docente inexistente
+	    Docente                         docenteResponsavel;     // Informação obrigatória
+	    Docente	                        docenteAuxiliar;        // Null = docente inexistente
 	    TecnicoAdministrativo           tecnicoAdministrativoResponsavel; // Null = TA inexistente
 	    TecnicoAdministrativo           tecnicoAminAdministrativoAuxiliar; // Null = TA inexistente
 	    
@@ -175,19 +175,19 @@ public class Disciplina extends Coisa {
 			this.curso = curso;
 		}
 
-		public String getDocenteResponsavel() {
+		public Docente getDocenteResponsavel() {
 			return docenteResponsavel;
 		}
 
-		public void setDocenteResponsavel(String docenteResponsavel) {
+		public void setDocenteResponsavel(Docente docenteResponsavel) {
 			this.docenteResponsavel = docenteResponsavel;
 		}
 
-		public String getDocenteAuxiliar() {
+		public Docente getDocenteAuxiliar() {
 			return docenteAuxiliar;
 		}
 
-		public void setDocenteAuxiliar(String docenteAuxiliar) {
+		public void setDocenteAuxiliar(Docente docenteAuxiliar) {
 			this.docenteAuxiliar = docenteAuxiliar;
 		}
 

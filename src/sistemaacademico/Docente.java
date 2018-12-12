@@ -8,11 +8,14 @@ package sistemaacademico;
 * Objetivo...: Representar um(a) empregado(a) que exerce função docente.
 * Observacoes:
 */
+
 public class Docente extends Empregado {
 
+	int nome;
     @Override
     public void cadastrar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+    	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
