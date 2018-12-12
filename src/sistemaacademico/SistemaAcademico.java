@@ -89,7 +89,7 @@ public class SistemaAcademico {
                				
                			}
                			else
-               				System.out.println("\tQuantidade Insuficiente!");
+               				System.out.println("\tQuantidade Incorreta!");
                			
                		}while(auxiliar==1);
                		
@@ -211,7 +211,7 @@ public class SistemaAcademico {
                			if(creditos.length()==1) {
                				try{
                					int creditos2 = Integer.parseInt(creditos);
-               					disciplina.setCodigo(creditos2);
+               					disciplina.setNumeroCreditos(creditos2);
                					break;
                				}catch(NumberFormatException erro) {
                					System.out.println("\tNão insira letras apenas números!");
