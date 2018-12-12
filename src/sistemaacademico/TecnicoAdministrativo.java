@@ -10,6 +10,8 @@ package sistemaacademico;
 */
 public class TecnicoAdministrativo extends Empregado {
     
+	String nome;
+	
     //
     // A equipe responsável deverá verificar se há necessidade de outros
     // atributos e métodos para inseri-los....
@@ -17,7 +19,15 @@ public class TecnicoAdministrativo extends Empregado {
     // Observação: Lembre-se que devo poder cadastrar, alterar, consultar e 
     // excluir pelo número de matricula do empregado...
 
-    @Override
+    public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	@Override
     public void cadastrar() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
