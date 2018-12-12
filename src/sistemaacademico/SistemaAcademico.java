@@ -186,7 +186,7 @@ public class SistemaAcademico {
                				+ "\n1-SIM"
 
                				+ "\n12-NÃO");
-               		tecA = Integer.parseInt(ler.nextLine()); //********SOMENTE NÚMEROS***
+               		tecA = Integer.parseInt(ler.nextLine()); //********SOMENTE NÚMEROS****
                		}while(tecA<1||tecA>2);
                		do {
                		
