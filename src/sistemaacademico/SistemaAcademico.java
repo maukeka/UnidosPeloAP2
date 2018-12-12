@@ -38,13 +38,15 @@ public class SistemaAcademico {
         TecnicoAdministrativo tecnicoAminAdministrativoAuxiliar = new TecnicoAdministrativo();
         
         disciplinas = new ArrayList<>();
-
-        System.out.println("Digite um dos seguintes números para acessar: " //try catch ***TIPO DE ENTRADA SER VÁLIDA (INT) E CASO FOR DIFERENTE DE 1,2,3 E 4***
+        int leitura;
+        do {
+        System.out.println("Digite um dos seguintes números para acessar: " //try catch ***SOMENTE NÚMERO***
         		+ "\n1 - Cadastrar informações sobre a disciplina."
         		+ "\n2 - Alterar informações sobre a disciplina."
         		+ "\n3 - Excluir a disciplina."
         		+ "\n4 - Consultar uma disciplina.");
-        int leitura = ler.nextInt();
+        leitura = ler.nextInt();
+        }while(leitura>4 || leitura<1);
 		
         switch (leitura) {
         	
