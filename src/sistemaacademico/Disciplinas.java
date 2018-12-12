@@ -12,7 +12,6 @@ public class Disciplinas extends Coisa{
 	
 
 	public Disciplinas() {
-		if(disciplinas.equals(null))
 			this.disciplinas = new ArrayList<>();
 	}
 

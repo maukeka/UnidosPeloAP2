@@ -36,15 +36,10 @@ public class SistemaAcademico {
         do {
         	do {
         		try {
-        			menu();
-        			leitura = Integer.parseInt(ler.nextLine());
-        		} catch(NumberFormatException e) {
-        			menu();
-        			leitura = Integer.parseInt(ler.nextLine());
+        			leitura = menu();
         		}
         		catch(Exception e) {
-        			menu();
-        			leitura = Integer.parseInt(ler.nextLine());
+        			leitura = menu();
         		}
         	}while(leitura>5 || leitura<1);
 
@@ -69,7 +64,8 @@ public class SistemaAcademico {
         System.exit(0);
     }
 
-	private static void menu() {
+	private static int menu() {
+		int leitura;
 		System.out.println(".__________________________________________________________________________.");
     	System.out.println("|       SISTEMA DE GERENCIAMENTO ACADEMICO                                 |");
     	System.out.println("|       1 - Cadastrar informações sobre a disciplina                       |");
@@ -80,6 +76,9 @@ public class SistemaAcademico {
     	System.out.println("|                                                                          |");
     	System.out.println("|__________________________________________________________________________|");
     	System.out.printf(" Digite um dos seguintes números para acessar: ");
+    	leitura = Integer.parseInt(ler.nextLine());
+    	System.out.println("\n\n");
+    	return leitura;
 	}
 	
 	private static void cadastrar() {
