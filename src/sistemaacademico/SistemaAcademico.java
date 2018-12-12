@@ -79,7 +79,7 @@ public class SistemaAcademico {
         	    						+ "\n0 - Disciplina de núcleo livre;"
         	    						+ "\n1 - Adicionar um curso vinculado a disciplina;"
         	        					+ "\nOutro dado - Sair do cadastro do curso.");
-               				vinculado = ler.nextInt(); // resolver quando é dado uma letra 	    		
+               				vinculado = ler.nextInt(); // resolver quando é dado uma letra** 	    		
                				break;
     	    		
                			}catch(NumberFormatException erro) {// mudar exception **TIPO DE ENTRADA SER VÁLIDA (INT)***
