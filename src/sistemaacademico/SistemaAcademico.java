@@ -40,7 +40,7 @@ public class SistemaAcademico {
         disciplinas = new ArrayList<>();
         int leitura;
         do {
-        System.out.println("Digite um dos seguintes números para acessar: " //try catch ***SOMENTE NÚMERO***
+        System.out.println("Digite um dos seguintes números para acessar: " //try catch ***SOMENTE NÚMERO***Tonim***
         		+ "\n1 - Cadastrar informações sobre a disciplina."
         		+ "\n2 - Alterar informações sobre a disciplina."
         		+ "\n3 - Excluir a disciplina."
@@ -94,13 +94,9 @@ public class SistemaAcademico {
                				System.out.println("\tQuantidade Incorreta!");
                			
                		}while(auxiliar==1);
-               		
-               		
-               		 //try catch  *****SÓ ACEITAR NÚMEROS E QUANDO ESTÁ VAZIO*****
-		
+               				
                		do {
-    	    		
-               			
+    	    		               			
                				System.out.println("\nCADASTRO DE CURSO VINCULADO A DISCIPLINA:"
         	    						+ "\n0 - Disciplina de núcleo livre;"
         	    						+ "\n1 - Adicionar um curso vinculado a disciplina;"
@@ -130,7 +126,7 @@ public class SistemaAcademico {
                		}
                		
                		System.out.println("DOCENTES ASSOCIADOS");
-               		System.out.println("Insira o nome no docente responsável: ");
+               		System.out.println("Insira o nome no docente responsável: "); //NÃO ACEITAR O VAZIO E COLOCAR SOMENTE LETRAS
                		String nome = ler.nextLine();
                		docResponsavel.setNome(nome.toUpperCase());
                		disciplina.setDocenteResponsavel(docResponsavel);
@@ -187,7 +183,7 @@ public class SistemaAcademico {
                		System.out.println("Há um técnico auxiliar?"
                				+ "\n1-SIM"
 
-               				+ "\n12-NÃO");
+               				+ "\n2-NÃO");
                		tecA = Integer.parseInt(ler.nextLine()); //******SOMENTE NÚMEROS****
                		}while(tecA<1||tecA>2);
                		do {
