@@ -175,9 +175,7 @@ public class Disciplina extends Coisa {
 			this.curso = curso;
 		}
 
-		public Docente getDocenteResponsavel() {
-			return docenteResponsavel;
-		}
+		
 
 		public void setDocenteResponsavel(Docente docenteResponsavel) {
 			this.docenteResponsavel = docenteResponsavel;
@@ -278,6 +276,7 @@ public class Disciplina extends Coisa {
 		public void setCustoBasicoPratica(double custoBasicoPratica) {
 			this.custoBasicoPratica = custoBasicoPratica;
 		}
+		
 
 		@Override
 		public String toString() {
