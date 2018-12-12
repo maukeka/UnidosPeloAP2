@@ -24,10 +24,9 @@ public class SistemaAcademico {
         int i;
        
         Scanner ler = new Scanner(System.in);
-        Scanner seEhVinculado = new Scanner(System.in);
         int vinculado = 0;
         int auxiliar = 1;
-        String curso;
+       
        
         
         Disciplina disciplina = new Disciplina();
@@ -63,7 +62,7 @@ public class SistemaAcademico {
         	    						+ "\n0 disciplina de núcleo livre;"
         	    						+ "\n1 adicionar um curso vinculado a disciplina;"
         	        					+ "\nQualquer outro número para sair.");
-               				vinculado = seEhVinculado.nextInt();
+               				vinculado = ler.nextInt();
     	    		
                				break;
     	    		
@@ -79,7 +78,8 @@ public class SistemaAcademico {
                				break;
                			case 1:
                				System.out.println("Digite o curso ao qual essa disciplina está vinculada: ");
-               				disciplina.setCurso(ler.nextLine()); //try catch *****TIPO DE ENTRADA SER VÁLIDA********
+               				String curso = ler.nextLine();
+               				disciplina.setCurso(curso); //try catch *****TIPO DE ENTRADA SER VÁLIDA********
                				break;
                			default: 	
                				break;
@@ -87,23 +87,24 @@ public class SistemaAcademico {
                		
                		System.out.println("DOCENTES ASSOCIADOS");
                		System.out.println("Insira o nome no docente responsável: ");
-               		disciplina.setDocenteResponsavel(ler.nextLine());
+               		String docResponsavel = ler.nextLine();
+               		disciplina.setDocenteResponsavel(docResponsavel);
                		System.out.println("Há docentes auxiliares?"
                				+ "\n1-SIM"
                				+ "\n12-NÃO");
-               		int doc = ler.nextInt();
+               		int doc = Integer.parseInt(ler.nextLine()); //**********DEIXAR PASSAR SÓ 1 OU 2***
                		
                		do {
                		
                			switch(doc){
                				case 1:
                					System.out.println("Insira o nome do docente auxiliar");
-               					disciplina.setDocenteAuxiliar(ler.nextLine());
+               					String docAuxiliar = ler.nextLine();
+               					disciplina.setDocenteAuxiliar(docAuxiliar);
                					break;
                				case 2:
-               					break;
-               				default:
-               					System.out.println("Entrada inválida.");
+               					break; 
+               				
                			}
                		
                		
