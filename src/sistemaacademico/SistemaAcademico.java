@@ -223,7 +223,7 @@ public class SistemaAcademico {
 
 
 	private static void swicth(int doc) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method st
 		
 	}
     
