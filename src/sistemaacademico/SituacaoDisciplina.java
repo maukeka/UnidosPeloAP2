@@ -41,7 +41,7 @@ public class SituacaoDisciplina{
             return (this.situacaoDisciplina.get(index));
         }
         else {
-            return (new ElementoDescritivo());
+            return (new ElementoDescritivo());// KAGE BUNSHIN NO JUTSU
         }
     }
     public int indexOf(String str) {
