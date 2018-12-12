@@ -70,7 +70,7 @@ public class SistemaAcademico {
                		
                		System.out.println("\n Adicione o código da disciplina (máximo de 4 dígitos): ");
                		int codigo = Integer.parseInt(ler.nextLine());
-               		disciplina.setCodigo(codigo); //try catch  *****SÓ ACEITAR NÚMEROS E QUANDO ESTÁ VAZIO*******
+               		disciplina.setCodigo(codigo); //try catch  *****SÓ ACEITAR NÚMEROS E QUANDO ESTÁ VAZIO*****
 		
                		do {
     	    		
