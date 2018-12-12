@@ -59,7 +59,7 @@ public class SituacaoDisciplina{
     public void show(int index) {
         System.out.println();
         System.out.println("------------------");
-        System.out.println("Unidade Federativa");
+        System.out.println("Situação da Disciplina");
         System.out.println("------------------");
         System.out.println("Código..........: " + this.getsituacaoDisciplina(index).getCodigo());
         System.out.println("Descr. Abreviada: " + this.getsituacaoDisciplina(index).getDescricaoAbreviada());
