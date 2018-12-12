@@ -13,12 +13,12 @@ import java.util.List;
  */
 public class SistemaAcademico {
 	
-	private static Scanner ler;
-	private static Disciplina disciplina;
-	private static Docente docResponsavel;
-	private static Docente docAuxiliar; 
-	private static TecnicoAdministrativo tecnicoAdministrativoResponsavel;
-	private static TecnicoAdministrativo tecnicoAminAdministrativoAuxiliar;
+	private static Scanner ler = new Scanner(System.in);
+	private static Disciplina disciplina = new Disciplina();
+	private static Docente docResponsavel = new Docente();
+	private static Docente docAuxiliar = new Docente(); 
+	private static TecnicoAdministrativo tecnicoAdministrativoResponsavel = new TecnicoAdministrativo();
+	private static TecnicoAdministrativo tecnicoAminAdministrativoAuxiliar = new TecnicoAdministrativo();
 	private static Disciplinas disciplinaDAO = new Disciplinas();
           
      /**
@@ -225,7 +225,7 @@ public class SistemaAcademico {
 		} else {
 			System.out.println("Dado invalido!");
 		}
-
+		disciplinaDAO.cadastrar(disciplina);
 	}
 	
 	private static boolean validarCodigo(String dado) {
@@ -396,20 +396,20 @@ public class SistemaAcademico {
 				System.out.println("|" + "Nome Abreviado........................: " + "" + disciplina.getNomeAbreviado());
 				System.out.println("|" + "Código................................: " + disciplina.getCodigo());
 				System.out.println("|" + "Curso.................................: " + disciplina.getCurso());
-				System.out.println("|" + "Docente Responsável...................: " + disciplina.getDocenteResponsavel());
-				System.out.println("|" + "Docente Auxiliar......................: " + disciplina.getDocenteAuxiliar());
-				System.out.println("|" + "Técnico Administrativo Responsável....: " + disciplina.getTecnicoAdministrativoResponsavel());
-				System.out.println("|" + "Técnico AminAdministrativo Auxiliar...: " + disciplina.getTecnicoAminAdministrativoAuxiliar());
+				System.out.println("|" + "Docente Responsável...................: " + disciplina.getDocenteResponsavel().getNome());
+				System.out.println("|" + "Docente Auxiliar......................: " + disciplina.getDocenteAuxiliar().getNome());
+				System.out.println("|" + "Técnico Administrativo Responsável....: " + disciplina.getTecnicoAdministrativoResponsavel().getNome());
+				System.out.println("|" + "Técnico AminAdministrativo Auxiliar...: " + disciplina.getTecnicoAminAdministrativoAuxiliar().getNome());
 				System.out.println("|" + "Situação..............................: " + disciplina.getSituacao());
 				System.out.println("|" + "Carga Horária Prática.................: " + disciplina.getCargaHorariaPratica());
 				System.out.println("|" + "Carga Horária Teórica.................: " + disciplina.getCargaHorariaTeorica());
-				System.out.println("|" + "Carga Horaria Semanal.................: " + disciplina.getCargaHorariaSemanal());
-				System.out.println("|" + "Carga Horaria Mensal" + disciplina.getCargaHorariaMensal());
-				System.out.println("|" + "CargaHorariaTotal" + disciplina.getCargaHorariaTotal());
-				System.out.println("|" + "NumeroCreditos" + disciplina.getNumeroCreditos());
-				System.out.println("|" + "CustoBasicoPratica" + disciplina.getCustoBasicoPratica());
-				System.out.println("|" + "CustoBasicoTeorica" + disciplina.getCustoBasicoTeorica());
-				System.out.println("|" + "CustoFixo" + disciplina.getCustoFixo());
+				System.out.println("|" + "Carga Horária Semanal.................: " + disciplina.getCargaHorariaSemanal());
+				System.out.println("|" + "Carga Horária Mensal..................: " + disciplina.getCargaHorariaMensal());
+				System.out.println("|" + "Carga Horária Total...................: " + disciplina.getCargaHorariaTotal());
+				System.out.println("|" + "Número de Créditos....................: " + disciplina.getNumeroCreditos());
+				System.out.println("|" + "Custo Básico Prática..................: " + disciplina.getCustoBasicoPratica());
+				System.out.println("|" + "Custo Básico Teórica..................: " + disciplina.getCustoBasicoTeorica());
+				System.out.println("|" + "Custo Fixo............................: " + disciplina.getCustoFixo());
 				System.out.println("");
 			}
 		} else {
