@@ -1,7 +1,7 @@
 /*
- * Sistema de GestÃ£o AcadÃªmica 
+ * Sistema de Gestão Acadêmica 
  */
-package sistemaacademico;
+package sistemaacademico; // hey brother
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,128 +23,200 @@ public class SistemaAcademico {
      * @param args the command line arguments
      */
     public static void main(String[] args) {  
-       
-    	int 			i;
-        int 			vinculado = 0;
-        int 			auxiliar = 1;
-    	int				cargaHorariaMensal;
-    	int 			cargaHorariaSemanal;
-    	
-        Scanner 		ler = new Scanner(System.in);
+        int i;
+        int vinculado = 0;
+        int auxiliar = 1;
+        int doc = 0;
+        int tec = 0;
+        int tecA = 0;
+        Scanner ler = new Scanner(System.in);
         
-        Disciplina 		disciplina = new Disciplina();
+        Disciplina disciplina = new Disciplina();
+        
+        Docente docResponsavel = new Docente();
+        Docente docAuxiliar = new Docente();
+        
+        TecnicoAdministrativo tecnicoAdministrativoResponsavel = new TecnicoAdministrativo();
+        TecnicoAdministrativo tecnicoAminAdministrativoAuxiliar = new TecnicoAdministrativo();
         
         disciplinas = new ArrayList<>();
-
-        System.out.println("Digite um dos seguintes números para acessar: " //try catch ***TIPO DE ENTRADA SER VÁLIDA (INT) E CASO FOR DIFERENTE DE 1,2,3 E 4***
+        int leitura;
+        do {
+        System.out.println("Digite um dos seguintes números para acessar: " //try catch ***SOMENTE NÚMERO***Tonim***
         		+ "\n1 - Cadastrar informações sobre a disciplina."
         		+ "\n2 - Alterar informações sobre a disciplina."
         		+ "\n3 - Excluir a disciplina."
         		+ "\n4 - Consultar uma disciplina.");
-        int leitura = ler.nextInt();
+        leitura = ler.nextInt();
+        }while(leitura>4 || leitura<1);
 		
         switch (leitura) {
         	
-        	case 1:	System.out.println("\n\n\nBEM VINDO AO SISTEMA DE CADASTRAMENTO DE DISCIPLINAS! <3 ");
+        	case 1:	System.out.println("\n\tBEM VINDO AO SISTEMA DE CADASTRAMENTO DE DISCIPLINAS! <3 ");
                		String nomeCompleto = ler.nextLine();
-               		disciplina.setNomeCompleto(nomeCompleto);
+               		disciplina.setNomeCompleto(nomeCompleto.toUpperCase());
                		if(checkLetters(nomeCompleto)==false) {
                			do {
-               				System.out.println("\n Digite o nome completo da disciplina que deseja cadastrar (Neste campo não é válido o uso de números.): ");
+               				System.out.println("\n Digite o nome completo da disciplina que deseja cadastrar: \n Obs: Neste campo não é válido o uso de números.");
                				nomeCompleto = ler.nextLine();
-                       		disciplina.setNomeCompleto(nomeCompleto);
+                       		disciplina.setNomeCompleto(nomeCompleto.toUpperCase());
+                       		if(checkLetters(nomeCompleto)==false) {
+                       			System.out.println("Nome inválido. ");
+                       		}
                			}
                			while(checkLetters(nomeCompleto)==false);
                		}
 
                		do {
-               			System.out.println("\n Digite a sigla de abreviação da disciplina com no máximo três letras:");
+               			System.out.println("\n Digite a sigla de abreviação da disciplina com no máximo três letras:\n Obs: Neste campo é válido o uso de números");
                			String nomeAbreviado = ler.nextLine();
                			if(nomeAbreviado.length()>0&nomeAbreviado.length()<4) {
-               				disciplina.setNomeAbreviado(nomeAbreviado);
+               				disciplina.setNomeAbreviado(nomeAbreviado.toUpperCase());
                				break;
                			}
                			else
                				System.out.println("Abreviação Inválida");
                		}while(auxiliar==1);
                		
-               		System.out.println("\n Adicione o código da disciplina (máximo de 6 dígitos): ");
-               		int codigo = Integer.parseInt(ler.nextLine());
-               		disciplina.setCodigo(codigo); //try catch  *****TIPO DE ENTRADA SER VÁLIDA (STRING)*******
-		
+               		do{
+               			System.out.println("\n Adicione o código da disciplina (4 dígitos): ");
+               			String codigo = ler.nextLine();
+               			
+               			if(codigo.length()==4) {
+               				try{
+               					int codigo2 = Integer.parseInt(codigo);
+               					disciplina.setCodigo(codigo2);
+               					break;
+               				}catch(NumberFormatException erro) {
+               					System.out.println("\tNão insira letras apenas números!");
+               				}
+               				
+               			}
+               			else
+               				System.out.println("\tQuantidade Incorreta!");
+               			
+               		}while(auxiliar==1);
+               				
                		do {
-    	    		
-               			try {
-
+    	    		               			
                				System.out.println("\nCADASTRO DE CURSO VINCULADO A DISCIPLINA:"
-        	    						+ "\n0 disciplina de núcleo livre;"
-        	    						+ "\n1 adicionar um curso vinculado a disciplina;"
-        	        					+ "\nQualquer outro número para sair do cadastro de CURSO.");
-               				vinculado = ler.nextInt();
+        	    						+ "\n0 - Disciplina de núcleo livre;"
+        	    						+ "\n1 - Adicionar um curso vinculado a disciplina;"
+        	        					+ "\nOutro número - Sair do cadastro do curso.");
+               				try {
+               					
+               					 vinculado = Integer.parseInt(ler.nextLine()); //     		
+               					 break;
     	    		
-               				break;
-    	    		
-               			}catch(InputMismatchException e) {// mudar exception **TIPO DE ENTRADA SER VÁLIDA (INT)***
-    	    			System.out.println("Número invalido");
+               			}catch(NumberFormatException erro) {
+    	    			System.out.println("Valor inválido. Digite um número inteiro.");
                			}
                		}while(auxiliar==1);
     	        	
 			
                		switch (vinculado) {
                			case 0: 
-               				disciplina.setCurso("Núcleo livre"); 	   		
+               				disciplina.setCurso("NÚCLEO LIVRE"); 	   		
                				break;
                			case 1:
                				System.out.println("Digite o curso ao qual essa disciplina está vinculada: ");
                				String curso = ler.nextLine();
-               				disciplina.setCurso(curso); //try catch *****TIPO DE ENTRADA SER VÁLIDA********
+               				disciplina.setCurso(curso.toUpperCase()); //try catch *****SOMENTE LETRAS********
                				break;
                			default: 	
                				break;
                		}
                		
                		System.out.println("DOCENTES ASSOCIADOS");
-               		System.out.println("Insira o nome no docente responsável: ");
-               		Docente docResponsavel;
+               		System.out.println("Insira o nome no docente responsável: "); //NÃO ACEITAR O VAZIO E COLOCAR SOMENTE LETRAS
+               		String nome = ler.nextLine();
+               		docResponsavel.setNome(nome.toUpperCase());
+               		disciplina.setDocenteResponsavel(docResponsavel);
                		
+               		do {
                		System.out.println("Há docentes auxiliares?"
                				+ "\n1-SIM"
 
                				+ "\n2-NÃO");
-               		int doc = Integer.parseInt(ler.nextLine()); //**********DEIXAR PASSAR SÓ 1 OU 2***
+               		try {
+               			 doc = Integer.parseInt(ler.nextLine()); 
+               			 
+               		}catch(NumberFormatException erro) {
+       					System.out.println("\nNão insira letras apenas números!");
+       				}
+               		}while(doc<1||doc>2);
                		
                		do {
                		
                			switch(doc){
                				case 1:
                					System.out.println("Insira o nome do docente auxiliar");
-               					
-               					Docente docAuxiliar;
+               					String nomeA = ler.nextLine();
+               					docAuxiliar.setNome(nomeA.toUpperCase());
+               					disciplina.setDocenteAuxiliar(docAuxiliar);
+               					auxiliar=2;
                					break;
                				case 2:
+               					auxiliar=2;
                					break; 
                				
                			}
+               		              		       	
                		}while(auxiliar==1);
                		
-               		System.out.println ("Deseja definir a carga horária mensal ou semanal do curso? "
-               				+ "0 para não "
-               				+ "1 para carga horária mensal"
-               				+ "2 para carga horária semanal" );
-               	        int aux = ler.nextInt(); //try... catch para somente inteiros.
-               	        
-               	        switch (aux) {
-               				case 1:	
-               					System.out.println("Digite a carga horária mensal para o curso escolhido: ");
-               					disciplina.setCargaHorariaMensal(ler.nextInt());
+               		System.out.println("TÉCNICOS ADMINISTRATIVOS");
+               		
+               		do {
+               		System.out.println("Há um técnico responsável?"
+               				+ "\n1-SIM"
+
+               				+ "\n2-NÃO");
+               		try {
+               				tec = Integer.parseInt(ler.nextLine());}catch(NumberFormatException erro) {
+               					System.out.println("\nNão insira letras apenas números!");}
+               		}while(tec<1||tec>2);
+               		do {
+               		
+               			switch(tec){
+               				case 1:
+               					System.out.println("Insira o nome do técnico responsável");
+               					String nomeT = ler.nextLine();
+               					tecnicoAdministrativoResponsavel.setNome(nomeT.toUpperCase());
+               					disciplina.setTecnicoAdministrativoResponsavel(tecnicoAdministrativoResponsavel);
+               					auxiliar=2;
                					break;
-               				case 2: 
-               					System.out.println("Digite a carga horária semanal para o curso escolhido: ");
-               					disciplina.setCargaHorariaSemanal(ler.nextInt());
-               					disciplina.setCargaHorariaMensal(disciplina.cargaHorariaSemanal*4);
+               				case 2:
+               					break; 
+               					}
+               		}while(auxiliar==1);
+               		
+               		do {
+               		System.out.println("Há um técnico auxiliar?"
+               				+ "\n1-SIM"
+
+               				+ "\n2-NÃO");
+
+               		try {
+               		 tecA = Integer.parseInt(ler.nextLine());
+               		 }catch(NumberFormatException erro) {
+        					System.out.println("\nNão insira letras apenas números!");}
+               		
+               		
+
+               		//******SOMENTE NÚMEROS****
+               		}while(tecA<1||tecA>2);
+
+               		do {
+               		
+               			switch(tecA){
+               				case 1:
+               					System.out.println("Insira o nome do técnico auxiliar");
+               					String nomeTA = ler.nextLine();
+               					tecnicoAdministrativoResponsavel.setNome(nomeTA.toUpperCase());
+               					disciplina.setTecnicoAminAdministrativoAuxiliar(tecnicoAminAdministrativoAuxiliar);
+               					auxiliar=2;
                					break;
-               				case 0:
-               					break;
+<<<<<<< HEAD
 <<<<<<< HEAD
                					}
                	        //adicionar cargaHorariaPratica e cargaHorariaTeorica 
@@ -176,6 +248,46 @@ public class SistemaAcademico {
       
         
         
+=======
+               				case 2:
+               					break; 
+               					}
+               		}while(auxiliar==1);
+               		
+               		System.out.println("NÚMERO DE CRÉDITOS");
+               		
+               		
+               		do{
+               			System.out.println("Insira o número de créditos associado à disciplina variando de 0 à 9");
+               				
+               			String creditos = ler.nextLine();
+               			
+               			if(creditos.length()==1) {
+               				try{
+               					int creditos2 = Integer.parseInt(creditos);
+               					disciplina.setNumeroCreditos(creditos2);
+               					break;
+               				}catch(NumberFormatException erro) {
+               					System.out.println("\tNão insira letras apenas números!");
+               				}
+               				
+               			}
+               			else
+               				System.out.println("\tQuantidade Incorreta!");
+               			
+               		}while(auxiliar==1);
+               		
+               	}
+        SituacaoDisciplina situacaoDisciplina = new SituacaoDisciplina();
+        for (int x=0; x < situacaoDisciplina.size(); x++) {
+        	situacaoDisciplina.show(x);
+        }
+       }
+
+      
+        
+        
+>>>>>>> parent of bf4bfda... pipipipopopo
         
         
         
@@ -183,14 +295,17 @@ public class SistemaAcademico {
        //     unidadesFederativas.show(i);
        // }
        // System.out.println("Fim");
+<<<<<<< HEAD
 >>>>>>> parent of 293c3c2... Rodolfinho golfinho
     }
+=======
+>>>>>>> parent of bf4bfda... pipipipopopo
 
 
 
 
 	private static void swicth(int doc) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method 
 		
 	}
     
