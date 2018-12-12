@@ -86,7 +86,7 @@ public class SistemaAcademico {
                				
                			}
                			else
-               				System.out.println("\tQuantidade Insufciente!");
+               				System.out.println("\tQuantidade Insuficiente!");
                			
                		}while(auxiliar==1);
                		
@@ -155,6 +155,10 @@ public class SistemaAcademico {
                		}while(auxiliar==1);
         }		
         
+        SituacaoDisciplina situacaoDisciplina = new SituacaoDisciplina();
+        for (int x=0; x < situacaoDisciplina.size(); x++) {
+        	situacaoDisciplina.show(x);
+        }
         
       
         
