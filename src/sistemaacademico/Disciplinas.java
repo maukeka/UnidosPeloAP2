@@ -28,7 +28,8 @@ public class Disciplinas extends Coisa{
 	public void alterar(Disciplina disciplina) {
 		for (int posicao = 0; posicao < this.disciplinas.size(); posicao++) {
 			if(this.disciplinas.get(posicao).getCodigo() == disciplina.getCodigo()) {
-				disciplinas.add(posicao, disciplina);
+				disciplinas.remove(posicao);
+				disciplinas.add(disciplina);
 			}
 		}
 		
