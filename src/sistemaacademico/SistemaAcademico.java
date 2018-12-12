@@ -31,6 +31,9 @@ public class SistemaAcademico {
         
         Disciplina disciplina = new Disciplina();
         
+        Docente docResponsavel = new Docente();
+        Docente docAuxliar = new Docente();
+        
         disciplinas = new ArrayList<>();
 
         System.out.println("Digite um dos seguintes números para acessar: " //try catch ***TIPO DE ENTRADA SER VÁLIDA (INT) E CASO FOR DIFERENTE DE 1,2,3 E 4***
@@ -103,7 +106,10 @@ public class SistemaAcademico {
                		
                		System.out.println("DOCENTES ASSOCIADOS");
                		System.out.println("Insira o nome no docente responsável: ");
-               		Docente docResponsavel;
+               		String nome = ler.nextLine();
+               		docResponsavel.setNome(nome);
+               		disciplina.setDocenteResponsavel(docResponsavel);
+               		
                		
                		System.out.println("Há docentes auxiliares?"
                				+ "\n1-SIM"
@@ -130,7 +136,7 @@ public class SistemaAcademico {
         }		
         
         
-  int aleatoria;      
+      
         
         
         
