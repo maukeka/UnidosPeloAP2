@@ -95,7 +95,7 @@ public class SistemaAcademico {
 				System.out.println("\n\n\tDado inválido!");
 			}
 		}while(validarCodigo(dado)==false);
-		System.out.println("Digite o nome completo da disciplina: "); // Não precisa de tratamento
+		System.out.println("Digite o nome completo da disciplina: "); 
 		dado = ler.nextLine();
 		if(validarNome(dado)==true) {
 			disciplina.setNomeCompleto(dado);
