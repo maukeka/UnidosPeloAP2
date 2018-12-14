@@ -86,7 +86,8 @@ public class SistemaAcademico {
 	private static void cadastrar() {
 		String dado;	
 		do {
-			System.out.println("\n\n\tDigite o código da disciplina: ");
+			System.out.println("\nDigite o código da disciplina: "
+					+ "\nObs: Cada código é formado por 4 números.");
 			dado = ler.nextLine();
 			if(validarCodigo(dado)) {
 				disciplina.setCodigo(Integer.parseInt(dado));
@@ -94,21 +95,22 @@ public class SistemaAcademico {
 				System.out.println("\n\n\tDado inválido!");
 			}
 		}while(validarCodigo(dado)==false);
-		System.out.println("Digite o código da disciplina: "); // Somente números e com 4 dígitos
-		dado = ler.nextLine();
-		if(validarCodigo(dado)) {
-			disciplina.setCodigo(Integer.parseInt(dado));
-		} else {
-			System.out.println("Dado inválido!");
-		}
 		System.out.println("Digite o nome completo da disciplina: "); // Não precisa de tratamento
 		dado = ler.nextLine();
-		if(validarNome(dado)) {
+		if(validarNome(dado)==true) {
 			disciplina.setNomeCompleto(dado);
-		} else {
+		} 
+		else {
+			do {
 			System.out.println("Dado inválido!");
+			System.out.println("Digite o nome completo da disciplina: "); 
+			dado = ler.nextLine();
+			validarNome(dado);
+			}while(validarNome(dado)==false);
+			disciplina.setNomeCompleto(dado);
 		}
-		System.out.println("Digite o nome abreviado da disciplina: "); //Limitar até 3 Dígitos
+		System.out.println("Digite o nome abreviado da disciplina: "
+				+ "\nObs: É válido no máximo 3 caracteres."); //Limitar até 3 Dígitos
 		dado = ler.nextLine();
 		if(validarAbreviacao(dado)) {
 			disciplina.setNomeAbreviado(dado);
@@ -717,7 +719,16 @@ public class SistemaAcademico {
 	}
 
 	private static boolean validarNome(String dado) {
-		return dado.matches("[a-zA-Z\\u0020]+") && !dado.equals(null) && !dado.equals(" ");
+		boolean confirmaçao;
+		int testeTamanho;
+		testeTamanho = dado.length();
+		if(testeTamanho>0) {
+			confirmaçao = true;
+		}
+		else {
+			confirmaçao = false;
+		}
+		return confirmaçao;
 	}
 
 	private static void menuOpcaoAlterar() {
