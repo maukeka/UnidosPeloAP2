@@ -11,8 +11,6 @@ import java.util.List;
 
 public class DolphinPL {
 	
-
-
 	private static Scanner ler = new Scanner(System.in);
 	private static Disciplina disciplina = new Disciplina();
 	private static Docente docResponsavel = new Docente();
@@ -38,7 +36,7 @@ public class DolphinPL {
         		try {
         			leitura = menu();
         		}
-        		catch(Exception e) {// trocar excepion?
+        		catch(Exception e) {// trocar exception?
         			leitura = menu();
         		}
         	}while(leitura>5 || leitura<1);
@@ -86,7 +84,8 @@ public class DolphinPL {
 	private static void cadastrar() {
 		String dado;	
 		do {
-			System.out.println("\n\n\tDigite o código da disciplina: ");
+			System.out.println("\nDigite o código da disciplina: "
+					+ "\nOBS: Deve ser formado apenas por quatro números.");
 			dado = ler.nextLine();
 			if(validarCodigo(dado)) {
 				disciplina.setCodigo(Integer.parseInt(dado));
@@ -94,7 +93,7 @@ public class DolphinPL {
 				System.out.println("\n\n\tDado inválido!");
 			}
 		}while(validarCodigo(dado)==false);
-		System.out.println("Digite o nome completo da disciplina: "); // Não precisa de tratamento
+		System.out.println("Digite o nome completo da disciplina: "); 
 		dado = ler.nextLine();
 		if(validarNome(dado)==true) {
 			disciplina.setNomeCompleto(dado);
@@ -108,21 +107,31 @@ public class DolphinPL {
 			}while(validarNome(dado)==false);
 			disciplina.setNomeCompleto(dado);
 		}
-		System.out.println("Digite o nome abreviado da disciplina: "); //Limitar até 3 Dígitos
+		System.out.println("Digite o nome abreviado da disciplina: "
+				+ "\nOBS: Deve possuir no máximo três caracteres, onde pelo menos um caracter seja uma letra."); 
 		dado = ler.nextLine();
-		if(validarAbreviacao(dado)) {
+		if(validarAbreviacao(dado)==true) {
 			disciplina.setNomeAbreviado(dado);
 		} else {
-			System.out.println("Dado inválido!");
+			do {
+				System.out.println("Dado inválido!");
+				System.out.println("Digite o nome abreviado da disciplina: "
+						+ "\nOBS: Deve possuir no máximo três caracteres.");
+						dado = ler.nextLine();
+						validarAbreviacao(dado);
+			}while(validarAbreviacao(dado)==false);
+			disciplina.setNomeAbreviado(dado);
 		}
-		System.out.println("Digite o nome do curso ao qual a disciplina está vinculada");  //Somente Letras
+		System.out.println("Digite o nome do curso ao qual a disciplina está vinculada"
+				+ "\nOBS: Deve possuir somente letras.");  //Somente Letras
 		dado = ler.nextLine();
 		if(validarCurso(dado)) {
 			disciplina.setCurso(dado);
 		} else {
 			System.out.println("Dado inválido!");
 		}
-			System.out.println("Digite o nome do docente responsável pela disciplina: "); //Somente Letras
+			System.out.println("Digite o nome do docente responsável pela disciplina: "
+					+ "\nOBS: Deve possuir somente letras."); //Somente Letras
 		dado = ler.nextLine();
 		if(validarDocenteR(dado)) {
 			Docente docente = new Docente();
@@ -131,7 +140,8 @@ public class DolphinPL {
 		} else {
 			System.out.println("Dado inválido!");
 		}
-				System.out.println("Digite o nome do docente auxiliar da disciplina: "); //Somente Letras e colocar menu para selecionar o desejo
+				System.out.println("Digite o nome do docente auxiliar da disciplina: "
+						+ "\nOBS: Deve possuir somente letras."); //Somente Letras e colocar menu para selecionar o desejo
 		dado = ler.nextLine();
 		if(validarDocenteR(dado)) {
 			Docente docente = new Docente();
@@ -140,7 +150,8 @@ public class DolphinPL {
 		} else {
 			System.out.println("Dado inválido!");
 		}
-					System.out.println("Digite o nome do técnico administrativo auxiliar da disciplina: "); //Somente Letras e colocar menu para selecionar o desejo
+					System.out.println("Digite o nome do técnico administrativo auxiliar da disciplina: "
+							+ "\nOBS: Deve possuir somente letras."); //Somente Letras e colocar menu para selecionar o desejo
 		dado = ler.nextLine();
 		if(validarTecnico(dado)) {
 			TecnicoAdministrativo tecnico = new TecnicoAdministrativo();
@@ -203,21 +214,24 @@ public class DolphinPL {
 		} else {
 			System.out.println("Dado inválido!");
 		}
-					System.out.println("Digite o número de créditos:"); // Somente números e ser opcional
+					System.out.println("Digite o número de créditos:"
+							+ "OBS: Deve ser somente números."); // Somente números e ser opcional
 		dado = ler.nextLine();
 		if(validarNumCreditos(dado)) {
 			disciplina.setNumeroCreditos(Integer.parseInt(dado));
 		} else {
 			System.out.println("Dado inválido!");
 		}
-					System.out.println("Digite o custo prática: "); // Opcional e só número
+					System.out.println("Digite o custo prática: "
+							+ "OBS: Deve ser somente números."); // Opcional e só número
 		dado = ler.nextLine();
 		if(validarCustoPratica(dado)) {
 			disciplina.setCustoBasicoPratica(Integer.parseInt(dado));
 		} else {
 			System.out.println("Dado inválido!");
 		}
-				System.out.println("Digite o custo teórica: "); //Opcional e só número
+				System.out.println("Digite o custo teórica: "
+						+ "OBS: Deve ser somente números."); //Opcional e só número
 
 		dado = ler.nextLine();
 		if(validarCustoTeorica(dado)) {
@@ -225,14 +239,16 @@ public class DolphinPL {
 		} else {
 			System.out.println("Dado inválido!");
 		}
-					System.out.println("Digite o custo fixo: "); //Opcional e só número
+					System.out.println("Digite o custo fixo: "
+							+ "OBS: Deve ser somente números."); //Opcional e só número
 		dado = ler.nextLine();
 		if(validarCustoFixo(dado)) {
 			disciplina.setCustoFixo(Integer.parseInt(dado));
 		} else {
 			System.out.println("Dado inválido!");
 		}
-					System.out.println("Digite o nome do técnico administrativo responsável da disciplina:"); //Somente Letras
+					System.out.println("Digite o nome do técnico administrativo responsável da disciplina:"
+							+ "OBS: Deve ser somente letras."); //Somente Letras
 		dado = ler.nextLine();
 		if(validarTecnico(dado)) {
 			TecnicoAdministrativo tecnico = new TecnicoAdministrativo();
@@ -701,32 +717,73 @@ public class DolphinPL {
 	}
 
 	private static boolean validarTecnico(String dado) {
-		return dado.matches("[a-zA-Z\\u0020]+") && !dado.equals(null) && !dado.equals(" ");
+		boolean confirmaçao;
+		int testeTamanho = dado.length();
+		if(checkLetters(dado)==true && testeTamanho>0) {
+			confirmaçao = true;
+		}
+		else {
+			confirmaçao = false;
+		}
+		return confirmaçao;
 	}
 
 	private static boolean validarDocenteR(String dado) {
-		return dado.matches("[a-zA-Z\\u0020]+") && !dado.equals(null) && !dado.equals(" ");
+		boolean confirmaçao;
+		int testeTamanho = dado.length();
+		if(checkLetters(dado)==true && testeTamanho>0) {
+			confirmaçao = true;
+		}
+		else {
+			confirmaçao = false;
+		}
+		return confirmaçao;
 	}
 
 	private static boolean validarCurso(String dado) {
-		return dado.matches("[a-zA-Z\\u0020]+") && !dado.equals(null) && !dado.equals(" ");
+		boolean confirmaçao;
+		int testeTamanho = dado.length();
+		if(checkLetters(dado)==true && testeTamanho>0) {
+			confirmaçao = true;
+		}
+		else {
+			confirmaçao = false;
+		}
+		return confirmaçao;
 	}
 
 	private static boolean validarAbreviacao(String dado) {
-		return dado.matches("[a-zA-Z\\u0020]+") && !dado.equals(null) && !dado.equals(" ") && dado.length()<4;
+		int testeTamanho = dado.length();
+		boolean confirmacao;
+		boolean validaçao;
+		int testeDeLetras;
+		try {
+			testeDeLetras = Integer.parseInt(dado);
+			validaçao = false;
+		}
+		catch(NumberFormatException erro) {
+			validaçao = true;
+		}
+		if(testeTamanho>0 && testeTamanho<4 && validaçao == true) {
+			confirmacao = true;
+		}
+		else {
+			confirmacao = false;
+		}
+		return confirmacao;
 	}
 
 	private static boolean validarNome(String dado) {
-		boolean agoravai;
-		int issoai;
-		issoai = dado.length();
-		if(issoai>0) {
-			agoravai = true;
+		boolean confirmaçao;
+		int testeTamanho;
+		testeTamanho = dado.length();
+		if(testeTamanho>0) {
+			confirmaçao = true;
 		}
 		else {
-			agoravai = false;
+			confirmaçao = false;
 		}
-		return agoravai;
+		return confirmaçao;
 	}
 
 	private static void menuOpcaoAlterar() {
@@ -756,5 +813,8 @@ public class DolphinPL {
     	System.out.printf(" Digite um dos seguintes números para acessar: ");
 	}
 	
+	public static boolean checkLetters(String str) 
+	{
+		return str.matches("[a-zA-Z\\u0020]+");
+	}
 }
-
