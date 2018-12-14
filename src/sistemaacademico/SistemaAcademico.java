@@ -38,7 +38,7 @@ public class SistemaAcademico {
         		try {
         			leitura = menu();
         		}
-        		catch(Exception e) {
+        		catch(Exception e) {// trocar excepion?
         			leitura = menu();
         		}
         	}while(leitura>5 || leitura<1);
@@ -140,7 +140,7 @@ public class SistemaAcademico {
 		} else {
 			System.out.println("Dado invalido!");
 		}
-				System.out.println("Digite a situação da disciplina: " +
+				System.out.println("Digite a situação da disciplina: " +// arrumar
 								"\n 0 - Desconhecida" +
 								"\n 1 - Aberta" +
 								"\n 2 - Ativa" +
