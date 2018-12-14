@@ -82,9 +82,7 @@ public class SistemaAcademico {
 	}
 	
 	private static void cadastrar() {
-		String dado;
-<<<<<<< HEAD
-				
+		String dado;	
 		do {
 			System.out.println("\n\n\tDigite o código da disciplina: ");
 			dado = ler.nextLine();
@@ -94,7 +92,6 @@ public class SistemaAcademico {
 				System.out.println("\n\n\tDado inválido!");
 			}
 		}while(validarCodigo(dado)==false);
-=======
 		System.out.println("Digite o código da disciplina: "); // Somente números e com 4 dígitos
 		dado = ler.nextLine();
 		if(validarCodigo(dado)) {
@@ -102,8 +99,6 @@ public class SistemaAcademico {
 		} else {
 			System.out.println("Dado inválido!");
 		}
->>>>>>> branch 'master' of https://github.com/maukeka/UnidosPeloAP2.git
-		
 		System.out.println("Digite o nome completo da disciplina: "); // Não precisa de tratamento
 		dado = ler.nextLine();
 		if(validarNome(dado)) {
@@ -118,12 +113,8 @@ public class SistemaAcademico {
 		} else {
 			System.out.println("Dado invalido!");
 		}
-
-<<<<<<< HEAD
 		System.out.println("Digite o no do curso ao qual a disciplina está vinculada");
-=======
 		System.out.println("Digite o nome do curso ao qual a disciplina está vinculada");  //Somente Letras
->>>>>>> branch 'master' of https://github.com/maukeka/UnidosPeloAP2.git
 		dado = ler.nextLine();
 		if(validarCurso(dado)) {
 			disciplina.setCurso(dado);
@@ -139,11 +130,8 @@ public class SistemaAcademico {
 		} else {
 			System.out.println("Dado invalido!");
 		}
-<<<<<<< HEAD
 				System.out.println("Digite o nome do docente auxuliar da disciplina: ");
-=======
 				System.out.println("Digite o nome do docente auxiliar da disciplina: "); //Somente Letras e colocar menu para selecionar o desejo
->>>>>>> branch 'master' of https://github.com/maukeka/UnidosPeloAP2.git
 		dado = ler.nextLine();
 		if(validarDocenteR(dado)) {
 			Docente docente = new Docente();
@@ -172,11 +160,8 @@ public class SistemaAcademico {
 		if(validarSituacao(dado)) {
 			disciplina.setSituacao(Integer.parseInt(dado));
 		} else {
-<<<<<<< HEAD
 			System.out.println("Dado invalido!");
-=======
 			System.out.println("Dado inválido!"); // Repetir o menu de novo caso não exista nenhuma das opções 
->>>>>>> branch 'master' of https://github.com/maukeka/UnidosPeloAP2.git
 		}
 				System.out.println("Digite a carga horária prática: ");
 		dado = ler.nextLine();
@@ -227,11 +212,9 @@ public class SistemaAcademico {
 		} else {
 			System.out.println("Dado invalido!");
 		}
-<<<<<<< HEAD
 				System.out.println("Digite o custo teórica: ");
-=======
 				System.out.println("Digite o custo teórico: "); //Opcional e só número
->>>>>>> branch 'master' of https://github.com/maukeka/UnidosPeloAP2.git
+
 		dado = ler.nextLine();
 		if(validarCustoTeorica(dado)) {
 			disciplina.setCustoBasicoTeorica(Integer.parseInt(dado));
@@ -301,11 +284,8 @@ public class SistemaAcademico {
 		case 1: 
 			disciplinas = disciplinaDAO.consultar("todos", null);
 			exibirDados(disciplinas);
-<<<<<<< HEAD
 			System.out.println("Digite o código da disciplina a ser alterado: ");
-=======
 			System.out.println("Digite o código da disciplina a ser alterada: "); //Somente números
->>>>>>> branch 'master' of https://github.com/maukeka/UnidosPeloAP2.git
 			chave = ler.nextLine();
 			for(Disciplina disciplina : disciplinas) {
 				if(disciplina.getCodigo() == Integer.parseInt(chave)) {
@@ -316,11 +296,8 @@ public class SistemaAcademico {
 			
 			break;
 		case 2:
-<<<<<<< HEAD
 			System.out.println("Digite o código da disciplina a ser alterado: ");
-=======
 			System.out.println("Digite o código da disciplina a ser alterada: "); //Somente números
->>>>>>> branch 'master' of https://github.com/maukeka/UnidosPeloAP2.git
 			chave = ler.nextLine(); //try...catch
 			disciplinas = disciplinaDAO.consultar(chave, null);
 			if(disciplinas.size() == 1) {
@@ -505,11 +482,8 @@ public class SistemaAcademico {
 			}
 			break;
 		case 3 :
-<<<<<<< HEAD
 			System.out.println("Digite o no do curso ao qual a disciplina está vinculada");
-=======
 			System.out.println("Digite o nome do curso que a disciplina está vinculada"); //Somente letras
->>>>>>> branch 'master' of https://github.com/maukeka/UnidosPeloAP2.git
 			dado = ler.nextLine();
 			if(validarCurso(dado)) {
 				disciplina.setCurso(dado);
@@ -529,11 +503,8 @@ public class SistemaAcademico {
 			}
 			break;
 		case 5 :
-<<<<<<< HEAD
 			System.out.println("Digite o nome do docente auxuliar da disciplina: ");
-=======
 			System.out.println("Digite o nome do docente auxiliar da disciplina: "); //Somente letras
->>>>>>> branch 'master' of https://github.com/maukeka/UnidosPeloAP2.git
 			dado = ler.nextLine();
 			if(validarDocenteR(dado)) {
 				Docente docente = new Docente();
@@ -633,11 +604,8 @@ public class SistemaAcademico {
 			}
 			break;
 		case 15 :
-<<<<<<< HEAD
 			System.out.println("Digite o custo teórica: ");
-=======
 			System.out.println("Digite o custo teórico: ");// somente número
->>>>>>> branch 'master' of https://github.com/maukeka/UnidosPeloAP2.git
 			dado = ler.nextLine();
 			if(validarCustoTeorica(dado)) {
 				disciplina.setCustoBasicoTeorica(Integer.parseInt(dado));
