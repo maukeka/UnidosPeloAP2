@@ -9,7 +9,7 @@ import java.util.InputMismatchException;
 import java.util.List;
 
 /**
- * @author Wanderley de Souza Alencar
+ * @author Wanderley de Souza Alencar                // DON'T LET ME DOWN
  */
 public class SistemaAcademico {
 	
