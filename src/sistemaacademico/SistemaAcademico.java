@@ -1,7 +1,7 @@
 /*
  * Sistema de Gestão Acadêmica 
  */
-package sistemaacademico; // hey brother
+package sistemaacademico;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -67,7 +67,9 @@ public class SistemaAcademico {
 	private static int menu() {
 		int leitura;
 		System.out.println(".__________________________________________________________________________.");
-    	System.out.println("|       SISTEMA DE GERENCIAMENTO ACADEMICO                                 |");
+    	System.out.println("|                                                                          |");
+    	System.out.println("|                                                                          |");
+    	System.out.println("|       SISTEMA DE GERENCIAMENTO ACADÊMICO                                 |");
     	System.out.println("|       1 - Cadastrar informações sobre a disciplina                       |");
     	System.out.println("|       2 - Alterar informações sobre a disciplina                         |");
     	System.out.println("|       3 - Excluir a disciplina                                           |");
@@ -88,7 +90,7 @@ public class SistemaAcademico {
 		if(validarCodigo(dado)) {
 			disciplina.setCodigo(Integer.parseInt(dado));
 		} else {
-			System.out.println("Dado invalido!");
+			System.out.println("Dado inválido!");
 		}
 		
 		System.out.println("Digite o nome completo da disciplina: ");
@@ -96,22 +98,22 @@ public class SistemaAcademico {
 		if(validarNome(dado)) {
 			disciplina.setNomeCompleto(dado);
 		} else {
-			System.out.println("Dado invalido!");
+			System.out.println("Dado inválido!");
 		}
 		System.out.println("Digite o nome abreviado da disciplina: ");
 		dado = ler.nextLine();
 		if(validarAbreviacao(dado)) {
 			disciplina.setNomeAbreviado(dado);
 		} else {
-			System.out.println("Dado invalido!");
+			System.out.println("Dado inválido!");
 		}
 
-		System.out.println("Digite o no do curso ao qual a disciplina está vinculada");
+		System.out.println("Digite o nome do curso ao qual a disciplina está vinculada");
 		dado = ler.nextLine();
 		if(validarCurso(dado)) {
 			disciplina.setCurso(dado);
 		} else {
-			System.out.println("Dado invalido!");
+			System.out.println("Dado inválido!");
 		}
 			System.out.println("Digite o nome do docente responsável pela disciplina: ");
 		dado = ler.nextLine();
@@ -120,16 +122,16 @@ public class SistemaAcademico {
 			docente.setNome(dado);
 			disciplina.setDocenteResponsavel(docente);
 		} else {
-			System.out.println("Dado invalido!");
+			System.out.println("Dado inválido!");
 		}
-				System.out.println("Digite o nome do docente auxuliar da disciplina: ");
+				System.out.println("Digite o nome do docente auxiliar da disciplina: ");
 		dado = ler.nextLine();
 		if(validarDocenteR(dado)) {
 			Docente docente = new Docente();
 			docente.setNome(dado);
 			disciplina.setDocenteAuxiliar(docente);
 		} else {
-			System.out.println("Dado invalido!");
+			System.out.println("Dado inválido!");
 		}
 					System.out.println("Digite o nome do técnico administrativo auxiliar da disciplina: ");
 		dado = ler.nextLine();
@@ -138,7 +140,7 @@ public class SistemaAcademico {
 			tecnico.setNome(dado);
 			disciplina.setTecnicoAminAdministrativoAuxiliar(tecnico);
 		} else {
-			System.out.println("Dado invalido!");
+			System.out.println("Dado inválido!");
 		}
 				System.out.println("Digite a situação da disciplina: " +// arrumar
 								"\n 0 - Desconhecida" +
@@ -151,70 +153,70 @@ public class SistemaAcademico {
 		if(validarSituacao(dado)) {
 			disciplina.setSituacao(Integer.parseInt(dado));
 		} else {
-			System.out.println("Dado invalido!");
+			System.out.println("Dado inválido!");
 		}
 				System.out.println("Digite a carga horária prática: ");
 		dado = ler.nextLine();
 		if(validarCargaHorariaPratica(dado)) {
 			disciplina.setCargaHorariaPratica(Integer.parseInt(dado));
 		} else {
-			System.out.println("Dado invalido!");
+			System.out.println("Dado inválido!");
 		}
 				System.out.println("Digite a carga horária teórica: ");
 		dado = ler.nextLine();
 		if(validarCargaHorariaTeorica(dado)) {
 			disciplina.setCargaHorariaTeorica(Integer.parseInt(dado));
 		} else {
-			System.out.println("Dado invalido!");
+			System.out.println("Dado inválido!");
 		}
 				System.out.println("Digite a carga horária semanal: ");
 		dado = ler.nextLine();
 		if(validarCargaHorariaSemanal(dado)) {
 			disciplina.setCargaHorariaSemanal(Integer.parseInt(dado));
 		} else {
-			System.out.println("Dado invalido!");
+			System.out.println("Dado inválido!");
 		}
 				System.out.println("Digite a carga horária mensal: ");
 		dado = ler.nextLine();
 		if(validarCargaHorariaMensal(dado)) {
 			disciplina.setCargaHorariaMensal(Integer.parseInt(dado));
 		} else {
-			System.out.println("Dado invalido!");
+			System.out.println("Dado inválido!");
 		}
 					System.out.println("Digite a carga horária total: ");
 		dado = ler.nextLine();
 		if(validarCargaHorariaTotal(dado)) {
 			disciplina.setCargaHorariaTotal(Integer.parseInt(dado));
 		} else {
-			System.out.println("Dado invalido!");
+			System.out.println("Dado inválido!");
 		}
 					System.out.println("Digite o número de créditos:");
 		dado = ler.nextLine();
 		if(validarNumCreditos(dado)) {
 			disciplina.setNumeroCreditos(Integer.parseInt(dado));
 		} else {
-			System.out.println("Dado invalido!");
+			System.out.println("Dado inválido!");
 		}
 					System.out.println("Digite o custo prático: ");
 		dado = ler.nextLine();
 		if(validarCustoPratica(dado)) {
 			disciplina.setCustoBasicoPratica(Integer.parseInt(dado));
 		} else {
-			System.out.println("Dado invalido!");
+			System.out.println("Dado inválido!");
 		}
-				System.out.println("Digite o custo teórica: ");
+				System.out.println("Digite o custo teórico: ");
 		dado = ler.nextLine();
 		if(validarCustoTeorica(dado)) {
 			disciplina.setCustoBasicoTeorica(Integer.parseInt(dado));
 		} else {
-			System.out.println("Dado invalido!");
+			System.out.println("Dado inválido!");
 		}
 					System.out.println("Digite o custo fixo: ");
 		dado = ler.nextLine();
 		if(validarCustoFixo(dado)) {
 			disciplina.setCustoFixo(Integer.parseInt(dado));
 		} else {
-			System.out.println("Dado invalido!");
+			System.out.println("Dado inválido!");
 		}
 					System.out.println("Digite o nome do técnico administrativo responsável da disciplina:");
 		dado = ler.nextLine();
@@ -223,7 +225,7 @@ public class SistemaAcademico {
 			tecnico.setNome(dado);
 			disciplina.setTecnicoAdministrativoResponsavel(tecnico);
 		} else {
-			System.out.println("Dado invalido!");
+			System.out.println("Dado inválido!");
 		}
 		disciplinaDAO.cadastrar(disciplina);
 	}
@@ -255,7 +257,7 @@ public class SistemaAcademico {
 		case 1: 
 			disciplinas = disciplinaDAO.consultar("todos", null);
 			exibirDados(disciplinas);
-			System.out.println("Digite o código da disciplina a ser alterado: ");
+			System.out.println("Digite o código da disciplina a ser alterada: ");
 			chave = ler.nextLine();
 			for(Disciplina disciplina : disciplinas) {
 				if(disciplina.getCodigo() == Integer.parseInt(chave)) {
@@ -266,7 +268,7 @@ public class SistemaAcademico {
 			
 			break;
 		case 2:
-			System.out.println("Digite o código da disciplina a ser alterado: ");
+			System.out.println("Digite o código da disciplina a ser alterada: ");
 			chave = ler.nextLine(); //try...catch
 			disciplinas = disciplinaDAO.consultar(chave, null);
 			if(disciplinas.size() == 1) {
@@ -315,7 +317,8 @@ public class SistemaAcademico {
 	
 	private static void menuExcluir() {
 		System.out.println(".__________________________________________________________________________.");
-    	System.out.println("|       SISTEMA DE GERENCIAMENTO ACADEMICO                                 |");
+    	System.out.println("|                                                                          |");
+    	System.out.println("|       SISTEMA DE GERENCIAMENTO ACADÊMICO                                 |");
     	System.out.println("|       1 - Listar todas as diciplinas antes de excluir                    |");
     	System.out.println("|       2 - Excluir                                                        |");
     	System.out.println("|       3 - Sair                                                           |");
@@ -377,7 +380,9 @@ public class SistemaAcademico {
     
 	private static void menuConsultar() {
 		System.out.println(".__________________________________________________________________________.");
-    	System.out.println("|       SISTEMA DE GERENCIAMENTO ACADEMICO                                 |");
+    	System.out.println("|                                                                          |");
+    	System.out.println("|                                                                          |");
+    	System.out.println("|       SISTEMA DE GERENCIAMENTO ACADÊMICO                                 |");
     	System.out.println("|       1 - Consultar todas                                                |");
     	System.out.println("|       2 - Consultar disciplina através do código                         |");
     	System.out.println("|       3 - Consultar disciplina pelo nome completo                        |");
@@ -392,8 +397,9 @@ public class SistemaAcademico {
 		if(!disciplinas.equals(null)) {
 			for(Disciplina disciplina : disciplinas) {
 				System.out.println(".__________________________________________________________________________.");
+				System.out.println("|                                                                          ");
 				System.out.println("|" + "Nome Completo.........................: " + disciplina.getNomeCompleto());
-				System.out.println("|" + "Nome Abreviado........................: " + "" + disciplina.getNomeAbreviado());
+				System.out.println("|" + "Nome Abreviado........................: " + disciplina.getNomeAbreviado());
 				System.out.println("|" + "Código................................: " + disciplina.getCodigo());
 				System.out.println("|" + "Curso.................................: " + disciplina.getCurso());
 				System.out.println("|" + "Docente Responsável...................: " + disciplina.getDocenteResponsavel().getNome());
@@ -410,16 +416,17 @@ public class SistemaAcademico {
 				System.out.println("|" + "Custo Básico Prática..................: " + disciplina.getCustoBasicoPratica());
 				System.out.println("|" + "Custo Básico Teórica..................: " + disciplina.getCustoBasicoTeorica());
 				System.out.println("|" + "Custo Fixo............................: " + disciplina.getCustoFixo());
-				System.out.println("");
+				System.out.println("|__________________________________________________________________________.");
 			}
 		} else {
-			System.out.println("Nenhuma disciplina cencontrada com os parâmetros informados");
+			System.out.println("Nenhuma disciplina foi encontrada com os parâmetros informados");
 		}
 	}
 	
 	private static void menuAlterar() {
 		System.out.println(".__________________________________________________________________________.");
-    	System.out.println("|       SISTEMA DE GERENCIAMENTO ACADEMICO                                 |");
+    	System.out.println("|                                                                          |");
+    	System.out.println("|       SISTEMA DE GERENCIAMENTO ACADÊMICO                                 |");
     	System.out.println("|       1 - Listar todas as diciplinas antes de alterar                    |");
     	System.out.println("|       2 - Alterar                                                        |");
     	System.out.println("|       3 - Sair                                                           |");
@@ -438,7 +445,7 @@ public class SistemaAcademico {
 			if(validarNome(dado)) {
 				disciplina.setNomeCompleto(dado);
 			} else {
-				System.out.println("Dado não alterado, pois o paramentro passado é invalido!");
+				System.out.println("Dado não alterado, pois o parâmetro passado é inválido!");
 			}
 			break;
 		case 2 :
@@ -447,16 +454,16 @@ public class SistemaAcademico {
 			if(validarAbreviacao(dado)) {
 				disciplina.setNomeAbreviado(dado);
 			} else {
-				System.out.println("Dado não alterado, pois o paramentro passado é invalido!");
+				System.out.println("Dado não alterado, pois o parâmetro passado é inválido!");
 			}
 			break;
 		case 3 :
-			System.out.println("Digite o no do curso ao qual a disciplina está vinculada");
+			System.out.println("Digite o nome do curso que a disciplina está vinculada");
 			dado = ler.nextLine();
 			if(validarCurso(dado)) {
 				disciplina.setCurso(dado);
 			} else {
-				System.out.println("Dado não alterado, pois o paramentro passado é invalido!");
+				System.out.println("Dado não alterado, pois o parâmetro passado é inválido!");
 			}
 			break;
 		case 4 :
@@ -467,18 +474,18 @@ public class SistemaAcademico {
 				docente.setNome(dado);
 				disciplina.setDocenteResponsavel(docente);
 			} else {
-				System.out.println("Dado não alterado, pois o paramentro passado é invalido!");
+				System.out.println("Dado não alterado, pois o parâmetro passado é inválido!");
 			}
 			break;
 		case 5 :
-			System.out.println("Digite o nome do docente auxuliar da disciplina: ");
+			System.out.println("Digite o nome do docente auxiliar da disciplina: ");
 			dado = ler.nextLine();
 			if(validarDocenteR(dado)) {
 				Docente docente = new Docente();
 				docente.setNome(dado);
 				disciplina.setDocenteAuxiliar(docente);
 			} else {
-				System.out.println("Dado não alterado, pois o paramentro passado é invalido!");
+				System.out.println("Dado não alterado, pois o parâmetro passado é inválido!");
 			}
 			break;
 		case 6 :
@@ -489,7 +496,7 @@ public class SistemaAcademico {
 				tecnico.setNome(dado);
 				disciplina.setTecnicoAminAdministrativoAuxiliar(tecnico);
 			} else {
-				System.out.println("Dado não alterado, pois o paramentro passado é invalido!");
+				System.out.println("Dado não alterado, pois o parâmetro passado é inválido!");
 			}
 			break;
 		case 7 :
@@ -504,7 +511,7 @@ public class SistemaAcademico {
 			if(validarSituacao(dado)) {
 				disciplina.setSituacao(Integer.parseInt(dado));
 			} else {
-				System.out.println("Dado não alterado, pois o paramentro passado é invalido!");
+				System.out.println("Dado não alterado, pois o parâmetro passado é inválido!");
 			}
 			break;
 		case 8 :
@@ -513,7 +520,7 @@ public class SistemaAcademico {
 			if(validarCargaHorariaPratica(dado)) {
 				disciplina.setCargaHorariaPratica(Integer.parseInt(dado));
 			} else {
-				System.out.println("Dado não alterado, pois o paramentro passado é invalido!");
+				System.out.println("Dado não alterado, pois o parâmetro passado é inválido!");
 			}
 			break;
 		case 9 :
@@ -522,7 +529,7 @@ public class SistemaAcademico {
 			if(validarCargaHorariaTeorica(dado)) {
 				disciplina.setCargaHorariaTeorica(Integer.parseInt(dado));
 			} else {
-				System.out.println("Dado não alterado, pois o paramentro passado é invalido!");
+				System.out.println("Dado não alterado, pois o parâmetro passado é inválido!");
 			}
 			break;
 		case 10 :
@@ -531,7 +538,7 @@ public class SistemaAcademico {
 			if(validarCargaHorariaSemanal(dado)) {
 				disciplina.setCargaHorariaSemanal(Integer.parseInt(dado));
 			} else {
-				System.out.println("Dado não alterado, pois o paramentro passado é invalido!");
+				System.out.println("Dado não alterado, pois o parâmetro passado é inválido!");
 			}
 			break;
 		case 11 :
@@ -540,7 +547,7 @@ public class SistemaAcademico {
 			if(validarCargaHorariaMensal(dado)) {
 				disciplina.setCargaHorariaMensal(Integer.parseInt(dado));
 			} else {
-				System.out.println("Dado não alterado, pois o paramentro passado é invalido!");
+				System.out.println("Dado não alterado, pois o parâmetro passado é inválido!");
 			}
 			break;
 		case 12 :
@@ -549,7 +556,7 @@ public class SistemaAcademico {
 			if(validarCargaHorariaTotal(dado)) {
 				disciplina.setCargaHorariaTotal(Integer.parseInt(dado));
 			} else {
-				System.out.println("Dado não alterado, pois o paramentro passado é invalido!");
+				System.out.println("Dado não alterado, pois o parâmetro passado é inválido!");
 			}
 			break;
 		case 13 :
@@ -558,7 +565,7 @@ public class SistemaAcademico {
 			if(validarNumCreditos(dado)) {
 				disciplina.setNumeroCreditos(Integer.parseInt(dado));
 			} else {
-				System.out.println("Dado não alterado, pois o paramentro passado é invalido!");
+				System.out.println("Dado não alterado, pois o parâmetro passado é inválido!");
 			}
 			break;
 		case 14 :
@@ -567,16 +574,16 @@ public class SistemaAcademico {
 			if(validarCustoPratica(dado)) {
 				disciplina.setCustoBasicoPratica(Integer.parseInt(dado));
 			} else {
-				System.out.println("Dado não alterado, pois o paramentro passado é invalido!");
+				System.out.println("Dado não alterado, pois o parâmetro passado é inválido!");
 			}
 			break;
 		case 15 :
-			System.out.println("Digite o custo teórica: ");
+			System.out.println("Digite o custo teórico: ");
 			dado = ler.nextLine();
 			if(validarCustoTeorica(dado)) {
 				disciplina.setCustoBasicoTeorica(Integer.parseInt(dado));
 			} else {
-				System.out.println("Dado não alterado, pois o paramentro passado é invalido!");
+				System.out.println("Dado não alterado, pois o parâmetro passado é inválido!");
 			}
 			break;
 		case 16 :
@@ -585,7 +592,7 @@ public class SistemaAcademico {
 			if(validarCustoFixo(dado)) {
 				disciplina.setCustoFixo(Integer.parseInt(dado));
 			} else {
-				System.out.println("Dado não alterado, pois o paramentro passado é invalido!");
+				System.out.println("Dado não alterado, pois o parâmetro passado é inválido!");
 			}
 			break;
 		case 17 :
@@ -596,7 +603,7 @@ public class SistemaAcademico {
 				tecnico.setNome(dado);
 				disciplina.setTecnicoAdministrativoResponsavel(tecnico);
 			} else {
-				System.out.println("Dado não alterado, pois o paramentro passado é invalido!");
+				System.out.println("Dado não alterado, pois o parâmetro passado é inválido!");
 			}
 			break;
 		}
@@ -674,22 +681,23 @@ public class SistemaAcademico {
 
 	private static void menuOpcaoAlterar() {
 		System.out.println(".__________________________________________________________________________.");
-    	System.out.println("|       SISTEMA DE GERENCIAMENTO ACADEMICO                                 |");
-    	System.out.println("|        1 - Alterar nome completo                                         |");
-    	System.out.println("|        2 - Alterar nome abreviado                                        |");
+    	System.out.println("|                                                                          |");
+    	System.out.println("|       SISTEMA DE GERENCIAMENTO ACADÊMICO                                 |");
+    	System.out.println("|        1 - Alterar Nome Completo                                         |");
+    	System.out.println("|        2 - Alterar Nome Abreviado                                        |");
     	System.out.println("|        3 - Alterar Curso                                                 |"); //Alterar o resto
     	System.out.println("|        4 - Alterar Docente Responsável                                   |");
     	System.out.println("|        5 - Alterar Docente Auxiliar                                      |");
-    	System.out.println("|        6 - Alterar Técnico AminAdministrativo Auxiliar                   |");
+    	System.out.println("|        6 - Alterar Técnico Administrativo Auxiliar                       |");
     	System.out.println("|        7 - Alterar Situação                                              |");
     	System.out.println("|        8 - Alterar Carga Horária Prática                                 |");
     	System.out.println("|        9 - Alterar Carga Horária Teórica                                 |");
-    	System.out.println("|       10 - Alterar Carga Horaria Semanal                                 |");
-    	System.out.println("|       11 - Alterar Carga Horaria Mensal                                  |");
-    	System.out.println("|       12 - Alterar Carga Horaria Total                                   |");
-    	System.out.println("|       13 - Alterar Numero Creditos                                       |");
-    	System.out.println("|       14 - Alterar Custo Basico Pratica                                  |");
-    	System.out.println("|       15 - Alterar Custo Basico Teorica                                  |");
+    	System.out.println("|       10 - Alterar Carga Horária Semanal                                 |");
+    	System.out.println("|       11 - Alterar Carga Horária Mensal                                  |");
+    	System.out.println("|       12 - Alterar Carga Horária Total                                   |");
+    	System.out.println("|       13 - Alterar Número de Créditos                                    |");
+    	System.out.println("|       14 - Alterar Custo Básico Prática                                  |");
+    	System.out.println("|       15 - Alterar Custo Básico Teórica                                  |");
     	System.out.println("|       16 - Alterar Custo Fixo                                            |");
     	System.out.println("|       17 - Alterar Técnico Administrativo Responsável                    |");
     	System.out.println("|__________________________________________________________________________|");

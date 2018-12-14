@@ -56,14 +56,13 @@ public class SituacaoDisciplina{
         return(this.situacaoDisciplina.size());
     }
     public void show(int index) {
-        System.out.println();
-        System.out.println("------------------");
-        System.out.println("Situação da Disciplina");
-        System.out.println("------------------");
-        System.out.println("Código..........: " + this.getsituacaoDisciplina(index).getCodigo());
-        System.out.println("Descr. Abreviada: " + this.getsituacaoDisciplina(index).getDescricaoAbreviada());
-        System.out.println("Descr. Completa.: " + this.getsituacaoDisciplina(index).getDescricaoCompleta());
-        System.out.println("------------------");
+		System.out.println(".__________________________________________________________________________.");
+        System.out.println("|                                                                          ");
+        System.out.println("|       SISTEMA DE GERENCIAMENTO ACADÊMICO                                 ");
+    	System.out.println("|       Código: " + this.getsituacaoDisciplina(index).getCodigo());
+    	System.out.println("|       Descrição Abreviada: " + this.getsituacaoDisciplina(index).getDescricaoAbreviada());
+    	System.out.println("|       Descrição Completa: " + this.getsituacaoDisciplina(index).getDescricaoCompleta());
+    	System.out.println("|__________________________________________________________________________.");
     }
     
     
