@@ -83,6 +83,7 @@ public class SistemaAcademico {
 	
 	private static void cadastrar() {
 		String dado;
+<<<<<<< HEAD
 				
 		do {
 			System.out.println("\n\n\tDigite o código da disciplina: ");
@@ -93,15 +94,24 @@ public class SistemaAcademico {
 				System.out.println("\n\n\tDado inválido!");
 			}
 		}while(validarCodigo(dado)==false);
+=======
+		System.out.println("Digite o código da disciplina: "); // Somente números e com 4 dígitos
+		dado = ler.nextLine();
+		if(validarCodigo(dado)) {
+			disciplina.setCodigo(Integer.parseInt(dado));
+		} else {
+			System.out.println("Dado inválido!");
+		}
+>>>>>>> branch 'master' of https://github.com/maukeka/UnidosPeloAP2.git
 		
-		System.out.println("Digite o nome completo da disciplina: ");
+		System.out.println("Digite o nome completo da disciplina: "); // Não precisa de tratamento
 		dado = ler.nextLine();
 		if(validarNome(dado)) {
 			disciplina.setNomeCompleto(dado);
 		} else {
 			System.out.println("Dado invalido!");
 		}
-		System.out.println("Digite o nome abreviado da disciplina: ");
+		System.out.println("Digite o nome abreviado da disciplina: "); //Limitar até 3 Dígitos
 		dado = ler.nextLine();
 		if(validarAbreviacao(dado)) {
 			disciplina.setNomeAbreviado(dado);
@@ -109,14 +119,18 @@ public class SistemaAcademico {
 			System.out.println("Dado invalido!");
 		}
 
+<<<<<<< HEAD
 		System.out.println("Digite o no do curso ao qual a disciplina está vinculada");
+=======
+		System.out.println("Digite o nome do curso ao qual a disciplina está vinculada");  //Somente Letras
+>>>>>>> branch 'master' of https://github.com/maukeka/UnidosPeloAP2.git
 		dado = ler.nextLine();
 		if(validarCurso(dado)) {
 			disciplina.setCurso(dado);
 		} else {
 			System.out.println("Dado invalido!");
 		}
-			System.out.println("Digite o nome do docente responsável pela disciplina: ");
+			System.out.println("Digite o nome do docente responsável pela disciplina: "); //Somente Letras
 		dado = ler.nextLine();
 		if(validarDocenteR(dado)) {
 			Docente docente = new Docente();
@@ -125,7 +139,11 @@ public class SistemaAcademico {
 		} else {
 			System.out.println("Dado invalido!");
 		}
+<<<<<<< HEAD
 				System.out.println("Digite o nome do docente auxuliar da disciplina: ");
+=======
+				System.out.println("Digite o nome do docente auxiliar da disciplina: "); //Somente Letras e colocar menu para selecionar o desejo
+>>>>>>> branch 'master' of https://github.com/maukeka/UnidosPeloAP2.git
 		dado = ler.nextLine();
 		if(validarDocenteR(dado)) {
 			Docente docente = new Docente();
@@ -134,7 +152,7 @@ public class SistemaAcademico {
 		} else {
 			System.out.println("Dado invalido!");
 		}
-					System.out.println("Digite o nome do técnico administrativo auxiliar da disciplina: ");
+					System.out.println("Digite o nome do técnico administrativo auxiliar da disciplina: "); //Somente Letras e colocar menu para selecionar o desejo
 		dado = ler.nextLine();
 		if(validarTecnico(dado)) {
 			TecnicoAdministrativo tecnico = new TecnicoAdministrativo();
@@ -154,7 +172,11 @@ public class SistemaAcademico {
 		if(validarSituacao(dado)) {
 			disciplina.setSituacao(Integer.parseInt(dado));
 		} else {
+<<<<<<< HEAD
 			System.out.println("Dado invalido!");
+=======
+			System.out.println("Dado inválido!"); // Repetir o menu de novo caso não exista nenhuma das opções 
+>>>>>>> branch 'master' of https://github.com/maukeka/UnidosPeloAP2.git
 		}
 				System.out.println("Digite a carga horária prática: ");
 		dado = ler.nextLine();
@@ -170,56 +192,60 @@ public class SistemaAcademico {
 		} else {
 			System.out.println("Dado invalido!");
 		}
-				System.out.println("Digite a carga horária semanal: ");
+				System.out.println("Digite a carga horária semanal: "); //Deve ser Opcional e somente números
 		dado = ler.nextLine();
 		if(validarCargaHorariaSemanal(dado)) {
 			disciplina.setCargaHorariaSemanal(Integer.parseInt(dado));
 		} else {
 			System.out.println("Dado invalido!");
 		}
-				System.out.println("Digite a carga horária mensal: ");
+				System.out.println("Digite a carga horária mensal: "); //Deve ser Opcional e somente números
 		dado = ler.nextLine();
 		if(validarCargaHorariaMensal(dado)) {
 			disciplina.setCargaHorariaMensal(Integer.parseInt(dado));
 		} else {
 			System.out.println("Dado invalido!");
 		}
-					System.out.println("Digite a carga horária total: ");
+					System.out.println("Digite a carga horária total: "); //Não pode ser igual a zero (fazer a somatória)
 		dado = ler.nextLine();
 		if(validarCargaHorariaTotal(dado)) {
 			disciplina.setCargaHorariaTotal(Integer.parseInt(dado));
 		} else {
 			System.out.println("Dado invalido!");
 		}
-					System.out.println("Digite o número de créditos:");
+					System.out.println("Digite o número de créditos:"); // Somente números e ser opcional
 		dado = ler.nextLine();
 		if(validarNumCreditos(dado)) {
 			disciplina.setNumeroCreditos(Integer.parseInt(dado));
 		} else {
 			System.out.println("Dado invalido!");
 		}
-					System.out.println("Digite o custo prático: ");
+					System.out.println("Digite o custo prático: "); // Opcional e só número
 		dado = ler.nextLine();
 		if(validarCustoPratica(dado)) {
 			disciplina.setCustoBasicoPratica(Integer.parseInt(dado));
 		} else {
 			System.out.println("Dado invalido!");
 		}
+<<<<<<< HEAD
 				System.out.println("Digite o custo teórica: ");
+=======
+				System.out.println("Digite o custo teórico: "); //Opcional e só número
+>>>>>>> branch 'master' of https://github.com/maukeka/UnidosPeloAP2.git
 		dado = ler.nextLine();
 		if(validarCustoTeorica(dado)) {
 			disciplina.setCustoBasicoTeorica(Integer.parseInt(dado));
 		} else {
 			System.out.println("Dado invalido!");
 		}
-					System.out.println("Digite o custo fixo: ");
+					System.out.println("Digite o custo fixo: "); //Opcional e só número
 		dado = ler.nextLine();
 		if(validarCustoFixo(dado)) {
 			disciplina.setCustoFixo(Integer.parseInt(dado));
 		} else {
 			System.out.println("Dado invalido!");
 		}
-					System.out.println("Digite o nome do técnico administrativo responsável da disciplina:");
+					System.out.println("Digite o nome do técnico administrativo responsável da disciplina:"); //Somente Letras
 		dado = ler.nextLine();
 		if(validarTecnico(dado)) {
 			TecnicoAdministrativo tecnico = new TecnicoAdministrativo();
@@ -275,7 +301,11 @@ public class SistemaAcademico {
 		case 1: 
 			disciplinas = disciplinaDAO.consultar("todos", null);
 			exibirDados(disciplinas);
+<<<<<<< HEAD
 			System.out.println("Digite o código da disciplina a ser alterado: ");
+=======
+			System.out.println("Digite o código da disciplina a ser alterada: "); //Somente números
+>>>>>>> branch 'master' of https://github.com/maukeka/UnidosPeloAP2.git
 			chave = ler.nextLine();
 			for(Disciplina disciplina : disciplinas) {
 				if(disciplina.getCodigo() == Integer.parseInt(chave)) {
@@ -286,7 +316,11 @@ public class SistemaAcademico {
 			
 			break;
 		case 2:
+<<<<<<< HEAD
 			System.out.println("Digite o código da disciplina a ser alterado: ");
+=======
+			System.out.println("Digite o código da disciplina a ser alterada: "); //Somente números
+>>>>>>> branch 'master' of https://github.com/maukeka/UnidosPeloAP2.git
 			chave = ler.nextLine(); //try...catch
 			disciplinas = disciplinaDAO.consultar(chave, null);
 			if(disciplinas.size() == 1) {
@@ -321,12 +355,12 @@ public class SistemaAcademico {
 		case 1: 
 			disciplinas = disciplinaDAO.consultar("todos", null);
 			exibirDados(disciplinas);
-			System.out.println("Digite o código da disciplina a ser excluída: ");
+			System.out.println("Digite o código da disciplina a ser excluída: "); // Somente número
 			chave = Integer.parseInt(ler.nextLine());
 			disciplinaDAO.excluir(chave);
 			break;
 		case 2:
-			System.out.println("Digite o código da disciplina a ser excluída: ");
+			System.out.println("Digite o código da disciplina a ser excluída: "); // Somente número
 			chave = Integer.parseInt(ler.nextLine()); //try...catch
 			disciplinaDAO.excluir(chave);
 			break;
@@ -369,21 +403,21 @@ public class SistemaAcademico {
     		exibirDados(disciplinas);
     		break;
     	case 2:
-    		System.out.printf("Digite o código da disciplina: ");
+    		System.out.printf("Digite o código da disciplina: "); //Somente número
     		chave = ler.nextLine();
     		System.out.println();
     		disciplinas = disciplinaDAO.consultar("codigo", chave);
     		exibirDados(disciplinas);
     		break;
     	case 3:
-    		System.out.printf("Digite o nome completo da disciplina: ");
+    		System.out.printf("Digite o nome completo da disciplina: "); //Somente Letras
     		chave = ler.nextLine();
     		System.out.println();
     		disciplinas = disciplinaDAO.consultar("nome completo", chave);
     		exibirDados(disciplinas);
     		break;
     	case 4:
-    		System.out.printf("Digite o nome abreviado da disciplina: ");
+    		System.out.printf("Digite o nome abreviado da disciplina: "); // 3 Dígitos no max e pelo menos uma letra
     		chave = ler.nextLine();
     		System.out.println();
     		disciplinas = disciplinaDAO.consultar("nome abreviado", chave);
@@ -453,7 +487,7 @@ public class SistemaAcademico {
 		int leitura = Integer.parseInt(ler.nextLine());
 		switch(leitura) {
 		case 1 :
-			System.out.println("Digite o nome completo da disciplina: ");
+			System.out.println("Digite o nome completo da disciplina: "); 
 			dado = ler.nextLine();
 			if(validarNome(dado)) {
 				disciplina.setNomeCompleto(dado);
@@ -462,7 +496,7 @@ public class SistemaAcademico {
 			}
 			break;
 		case 2 :
-			System.out.println("Digite o nome abreviado da disciplina: ");
+			System.out.println("Digite o nome abreviado da disciplina: "); //No max 3 dígitos e no mínimo 1 letra
 			dado = ler.nextLine();
 			if(validarAbreviacao(dado)) {
 				disciplina.setNomeAbreviado(dado);
@@ -471,7 +505,11 @@ public class SistemaAcademico {
 			}
 			break;
 		case 3 :
+<<<<<<< HEAD
 			System.out.println("Digite o no do curso ao qual a disciplina está vinculada");
+=======
+			System.out.println("Digite o nome do curso que a disciplina está vinculada"); //Somente letras
+>>>>>>> branch 'master' of https://github.com/maukeka/UnidosPeloAP2.git
 			dado = ler.nextLine();
 			if(validarCurso(dado)) {
 				disciplina.setCurso(dado);
@@ -480,7 +518,7 @@ public class SistemaAcademico {
 			}
 			break;
 		case 4 :
-			System.out.println("Digite o nome do docente responsável pela disciplina: ");
+			System.out.println("Digite o nome do docente responsável pela disciplina: "); //Somente letras
 			dado = ler.nextLine();
 			if(validarDocenteR(dado)) {
 				Docente docente = new Docente();
@@ -491,7 +529,11 @@ public class SistemaAcademico {
 			}
 			break;
 		case 5 :
+<<<<<<< HEAD
 			System.out.println("Digite o nome do docente auxuliar da disciplina: ");
+=======
+			System.out.println("Digite o nome do docente auxiliar da disciplina: "); //Somente letras
+>>>>>>> branch 'master' of https://github.com/maukeka/UnidosPeloAP2.git
 			dado = ler.nextLine();
 			if(validarDocenteR(dado)) {
 				Docente docente = new Docente();
@@ -502,7 +544,7 @@ public class SistemaAcademico {
 			}
 			break;
 		case 6 :
-			System.out.println("Digite o nome do técnico administrativo auxiliar da disciplina: ");
+			System.out.println("Digite o nome do técnico administrativo auxiliar da disciplina: "); //Somente letras
 			dado = ler.nextLine();
 			if(validarTecnico(dado)) {
 				TecnicoAdministrativo tecnico = new TecnicoAdministrativo();
@@ -528,7 +570,7 @@ public class SistemaAcademico {
 			}
 			break;
 		case 8 :
-			System.out.println("Digite a carga horária prática: ");
+			System.out.println("Digite a carga horária prática: "); // somente número
 			dado = ler.nextLine();
 			if(validarCargaHorariaPratica(dado)) {
 				disciplina.setCargaHorariaPratica(Integer.parseInt(dado));
@@ -537,7 +579,7 @@ public class SistemaAcademico {
 			}
 			break;
 		case 9 :
-			System.out.println("Digite a carga horária teórica: ");
+			System.out.println("Digite a carga horária teórica: "); // somente número
 			dado = ler.nextLine();
 			if(validarCargaHorariaTeorica(dado)) {
 				disciplina.setCargaHorariaTeorica(Integer.parseInt(dado));
@@ -546,7 +588,7 @@ public class SistemaAcademico {
 			}
 			break;
 		case 10 :
-			System.out.println("Digite a carga horária semanal: ");
+			System.out.println("Digite a carga horária semanal: "); // somente número
 			dado = ler.nextLine();
 			if(validarCargaHorariaSemanal(dado)) {
 				disciplina.setCargaHorariaSemanal(Integer.parseInt(dado));
@@ -555,7 +597,7 @@ public class SistemaAcademico {
 			}
 			break;
 		case 11 :
-			System.out.println("Digite a carga horária mensal: ");
+			System.out.println("Digite a carga horária mensal: ");// somente número
 			dado = ler.nextLine();
 			if(validarCargaHorariaMensal(dado)) {
 				disciplina.setCargaHorariaMensal(Integer.parseInt(dado));
@@ -564,7 +606,7 @@ public class SistemaAcademico {
 			}
 			break;
 		case 12 :
-			System.out.println("Digite a carga horária total: ");
+			System.out.println("Digite a carga horária total: ");// somente número
 			dado = ler.nextLine();
 			if(validarCargaHorariaTotal(dado)) {
 				disciplina.setCargaHorariaTotal(Integer.parseInt(dado));
@@ -573,7 +615,7 @@ public class SistemaAcademico {
 			}
 			break;
 		case 13 :
-			System.out.println("Digite o número de créditos:");
+			System.out.println("Digite o número de créditos:");// somente número
 			dado = ler.nextLine();
 			if(validarNumCreditos(dado)) {
 				disciplina.setNumeroCreditos(Integer.parseInt(dado));
@@ -582,7 +624,7 @@ public class SistemaAcademico {
 			}
 			break;
 		case 14 :
-			System.out.println("Digite o custo prático: ");
+			System.out.println("Digite o custo prático: ");// somente número
 			dado = ler.nextLine();
 			if(validarCustoPratica(dado)) {
 				disciplina.setCustoBasicoPratica(Integer.parseInt(dado));
@@ -591,7 +633,11 @@ public class SistemaAcademico {
 			}
 			break;
 		case 15 :
+<<<<<<< HEAD
 			System.out.println("Digite o custo teórica: ");
+=======
+			System.out.println("Digite o custo teórico: ");// somente número
+>>>>>>> branch 'master' of https://github.com/maukeka/UnidosPeloAP2.git
 			dado = ler.nextLine();
 			if(validarCustoTeorica(dado)) {
 				disciplina.setCustoBasicoTeorica(Integer.parseInt(dado));
@@ -600,7 +646,7 @@ public class SistemaAcademico {
 			}
 			break;
 		case 16 :
-			System.out.println("Digite o custo fixo: ");
+			System.out.println("Digite o custo fixo: ");// somente número
 			dado = ler.nextLine();
 			if(validarCustoFixo(dado)) {
 				disciplina.setCustoFixo(Integer.parseInt(dado));
@@ -609,7 +655,7 @@ public class SistemaAcademico {
 			}
 			break;
 		case 17 :
-			System.out.println("Digite o nome do técnico administrativo responsável da disciplina:");
+			System.out.println("Digite o nome do técnico administrativo responsável da disciplina:");//Somente Letras
 			dado = ler.nextLine();
 			if(validarTecnico(dado)) {
 				TecnicoAdministrativo tecnico = new TecnicoAdministrativo();
