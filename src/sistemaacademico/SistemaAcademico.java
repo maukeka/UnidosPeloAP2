@@ -110,12 +110,19 @@ public class SistemaAcademico {
 			disciplina.setNomeCompleto(dado);
 		}
 		System.out.println("Digite o nome abreviado da disciplina: "
-				+ "\nOBS: Deve possuir no máximo três caracteres."); //Limitar até 3 Dígitos
+				+ "\nOBS: Deve possuir no máximo três caracteres, onde pelo menos um caracter seja uma letra."); 
 		dado = ler.nextLine();
-		if(validarAbreviacao(dado)) {
+		if(validarAbreviacao(dado)==true) {
 			disciplina.setNomeAbreviado(dado);
 		} else {
-			System.out.println("Dado inválido!");
+			do {
+				System.out.println("Dado inválido!");
+				System.out.println("Digite o nome abreviado da disciplina: "
+						+ "\nOBS: Deve possuir no máximo três caracteres.");
+						dado = ler.nextLine();
+						validarAbreviacao(dado);
+			}while(validarAbreviacao(dado)==false);
+			disciplina.setNomeAbreviado(dado);
 		}
 		System.out.println("Digite o nome do curso ao qual a disciplina está vinculada"
 				+ "\nOBS: Deve possuir somente letras.");  //Somente Letras
@@ -724,7 +731,24 @@ public class SistemaAcademico {
 	}
 
 	private static boolean validarAbreviacao(String dado) {
-		return dado.matches("[a-zA-Z\\u0020]+") && !dado.equals(null) && !dado.equals(" ") && dado.length()<4;
+		int testeTamanho = dado.length();
+		boolean confirmacao;
+		boolean validaçao;
+		int testeDeLetras;
+		try {
+			testeDeLetras = Integer.parseInt(dado);
+			validaçao = false;
+		}
+		catch(NumberFormatException erro) {
+			validaçao = true;
+		}
+		if(testeTamanho>0 && testeTamanho<4 && validaçao == true) {
+			confirmacao = true;
+		}
+		else {
+			confirmacao = false;
+		}
+		return confirmacao;
 	}
 
 	private static boolean validarNome(String dado) {
