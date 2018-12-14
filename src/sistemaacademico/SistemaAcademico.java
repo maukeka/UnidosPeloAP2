@@ -38,7 +38,7 @@ public class SistemaAcademico {
         		try {
         			leitura = menu();
         		}
-        		catch(Exception e) {// trocar excepion?
+        		catch(Exception e) {// trocar exception?
         			leitura = menu();
         		}
         	}while(leitura>5 || leitura<1);
@@ -87,7 +87,7 @@ public class SistemaAcademico {
 		String dado;	
 		do {
 			System.out.println("\nDigite o código da disciplina: "
-					+ "\nObs: Cada código é formado por 4 números.");
+					+ "\nOBS: Deve ser formado apenas por quatro números.");
 			dado = ler.nextLine();
 			if(validarCodigo(dado)) {
 				disciplina.setCodigo(Integer.parseInt(dado));
@@ -110,21 +110,23 @@ public class SistemaAcademico {
 			disciplina.setNomeCompleto(dado);
 		}
 		System.out.println("Digite o nome abreviado da disciplina: "
-				+ "\nObs: É válido no máximo 3 caracteres."); //Limitar até 3 Dígitos
+				+ "\nOBS: Deve possuir no máximo três caracteres."); //Limitar até 3 Dígitos
 		dado = ler.nextLine();
 		if(validarAbreviacao(dado)) {
 			disciplina.setNomeAbreviado(dado);
 		} else {
 			System.out.println("Dado inválido!");
 		}
-		System.out.println("Digite o nome do curso ao qual a disciplina está vinculada");  //Somente Letras
+		System.out.println("Digite o nome do curso ao qual a disciplina está vinculada"
+				+ "\nOBS: Deve possuir somente letras.");  //Somente Letras
 		dado = ler.nextLine();
 		if(validarCurso(dado)) {
 			disciplina.setCurso(dado);
 		} else {
 			System.out.println("Dado inválido!");
 		}
-			System.out.println("Digite o nome do docente responsável pela disciplina: "); //Somente Letras
+			System.out.println("Digite o nome do docente responsável pela disciplina: "
+					+ "\nOBS: Deve possuir somente letras."); //Somente Letras
 		dado = ler.nextLine();
 		if(validarDocenteR(dado)) {
 			Docente docente = new Docente();
@@ -133,7 +135,8 @@ public class SistemaAcademico {
 		} else {
 			System.out.println("Dado inválido!");
 		}
-				System.out.println("Digite o nome do docente auxiliar da disciplina: "); //Somente Letras e colocar menu para selecionar o desejo
+				System.out.println("Digite o nome do docente auxiliar da disciplina: "
+						+ "\nOBS: Deve possuir somente letras."); //Somente Letras e colocar menu para selecionar o desejo
 		dado = ler.nextLine();
 		if(validarDocenteR(dado)) {
 			Docente docente = new Docente();
@@ -142,7 +145,8 @@ public class SistemaAcademico {
 		} else {
 			System.out.println("Dado inválido!");
 		}
-					System.out.println("Digite o nome do técnico administrativo auxiliar da disciplina: "); //Somente Letras e colocar menu para selecionar o desejo
+					System.out.println("Digite o nome do técnico administrativo auxiliar da disciplina: "
+							+ "\nOBS: Deve possuir somente letras."); //Somente Letras e colocar menu para selecionar o desejo
 		dado = ler.nextLine();
 		if(validarTecnico(dado)) {
 			TecnicoAdministrativo tecnico = new TecnicoAdministrativo();
@@ -205,21 +209,24 @@ public class SistemaAcademico {
 		} else {
 			System.out.println("Dado inválido!");
 		}
-					System.out.println("Digite o número de créditos:"); // Somente números e ser opcional
+					System.out.println("Digite o número de créditos:"
+							+ "OBS: Deve ser somente números."); // Somente números e ser opcional
 		dado = ler.nextLine();
 		if(validarNumCreditos(dado)) {
 			disciplina.setNumeroCreditos(Integer.parseInt(dado));
 		} else {
 			System.out.println("Dado inválido!");
 		}
-					System.out.println("Digite o custo prática: "); // Opcional e só número
+					System.out.println("Digite o custo prática: "
+							+ "OBS: Deve ser somente números."); // Opcional e só número
 		dado = ler.nextLine();
 		if(validarCustoPratica(dado)) {
 			disciplina.setCustoBasicoPratica(Integer.parseInt(dado));
 		} else {
 			System.out.println("Dado inválido!");
 		}
-				System.out.println("Digite o custo teórica: "); //Opcional e só número
+				System.out.println("Digite o custo teórica: "
+						+ "OBS: Deve ser somente números."); //Opcional e só número
 
 		dado = ler.nextLine();
 		if(validarCustoTeorica(dado)) {
@@ -227,14 +234,16 @@ public class SistemaAcademico {
 		} else {
 			System.out.println("Dado inválido!");
 		}
-					System.out.println("Digite o custo fixo: "); //Opcional e só número
+					System.out.println("Digite o custo fixo: "
+							+ "OBS: Deve ser somente números."); //Opcional e só número
 		dado = ler.nextLine();
 		if(validarCustoFixo(dado)) {
 			disciplina.setCustoFixo(Integer.parseInt(dado));
 		} else {
 			System.out.println("Dado inválido!");
 		}
-					System.out.println("Digite o nome do técnico administrativo responsável da disciplina:"); //Somente Letras
+					System.out.println("Digite o nome do técnico administrativo responsável da disciplina:"
+							+ "OBS: Deve ser somente letras."); //Somente Letras
 		dado = ler.nextLine();
 		if(validarTecnico(dado)) {
 			TecnicoAdministrativo tecnico = new TecnicoAdministrativo();
