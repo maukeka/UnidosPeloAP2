@@ -86,13 +86,13 @@ public class SistemaAcademico {
 	private static void cadastrar() {
 		String dado;	
 		do {
-			System.out.println("\nDigite o código da disciplina: "
+			System.out.println("Digite o código da disciplina: "
 					+ "\nOBS: Deve ser formado apenas por quatro números.");
 			dado = ler.nextLine();
 			if(validarCodigo(dado)) {
 				disciplina.setCodigo(Integer.parseInt(dado));
 			} else {
-				System.out.println("\n\n\tDado inválido!");
+				System.out.println("Dado inválido");	
 			}
 		}while(validarCodigo(dado)==false);
 		System.out.println("Digite o nome completo da disciplina: "); 
@@ -125,117 +125,181 @@ public class SistemaAcademico {
 			disciplina.setNomeAbreviado(dado);
 		}
 		
-		System.out.println("Digite o nome do curso ao qual a disciplina está vinculada"
-				+ "\nOBS: Deve possuir somente letras.");  //Somente Letras
-		dado = ler.nextLine();
-		if(validarCurso(dado)) {
-			disciplina.setCurso(dado);
-		} else {
-			System.out.println("Dado inválido!");
-		}
+		int auxiliar = 1;
+		do {
+			menuCurso();
+			dado = ler.nextLine();
+			
+			switch(dado)
+			{
+				case "1":
+					System.out.println("Curso de núcleo livre");
+					disciplina.setCurso("NÚCLEO LIVRE");
+					auxiliar = 2;
+					break;
+				case "2":
+					int help = 1;
+					do {
+						System.out.println("Insira o nome do curso:");
+							dado = ler.nextLine();
+						if(validarCurso(dado)) {
+							disciplina.setCurso(dado);
+							help = 2;
+							break;
+						}
+						else
+							System.out.println("Dado inválido. Números não são permitidos!");
+							help = 1;
+					}while(help == 1);
+					
+					
+				case "3":
+					disciplina.setCurso("NÃO HÁ");
+					auxiliar = 2;
+					break;
+				default:
+					System.out.println("Dado inválido.");
+					break;
+			}
+		}while( auxiliar  == 1);
 		
-		System.out.println("Digite o nome do docente responsável pela disciplina: "
+		do{
+			System.out.println("Digite o nome do docente responsável pela disciplina: "
+
 					+ "\nOBS: Deve possuir somente letras."); //Somente Letras
-		dado = ler.nextLine();
-		if(validarDocenteR(dado)) {
-			Docente docente = new Docente();
-			docente.setNome(dado);
-			disciplina.setDocenteResponsavel(docente);
-		} else {
-			System.out.println("Dado inválido!");
-		}
+			dado = ler.nextLine();
+			if(validarDocenteR(dado)) {
+				Docente docente = new Docente();
+				docente.setNome(dado);
+				disciplina.setDocenteResponsavel(docente);
+				auxiliar = 2;
+				break;
+			} else {
+				System.out.println("Dado inválido!");
+				auxiliar = 1;
+
+			}
+		}while( auxiliar == 1);
+		
 		System.out.print("\n");
 		System.out.print("\t DOCENTE AUXILIAR");
 		System.out.print("\n\n");
-		int auxiliar = 1;
+		
 		do {
-			int leitura;
-			leitura = menuOpcao();
+			menuOpcao();
+			dado = ler.nextLine();
 			
-			switch (leitura) {
-			case 1: 
-				System.out.println("Digite o nome do docente auxiliar da disciplina: "
-						+ "\nOBS: Deve possuir somente letras."); //Somente Letras e colocar menu para selecionar o desejo
-				dado = ler.nextLine();
-				if(validarDocenteR(dado)) {
-					Docente docente = new Docente();
-					docente.setNome(dado);
-					disciplina.setDocenteAuxiliar(docente);
-					auxiliar = 2;
-				} else {
-					System.out.println("Dado inválido!");
-				}
+			switch (dado) {
+			case "1": 
+				int help = 1;
+				do {
+					System.out.println("Digite o nome do docente auxiliar da disciplina: "
+							+ "\nOBS: Deve possuir somente letras.");
+						dado = ler.nextLine();
+					if(validarDocenteR(dado)) {
+						Docente docente = new Docente();
+						docente.setNome(dado);
+						disciplina.setDocenteAuxiliar(docente);
+						help = 2;
+						break;
+					}
+					else
+						System.out.println("Dado inválido. Números não são permitidos!");
+						help = 1;
+				}while(help == 1);
+				 //Somente Letras e colocar menu para selecionar o desejo
 				break;
-			case 2: 
+			case "2": 
 				Docente docente = new Docente();
 				docente.setNome("Não há docente auxiliar");
 				disciplina.setDocenteAuxiliar(docente);
 				auxiliar = 2;
 				break;
+			default:
+				System.out.println("Dado inválido!");
+				auxiliar = 1;
 			}
 		}while(auxiliar == 1);
 		
 		System.out.print("\n");
-		System.out.println("TÉCNICO ADMINISTRATIVO");
+		System.out.println("TÉCNICO ADMINISTRATIVO RESPONSÁVEL");
 		System.out.print("\n\n");
-		int auxiliar3 = 1;
-		do {
-			int leitura;
-			leitura = menuOpcao();
-
-			switch (leitura) {
-			case 1: 
-				System.out.println("Digite o nome do técnico administrativo auxiliar da disciplina: "
-						+ "\nOBS: Deve possuir somente letras."); //Somente Letras e colocar menu para selecionar o desejo
+		
+		do {	
+				menuOpcao();
 				dado = ler.nextLine();
-				if(validarTecnico(dado)) {
-					TecnicoAdministrativo tecnico = new TecnicoAdministrativo();
-					tecnico.setNome(dado);
-					disciplina.setTecnicoAminAdministrativoAuxiliar(tecnico);
-					auxiliar =2;
-				} else {
-					System.out.println("Dado inválido!");
-				}
+			
+
+			switch (dado) {
+			case "1": 
+				int help = 1;
+				do {
+					System.out.println("Digite o nome do técnico administrativo  responsável pela disciplina: "
+							+ "\nOBS: Deve possuir somente letras.");
+						dado = ler.nextLine();
+					if(validarTecnico(dado)) {
+						TecnicoAdministrativo tecnicoAdministrativo = new TecnicoAdministrativo();
+						tecnicoAdministrativo.setNome(dado);
+						disciplina.setTecnicoAdministrativoResponsavel(tecnicoAdministrativo);
+						help = 2;
+						break;
+					}
+					else
+						System.out.println("Dado inválido. Números não são permitidos!");
+						help = 1;
+				}while(help == 1);
 				break;
-			case 2: 
-				TecnicoAdministrativo tecnicoAuxiliar = new TecnicoAdministrativo();
-				tecnicoAuxiliar.setNome("Não há técnico administrativo auxiliar");
-				disciplina.setTecnicoAminAdministrativoAuxiliar(tecnicoAuxiliar);
-				auxiliar3 = 2;
+			case "2": 
+				TecnicoAdministrativo tecnicoAdministrativo = new TecnicoAdministrativo();
+				tecnicoAdministrativo.setNome("Não há técnico administrativo auxiliar");
+				disciplina.setTecnicoAdministrativoResponsavel(tecnicoAdministrativo);
+				auxiliar = 2;
 				break;
+			default:
+				System.out.println("Dado inválido!");
+				auxiliar = 1;
 			}
-		}while(auxiliar3 == 1);
+		}while(auxiliar == 1);
 		
 		System.out.print("\n");
 		System.out.println("TÉCNICO ADMINISTRATIVO AUXILIAR");
 		System.out.print("\n\n");
-		int auxiliar2 = 1;
+		
+		menuOpcao();
 		do {
-			int leitura;
-			leitura = menuOpcao();
+			
+			dado = ler.nextLine();
 
-			switch (leitura) {
-			case '1':
+			switch (dado) {
+			case "1":
+				int help = 1;
+			do {
 				System.out.println("Digite o nome do técnico administrativo auxiliar da disciplina: "
-						+ "\nOBS: Deve possuir somente letras."); //Somente Letras e colocar menu para selecionar o desejo
-				dado = ler.nextLine();
+						+ "\nOBS: Deve possuir somente letras.");
+					dado = ler.nextLine();
 				if(validarTecnico(dado)) {
-					TecnicoAdministrativo tecnico = new TecnicoAdministrativo();
-					tecnico.setNome(dado);
-					disciplina.setTecnicoAminAdministrativoAuxiliar(tecnico);
-					auxiliar2 = 2;
-				} else {
-					System.out.println("Dado inválido!");
+					TecnicoAdministrativo tecnicoAdministrativo = new TecnicoAdministrativo();
+					tecnicoAdministrativo.setNome(dado);
+					disciplina.setTecnicoAminAdministrativoAuxiliar(tecnicoAdministrativo);
+					help = 2;
+					break;
 				}
+				else
+					System.out.println("Dado inválido. Números não são permitidos!");
+					help = 1;
+			}while(help == 1);
+			break;
+			case "2": 
+				TecnicoAdministrativo tecnicoAdministrativo = new TecnicoAdministrativo();
+				tecnicoAdministrativo.setNome("Não há técnico administrativo auxiliar");
+				disciplina.setTecnicoAminAdministrativoAuxiliar(tecnicoAdministrativo);
+				auxiliar = 2;
 				break;
-			case '2': 
-				TecnicoAdministrativo tecnicoAuxiliar = new TecnicoAdministrativo();
-				tecnicoAuxiliar.setNome("Não há técnico administrativo auxiliar");
-				disciplina.setTecnicoAminAdministrativoAuxiliar(tecnicoAuxiliar);
-				auxiliar2 = 2;
-				break;
+			default:
+				System.out.println("Dado inválido!");
+				auxiliar = 1;
 			}
-		}while(auxiliar2 == 1);
+		}while(auxiliar == 1);
 		
 		System.out.println(".__________________________________________________________________________.");		
         System.out.println("|                                                                          |");
@@ -934,12 +998,12 @@ public class SistemaAcademico {
 				int dado2 = Integer.parseInt(dado);
 				apoio = true;
 			}catch(NumberFormatException erro) {
-				System.out.println("\n\n\tNão insira letras apenas números!");
+				
 				apoio = false;
 			}
 		}
 		else {
-			System.out.println("\n\n\tQuantidade Incorreta!");
+			
 			apoio = false;
 			}
 	return apoio;		
@@ -970,8 +1034,8 @@ public class SistemaAcademico {
 		System.out.println("Dado não alterado, pois o paramêtro passado é inválido!");
     	System.out.printf(" Digite um dos seguintes números para acessar: ");
 	}
-	private static int menuOpcao() {
-		int leitura;
+	private static void menuOpcao() {
+		
 		System.out.println(".__________________________________________________________________________.");
 		System.out.println("|                                                                          |");
 		System.out.println("|                                                                          |");
@@ -981,14 +1045,26 @@ public class SistemaAcademico {
     	System.out.println("|        2 - Não                                                           |");
 		System.out.println("|                                                                          |");
 		System.out.println("|__________________________________________________________________________|");
-		leitura = Integer.parseInt(ler.nextLine());
+		
     	System.out.println("\n\n");
-    	return leitura;
+    	
 	}
 	
 	public static boolean checkLetters(String str) 
 	{
 		return str.matches("[a-zA-Z\\u0020]+");
+	}
+	private static void menuCurso() {
+		System.out.println(".__________________________________________________________________________.");
+    	System.out.println("|                                                                          |");
+    	System.out.println("|                                                                          |");
+    	System.out.println("|       SISTEMA DE GERENCIAMENTO DE CURSOS                                 |");
+    	System.out.println("|       1 - Curso de núcleo livre 						                   |");
+    	System.out.println("|       2 - Adicionar curso                                                |");
+    	System.out.println("|       3 - Sair                                                           |");
+    	System.out.println("|                                                                          |");
+    	System.out.println("|__________________________________________________________________________|");
+    	System.out.printf("Digite um dos seguintes números para acessar: ");
 	}
 
 }
