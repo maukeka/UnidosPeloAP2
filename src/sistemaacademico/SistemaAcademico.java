@@ -256,6 +256,7 @@ public class SistemaAcademico {
 		} else {
 			System.out.println("Dado inválido!"); // Repetir o menu de novo caso não exista nenhuma das opções 
 		}
+		do {
 		System.out.println("Digite a carga horária prática: "
 				+ "OBS: Deve possuir somente números.");
 		dado = ler.nextLine();
@@ -283,16 +284,14 @@ public class SistemaAcademico {
 						+ "\nOBS: Deve possuir somente números.");
 						dado = ler.nextLine();
 						validarCargaHorariaTeorica(dado);
+						if(validarCargaHorariaTeorica(dado)==false) {
+							System.out.println("A somatoria da carga horária teórica com a carga horária prática não pode ser zero. Tente novamente :) ");
+						}
 			}while(validarCargaHorariaTeorica(dado)==false);
 			disciplina.setCargaHorariaTeorica(Integer.parseInt(dado));
 		}
-		System.out.println("Digite a carga horária total: "); //Não pode ser igual a zero (fazer a somatória)
-		dado = ler.nextLine();
-		if(validarCargaHorariaTotal(dado)) {
-			disciplina.setCargaHorariaTotal(Integer.parseInt(dado));
-		} else {
-			System.out.println("Dado inválido!");
-		}
+		validarCargaHorariaTotal(dado);
+		}while(validarCargaHorariaTotal(dado) == false);
 		System.out.println("Digite a carga horária semanal: "
 				+ "\nOBS: Deve possuir somente números."); //Deve ser Opcional e somente números
 		dado = ler.nextLine();
@@ -768,10 +767,11 @@ public class SistemaAcademico {
 		return true;
 	}
 
-	private static boolean validarCargaHorariaTotal(String dado) {//ALTERAR COM O JOÃO MARCOS
+	private static boolean validarCargaHorariaTotal(String dado) {//OK
 		double cargaPratica = disciplina.getCargaHorariaPratica();
 		double cargaTeorica = disciplina.getCargaHorariaTeorica();
 		double cargaTotal = cargaPratica + cargaTeorica;
+		disciplina.setCargaHorariaTotal(cargaTotal);
 		boolean confirmaçao;
 		if(cargaTotal != 0) {
 			confirmaçao = true;
@@ -782,7 +782,7 @@ public class SistemaAcademico {
 		return confirmaçao;
 	}
 
-	private static boolean validarCargaHorariaMensal(String dado) {
+	private static boolean validarCargaHorariaMensal(String dado) {//OK
 		int testeTamanho = dado.length();
 		boolean confirmaçao;
 		boolean validaçao;
@@ -803,7 +803,7 @@ public class SistemaAcademico {
 		return confirmaçao;
 	}
 
-	private static boolean validarCargaHorariaSemanal(String dado) {
+	private static boolean validarCargaHorariaSemanal(String dado) {//OK
 		int testeTamanho = dado.length();
 		boolean confirmaçao;
 		boolean validaçao;
@@ -824,7 +824,7 @@ public class SistemaAcademico {
 		return confirmaçao;
 	}
 
-	private static boolean validarCargaHorariaTeorica(String dado) {
+	private static boolean validarCargaHorariaTeorica(String dado) {//OK
 		int testeTamanho = dado.length();
 		boolean confirmaçao;
 		boolean validaçao;
@@ -845,7 +845,7 @@ public class SistemaAcademico {
 		return confirmaçao;
 	}
 
-	private static boolean validarCargaHorariaPratica(String dado) {
+	private static boolean validarCargaHorariaPratica(String dado) {//OK
 		int testeTamanho = dado.length();
 		boolean confirmaçao;
 		boolean validaçao;
