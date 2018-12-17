@@ -256,33 +256,35 @@ public class SistemaAcademico {
 		} else {
 			System.out.println("Dado inválido!"); // Repetir o menu de novo caso não exista nenhuma das opções 
 		}
-		System.out.println("Digite a carga horária prática: ");
+		System.out.println("Digite a carga horária prática: "
+				+ "OBS: Deve possuir somente números.");
 		dado = ler.nextLine();
 		if(validarCargaHorariaPratica(dado)) {
 			disciplina.setCargaHorariaPratica(Integer.parseInt(dado));
 		} else {
-			System.out.println("Dado inválido!");
+			do {
+				System.out.println("Dado inválido!");
+				System.out.println("Digite a carga horária prática: "
+						+ "\nOBS: Deve possuir somente números.");
+						dado = ler.nextLine();
+						validarCargaHorariaPratica(dado);
+			}while(validarCargaHorariaPratica(dado)==false);
+			disciplina.setCargaHorariaPratica(Integer.parseInt(dado));
 		}
-		System.out.println("Digite a carga horária teórica: ");
+		System.out.println("Digite a carga horária teórica: "
+				+ "\nOBS: Deve possuir somente números.");
 		dado = ler.nextLine();
-		if(validarCargaHorariaTeorica(dado)) {
+		if(validarCargaHorariaPratica(dado)==true) {
 			disciplina.setCargaHorariaTeorica(Integer.parseInt(dado));
 		} else {
-			System.out.println("Dado inválido!");
-		}
-		System.out.println("Digite a carga horária semanal: "); //Deve ser Opcional e somente números
-		dado = ler.nextLine();
-		if(validarCargaHorariaSemanal(dado)) {
-			disciplina.setCargaHorariaSemanal(Integer.parseInt(dado));
-		} else {
-			System.out.println("Dado inválido!");
-		}
-		System.out.println("Digite a carga horária mensal: "); //Deve ser Opcional e somente números
-		dado = ler.nextLine();
-		if(validarCargaHorariaMensal(dado)) {
-			disciplina.setCargaHorariaMensal(Integer.parseInt(dado));
-		} else {
-			System.out.println("Dado inválido!");
+			do {
+				System.out.println("Dado inválido!");
+				System.out.println("Digite a carga horária teórica: "
+						+ "\nOBS: Deve possuir somente números.");
+						dado = ler.nextLine();
+						validarCargaHorariaTeorica(dado);
+			}while(validarCargaHorariaTeorica(dado)==false);
+			disciplina.setCargaHorariaTeorica(Integer.parseInt(dado));
 		}
 		System.out.println("Digite a carga horária total: "); //Não pode ser igual a zero (fazer a somatória)
 		dado = ler.nextLine();
@@ -290,6 +292,36 @@ public class SistemaAcademico {
 			disciplina.setCargaHorariaTotal(Integer.parseInt(dado));
 		} else {
 			System.out.println("Dado inválido!");
+		}
+		System.out.println("Digite a carga horária semanal: "
+				+ "\nOBS: Deve possuir somente números."); //Deve ser Opcional e somente números
+		dado = ler.nextLine();
+		if(validarCargaHorariaSemanal(dado)==true) {
+			disciplina.setCargaHorariaSemanal(Integer.parseInt(dado));
+		} else {
+			do {
+				System.out.println("Dado inválido!");
+				System.out.println("Digite a carga horária semanal: "
+						+ "\nOBS: Deve possuir somente números.");
+						dado = ler.nextLine();
+						validarCargaHorariaSemanal(dado);
+			}while(validarCargaHorariaSemanal(dado)==false);
+			disciplina.setCargaHorariaSemanal(Integer.parseInt(dado));
+		}
+		System.out.println("Digite a carga horária mensal: "
+				+ "\nOBS: Deve possuir somente números."); //Deve ser Opcional e somente números
+		dado = ler.nextLine();
+		if(validarCargaHorariaMensal(dado)) {
+			disciplina.setCargaHorariaMensal(Integer.parseInt(dado));
+		} else {
+			do {
+				System.out.println("Dado inválido!");
+				System.out.println("Digite a carga horária mensal: "
+						+ "\nOBS: Deve possuir somente números.");
+						dado = ler.nextLine();
+						validarCargaHorariaMensal(dado);
+			}while(validarCargaHorariaMensal(dado)==false);
+			disciplina.setCargaHorariaMensal(Integer.parseInt(dado));
 		}
 		System.out.println("Digite o número de créditos:"
 				+ "OBS: Deve ser somente números."); // Somente números e ser opcional
@@ -324,28 +356,6 @@ public class SistemaAcademico {
 		} else {
 			System.out.println("Dado inválido!");
 		}
-	}
-					
-	
-	private static boolean validarCodigo(String dado) {
-		
-			boolean apoio = true;
-			
-			if(dado.length()==4) {
-				try{
-					int dado2 = Integer.parseInt(dado);
-					apoio = true;
-				}catch(NumberFormatException erro) {
-					System.out.println("\n\n\tNão insira letras apenas números!");
-					apoio = false;
-				}
-			}
-			else {
-				System.out.println("\n\n\tQuantidade Incorreta!");
-				apoio = false;
-				}
-		return apoio;
-		
 	}
 
 	private static void alterar() {
@@ -749,7 +759,7 @@ public class SistemaAcademico {
 	}
 
 	private static boolean validarCustoPratica(String dado) {
-		// TODO Auto-generated method stub
+		
 		return true;
 	}
 
@@ -758,29 +768,102 @@ public class SistemaAcademico {
 		return true;
 	}
 
-	private static boolean validarCargaHorariaTotal(String dado) {
-		// TODO Auto-generated method stub //Não pode ser 
-		return true;
+	private static boolean validarCargaHorariaTotal(String dado) {//ALTERAR COM O JOÃO MARCOS
+		double cargaPratica = disciplina.getCargaHorariaPratica();
+		double cargaTeorica = disciplina.getCargaHorariaTeorica();
+		double cargaTotal = cargaPratica + cargaTeorica;
+		boolean confirmaçao;
+		if(cargaTotal != 0) {
+			confirmaçao = true;
+		}
+		else {
+			confirmaçao = false;
+		}
+		return confirmaçao;
 	}
 
 	private static boolean validarCargaHorariaMensal(String dado) {
-		// TODO Auto-generated method stub
-		return true;
+		int testeTamanho = dado.length();
+		boolean confirmaçao;
+		boolean validaçao;
+		int testeDeLetras;
+		try {
+			testeDeLetras = Integer.parseInt(dado);
+			validaçao = true;
+		}
+		catch(NumberFormatException erro) {
+			validaçao = false;
+		}
+		if(testeTamanho>0 && validaçao == true) {
+			confirmaçao = true;
+		}
+		else {
+			confirmaçao = false;
+		}
+		return confirmaçao;
 	}
 
 	private static boolean validarCargaHorariaSemanal(String dado) {
-		// TODO Auto-generated method stub
-		return true;
+		int testeTamanho = dado.length();
+		boolean confirmaçao;
+		boolean validaçao;
+		int testeDeLetras;
+		try {
+			testeDeLetras = Integer.parseInt(dado);
+			validaçao = true;
+		}
+		catch(NumberFormatException erro) {
+			validaçao = false;
+		}
+		if(testeTamanho>0 && validaçao == true) {
+			confirmaçao = true;
+		}
+		else {
+			confirmaçao = false;
+		}
+		return confirmaçao;
 	}
 
 	private static boolean validarCargaHorariaTeorica(String dado) {
-		// TODO Auto-generated method stub
-		return true;
+		int testeTamanho = dado.length();
+		boolean confirmaçao;
+		boolean validaçao;
+		int testeDeLetras;
+		try {
+			testeDeLetras = Integer.parseInt(dado);
+			validaçao = true;
+		}
+		catch(NumberFormatException erro) {
+			validaçao = false;
+		}
+		if(testeTamanho>0 && validaçao == true) {
+			confirmaçao = true;
+		}
+		else {
+			confirmaçao = false;
+		}
+		return confirmaçao;
 	}
 
 	private static boolean validarCargaHorariaPratica(String dado) {
-		// TODO Auto-generated method stub
-		return true;
+		int testeTamanho = dado.length();
+		boolean confirmaçao;
+		boolean validaçao;
+		int testeDeLetras;
+		try {
+			testeDeLetras = Integer.parseInt(dado);
+			validaçao = true;
+		}
+		catch(NumberFormatException erro) {
+			validaçao = false;
+		}
+		if(testeTamanho>0 && validaçao == true) {
+			confirmaçao = true;
+		}
+		else {
+			confirmaçao = false;
+		}
+		return confirmaçao;
 	}
 
 	private static boolean validarSituacao(String dado) {
@@ -799,7 +882,7 @@ public class SistemaAcademico {
 		return dado.matches("[a-zA-Z\\u0020]+") && !dado.equals(null) && !dado.equals(" ");
 	}
 
-	private static boolean validarAbreviacao(String dado) {
+	private static boolean validarAbreviacao(String dado) {//OK
 		int testeTamanho = dado.length();
 		boolean confirmacao;
 		boolean validaçao;
@@ -820,11 +903,20 @@ public class SistemaAcademico {
 		return confirmacao;
 	}
 
-	private static boolean validarNome(String dado) {
+	private static boolean validarNome(String dado) {//OK
 		boolean confirmaçao;
 		int testeTamanho;
 		testeTamanho = dado.length();
-		if(testeTamanho>0) {
+		boolean validaçao;
+		int testeDeLetras;
+		try {
+			testeDeLetras = Integer.parseInt(dado);
+			validaçao = false;
+		}
+		catch(NumberFormatException erro) {
+			validaçao = true;
+		}
+		if(testeTamanho>0 && validaçao == true) {
 			confirmaçao = true;
 		}
 		else {
@@ -833,6 +925,25 @@ public class SistemaAcademico {
 		return confirmaçao;
 	}
 
+	private static boolean validarCodigo(String dado) {//OK
+		
+		boolean apoio = true;
+		
+		if(dado.length()==4) {
+			try{
+				int dado2 = Integer.parseInt(dado);
+				apoio = true;
+			}catch(NumberFormatException erro) {
+				System.out.println("\n\n\tNão insira letras apenas números!");
+				apoio = false;
+			}
+		}
+		else {
+			System.out.println("\n\n\tQuantidade Incorreta!");
+			apoio = false;
+			}
+	return apoio;		
+}
 	private static void menuOpcaoAlterar() {
 		System.out.println(".__________________________________________________________________________.");
 		System.out.println("|                                                                          |");
