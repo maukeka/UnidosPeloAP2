@@ -19,7 +19,7 @@ public class Disciplinas extends Coisa{
 
 	@Override
 	public void cadastrar(Disciplina disciplina) {
-		disciplinas.add(disciplina);
+		disciplinas.add(disciplina);			
 	}
 
 
@@ -51,18 +51,18 @@ public class Disciplinas extends Coisa{
 		case "todos":
 			retorno = this.disciplinas;
 			break;
-		case "nome completo":
+		case "nomeCompleto":
 			for (Disciplina disciplina : this.disciplinas) {
 				String nome = disciplina.getNomeCompleto();
-				if(VerificaNome(nome, chave) < chave.length()/2) {
+				if(VerificaNome(nome, chave) > chave.length()/2) {
 					retorno.add(disciplina);
 				}
 			}
 			break;
-		case "nome abreviado":
+		case "nomeAbreviado":
 			for (Disciplina disciplina : this.disciplinas) {
 				String nome = disciplina.getNomeAbreviado();
-				if(VerificaNome(nome, chave) < chave.length()/2) {
+				if(VerificaNome(nome, chave) > chave.length()/2) {
 					retorno.add(disciplina);
 				}
 			}

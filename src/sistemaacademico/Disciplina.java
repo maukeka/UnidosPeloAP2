@@ -1,5 +1,6 @@
 package sistemaacademico;
 import java.util.Scanner;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -14,7 +15,7 @@ import java.util.Iterator;
 * Objetivo...: Representar uma disciplina na instituição de ensino
 * Observacoes:
 */
-public class Disciplina {
+public class Disciplina implements Serializable {
 		
 		int 							codigo;
 		int                             situacao;
