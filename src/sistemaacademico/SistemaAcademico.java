@@ -236,7 +236,7 @@ public class SistemaAcademico {
 			case "1": 
 				int help = 1;
 				do {
-					System.out.println("\n\t7- Digite o nome do técnico administrativo  responsável pela disciplina: "
+					System.out.println("\n\t7- Digite o nome do técnico administrativo responsável pela disciplina: "
 							+ "\n\t  OBS: Deve possuir somente letras.");
 						dado = ler.nextLine();
 					if(validarTecnico(dado)) {
@@ -267,9 +267,10 @@ public class SistemaAcademico {
 		System.out.println("\t\t TÉCNICO ADMINISTRATIVO AUXILIAR");
 		System.out.print("\n\n");
 		
-		menuOpcao();
+		
 		do {
 			
+			menuOpcao();
 			dado = ler.nextLine();
 
 			switch (dado) {
@@ -671,9 +672,6 @@ public class SistemaAcademico {
 			}
 			break;
 		case 5 :
-			System.out.println("\t\t DOCENTE AUXILIAR");
-			menuOpcao();
-			
 			System.out.println("\tDigite o nome do docente auxiliar da disciplina: "); //Somente letras
 			dado = ler.nextLine();
 			if(validarDocenteR(dado)) {
@@ -1046,8 +1044,7 @@ public class SistemaAcademico {
     	System.out.println("|        1 - Sim                                                           |");
     	System.out.println("|        2 - Não                                                           |");
 		System.out.println("|                                                                          |");
-		System.out.println("|__________________________________________________________________________|");
-		
+		System.out.println("|__________________________________________________________________________|");	
     	System.out.println("\n");
     	
 	}
@@ -1061,8 +1058,8 @@ public class SistemaAcademico {
     	System.out.println("|                                                                          |");
     	System.out.println("|                                                                          |");
     	System.out.println("|       SISTEMA DE GERENCIAMENTO DE CURSOS                                 |");
-    	System.out.println("|       1 - Curso de núcleo livre 						                   |");
-    	System.out.println("|       2 - Adicionar curso                                                |");
+    	System.out.println("|       1 - Disciplina de núcleo livre 						               |");
+    	System.out.println("|       2 - Adicionar curso vinculado a disciplina                         |");
     	System.out.println("|       3 - Sair                                                           |");
     	System.out.println("|                                                                          |");
     	System.out.println("|__________________________________________________________________________|");
