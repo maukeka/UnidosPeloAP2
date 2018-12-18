@@ -14,11 +14,11 @@ import java.util.List;
 public class SistemaAcademico {
 	
 	private static Scanner ler = new Scanner(System.in);
-	private static Disciplina disciplina;
-	private static Docente docResponsavel;
-	private static Docente docAuxiliar; 
-	private static TecnicoAdministrativo tecnicoAdministrativoResponsavel;
-	private static TecnicoAdministrativo tecnicoAminAdministrativoAuxiliar;
+	//private static ₢₢
+	private static Docente docResponsavel = new Docente();
+	private static Docente docAuxiliar = new Docente(); 
+	private static TecnicoAdministrativo tecnicoAdministrativoResponsavel = new TecnicoAdministrativo();
+	private static TecnicoAdministrativo tecnicoAminAdministrativoAuxiliar = new TecnicoAdministrativo();
 	private static Disciplinas disciplinaDAO = new Disciplinas();
           
      /**
@@ -85,12 +85,7 @@ public static void main(String[] args) {
 	}
 	
 	private static void cadastrar() {
-		disciplina = new Disciplina();
-		docResponsavel = new Docente();
-		docAuxiliar = new Docente(); 
-		tecnicoAdministrativoResponsavel = new TecnicoAdministrativo();
-		tecnicoAminAdministrativoAuxiliar = new TecnicoAdministrativo();
-		String dado;	
+		String dado;Disciplina disciplina = new Disciplina();	
 		do {
 			System.out.println("\t1- Digite o código da disciplina: "
 					+ "\n\t  OBS: Deve ser formado apenas por quatro números.");
@@ -357,8 +352,8 @@ public static void main(String[] args) {
 			}while(validarCargaHorariaTeorica(dado)==false);
 			disciplina.setCargaHorariaTeorica(Integer.parseInt(dado));
 		}
-		validarCargaHorariaTotal(dado);
-		}while(validarCargaHorariaTotal(dado) == false);
+		validarCargaHorariaTotal(dado, disciplina);
+		}while(validarCargaHorariaTotal(dado, disciplina) == false);
 		System.out.println("Carga Horária Total: "+ disciplina.getCargaHorariaTotal());
 		System.out.println("\n\t12- Digite a carga horária semanal: "
 				+ "\n\t  OBS: Deve possuir somente números."); //Deve ser Opcional e somente números
@@ -378,7 +373,7 @@ public static void main(String[] args) {
 		System.out.println("\n\t13- Digite a carga horária mensal: " // RODOLFO MEXA NISSO AÍ
 				+ "\n\t  OBS: Deve possuir somente números."); //Deve ser Opcional e somente números
 		dado = ler.nextLine();
-		if(validarCargaHorariaMensal(dado)) {
+		if(validarCargaHorariaMensal(dado, disciplina)) {
 			disciplina.setCargaHorariaMensal(Integer.parseInt(dado));
 		} else {
 			do {
@@ -386,8 +381,8 @@ public static void main(String[] args) {
 				System.out.println("\n\t13- Digite a carga horária mensal: "
 						+ "\n\t  OBS: Deve possuir somente números.");
 						dado = ler.nextLine();
-						validarCargaHorariaMensal(dado);
-			}while(validarCargaHorariaMensal(dado)==false);
+						validarCargaHorariaMensal(dado, disciplina);
+			}while(validarCargaHorariaMensal(dado, disciplina)==false);
 			disciplina.setCargaHorariaMensal(Integer.parseInt(dado));
 		}
 		System.out.println("\n\t\tNÚMEROS DE CRÉDITOS\n\n"); 
@@ -397,7 +392,7 @@ public static void main(String[] args) {
 			dado = ler.nextLine();
 			switch(dado){
 				case "1": 
-					validarNumCreditos(dado);
+					validarNumCreditos(dado, disciplina);
 					auxiliar = 2;
 					System.out.println("\tNúmero de Créditos: "+ disciplina.getNumeroCreditos());
 					break;
@@ -770,7 +765,7 @@ public static void main(String[] args) {
 		case 12 :
 			System.out.println("\tDigite a carga horária mensal: ");// somente número
 			dado = ler.nextLine();
-			if(validarCargaHorariaMensal(dado)) {
+			if(validarCargaHorariaMensal(dado, disciplina)) {
 				disciplina.setCargaHorariaMensal(Integer.parseInt(dado));
 			} else {
 				System.out.println("\tDado não alterado, pois o paramêtro passado é inválido!");
@@ -779,7 +774,7 @@ public static void main(String[] args) {
 		case 13 :
 			System.out.println("\tDigite a carga horária total: ");// somente número
 			dado = ler.nextLine();
-			if(validarCargaHorariaTotal(dado)) {
+			if(validarCargaHorariaTotal(dado, disciplina)) {
 				disciplina.setCargaHorariaTotal(Integer.parseInt(dado));
 			} else {
 				System.out.println("\tDado não alterado, pois o paramêtro passado é inválido!");
@@ -788,7 +783,7 @@ public static void main(String[] args) {
 		case 14 :
 			System.out.println("\tDigite o número de créditos:");// somente número
 			dado = ler.nextLine();
-			if(validarNumCreditos(dado)) {
+			if(validarNumCreditos(dado, disciplina)) {
 				disciplina.setNumeroCreditos(Integer.parseInt(dado));
 			} else {
 				System.out.println("\tDado não alterado, pois o paramêtro passado é inválido!");
@@ -841,7 +836,7 @@ public static void main(String[] args) {
 		return true;
 	}
 
-	private static boolean validarNumCreditos(String dado) {
+	private static boolean validarNumCreditos(String dado, Disciplina disciplina) {//OK
 		double resultado;
 		double resto;
 		int unicoCredito = 16;
@@ -851,7 +846,7 @@ public static void main(String[] args) {
 		return true;
 	}
 
-	private static boolean validarCargaHorariaTotal(String dado) {//OK
+	private static boolean validarCargaHorariaTotal(String dado, Disciplina disciplina) {//OK
 		double cargaPratica = disciplina.getCargaHorariaPratica();
 		double cargaTeorica = disciplina.getCargaHorariaTeorica();
 		double cargaTotal = cargaPratica + cargaTeorica;
@@ -866,14 +861,19 @@ public static void main(String[] args) {
 		return confirmaçao;
 	}
 
-	private static boolean validarCargaHorariaMensal(String dado) {//OK
+	private static boolean validarCargaHorariaMensal(String dado, Disciplina disciplina) {//OK
 		int testeTamanho = dado.length();
 		boolean confirmaçao;
 		boolean validaçao;
 		int testeDeLetras;
 		try {
 			testeDeLetras = Integer.parseInt(dado);
-			validaçao = true;
+			if(testeDeLetras >= 0) {
+				validaçao = true;
+			}
+			else {
+				validaçao = false;
+			}				
 		}
 		catch(NumberFormatException erro) {
 			validaçao = false;
@@ -894,12 +894,17 @@ public static void main(String[] args) {
 		int testeDeLetras;
 		try {
 			testeDeLetras = Integer.parseInt(dado);
-			validaçao = true;
+			if(testeDeLetras >= 0) {
+				validaçao = true;
+			}
+			else {
+				validaçao = false;
+			}				
 		}
 		catch(NumberFormatException erro) {
 			validaçao = false;
 		}
-		if(testeTamanho>0 && validaçao == true) {
+		if(testeTamanho>0 && validaçao == true ) {
 			confirmaçao = true;
 		}
 		else {
@@ -915,7 +920,12 @@ public static void main(String[] args) {
 		int testeDeLetras;
 		try {
 			testeDeLetras = Integer.parseInt(dado);
-			validaçao = true;
+			if(testeDeLetras >= 0) {
+				validaçao = true;
+			}
+			else {
+				validaçao = false;
+			}				
 		}
 		catch(NumberFormatException erro) {
 			validaçao = false;
@@ -936,7 +946,12 @@ public static void main(String[] args) {
 		int testeDeLetras;
 		try {
 			testeDeLetras = Integer.parseInt(dado);
-			validaçao = true;
+			if(testeDeLetras >= 0) {
+				validaçao = true;
+			}
+			else {
+				validaçao = false;
+			}				
 		}
 		catch(NumberFormatException erro) {
 			validaçao = false;
@@ -954,15 +969,15 @@ public static void main(String[] args) {
 		return Integer.parseInt(dado)>0 && Integer.parseInt(dado)<6;
 	}
 
-	private static boolean validarTecnico(String dado) {
+	private static boolean validarTecnico(String dado) {//OK
 		return dado.matches("[a-zA-Z\\u0020]+") && !dado.equals(null) && !dado.equals(" ");
 	}
 
-	private static boolean validarDocenteR(String dado) {
+	private static boolean validarDocenteR(String dado) {//OK
 		return dado.matches("[a-zA-Z\\u0020]+") && !dado.equals(null) && !dado.equals(" ");
 	}
 
-	private static boolean validarCurso(String dado) {
+	private static boolean validarCurso(String dado) {//OK
 		return dado.matches("[a-zA-Z\\u0020]+") && !dado.equals(null) && !dado.equals(" ");
 	}
 
@@ -1054,6 +1069,8 @@ public static void main(String[] args) {
 		System.out.println("|__________________________________________________________________________|");
 		System.out.printf("\tDigite um dos seguintes números para acessar: ");
 		}
+
+	
 	private static void menuOpcao() {
 		
 		System.out.println("\n.__________________________________________________________________________.");
