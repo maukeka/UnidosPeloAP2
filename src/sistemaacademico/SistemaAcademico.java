@@ -9,7 +9,7 @@ import java.util.InputMismatchException;
 import java.util.List;
 
 /**
- * @author Wanderley de Souza Alencar                // DON'T LET ME DOWN
+ * @author Wanderley de Souza Alencar                
  */
 public class SistemaAcademico {
 	
@@ -66,7 +66,7 @@ public class SistemaAcademico {
 
 	private static int menu() {
 		int leitura;
-		System.out.println("\n.__________________________________________________________________________.");
+		System.out.println(".__________________________________________________________________________.");
     	System.out.println("|                                                                          |");
     	System.out.println("|                                                                          |");
     	System.out.println("|       SISTEMA DE GERENCIAMENTO ACADEMICO                                 |");
