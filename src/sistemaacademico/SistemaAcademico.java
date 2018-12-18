@@ -24,7 +24,8 @@ public class SistemaAcademico {
      /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {  
+    
+public static void main(String[] args) {  
         int i;
         int vinculado = 0;
         int auxiliar = 1;
@@ -124,46 +125,41 @@ public class SistemaAcademico {
 			}while(validarAbreviacao(dado)==false);
 			disciplina.setNomeAbreviado(dado);
 		}
-		System.out.println("");
-		
+		System.out.println("\t\t CURSO");
 		int auxiliar = 1;
 		do {
-			menuCurso();
+			menuOpcao();
 			dado = ler.nextLine();
-			
 			switch(dado)
-			{
-				case "1":
-					System.out.println("\n\n\t4- Curso de núcleo livre!\n");
-					disciplina.setCurso("\tNÚCLEO LIVRE");
-					auxiliar = 2;
-					break;
-				case "2":
-					int help = 1;
-					do {
-						System.out.println("\n\t4- Insira o nome do curso:");
-							dado = ler.nextLine();
-						if(validarCurso(dado)) {
-							disciplina.setCurso(dado);
-							help = 2;
-							break;
-						}
-						else
-							System.out.println("\tDado inválido. Números não são permitidos!");
-							help = 1;
-					}while(help == 1);
-					
-					
-				case "3":
-					disciplina.setCurso("\tNÃO HÁ");
-					auxiliar = 2;
-					break;
-				default:
-					System.out.println("\tDado inválido!\n");
-					break;
+			{  
+			case "1":
+				int help = 1;
+				do {
+					System.out.println("\n\t4- Insira o nome do curso:");
+					dado = ler.nextLine();
+					if(validarCurso(dado)) {
+						disciplina.setCurso(dado);
+						help = 2;
+						break;
+					}
+					else
+						System.out.println("\tDado inválido. Números não são permitidos!");
+					help = 1;
+				}while(help == 1);
+				auxiliar = 2;
+				break;
+			case "2":
+				System.out.println("\n\n\t4- Disciplina de núcleo livre!\n");
+				disciplina.setCurso("0- NÚCLEO LIVRE");
+				auxiliar = 2;
+				break;  
+			default:
+				System.out.println("\tDado inválido!\n");
+				break;
 			}
-		}while( auxiliar  == 1);
+		}while( auxiliar == 1);
 		System.out.println("");
+
 		
 		do{
 			System.out.println("\t5- Digite o nome do docente responsável pela disciplina: "
@@ -317,7 +313,7 @@ public class SistemaAcademico {
     	System.out.println("|__________________________________________________________________________|");
         System.out.println("\n\t9- Digite a situação da disciplina:    ");
 		dado = ler.nextLine();
-		if(validarSituacao(dado)) {
+		if(validarSituacao(dado)==true) {
 			disciplina.setSituacao(Integer.parseInt(dado));
 		} else {
 			System.out.println("\tDado inválido!\n"); // Repetir o menu de novo caso não exista nenhuma das opções 
@@ -326,7 +322,7 @@ public class SistemaAcademico {
 		System.out.println("\n\t10- Digite a carga horária prática: "
 				+ "\n\t  OBS: Deve possuir somente números.");
 		dado = ler.nextLine();
-		if(validarCargaHorariaPratica(dado)) {
+		if(validarCargaHorariaPratica(dado)==true) {
 			disciplina.setCargaHorariaPratica(Integer.parseInt(dado));
 		} else {
 			do {
@@ -389,14 +385,26 @@ public class SistemaAcademico {
 			}while(validarCargaHorariaMensal(dado)==false);
 			disciplina.setCargaHorariaMensal(Integer.parseInt(dado));
 		}
-		System.out.println("\n\t14- Digite o número de créditos:"
-				+ "\n\t  OBS: Deve ser somente números."); // Somente números e ser opcional
-		dado = ler.nextLine();
-		if(validarNumCreditos(dado)) {
-			disciplina.setNumeroCreditos(Integer.parseInt(dado));
-		} else {
-			System.out.println("\tDado inválido!\n");
-		}
+		System.out.println("\n\t\tNÚMEROS DE CRÉDITOS\n\n"); 
+		do {
+			auxiliar =1;
+			menuOpcao();
+			dado = ler.nextLine();
+			switch(dado){
+				case "1": 
+					validarNumCreditos(dado);
+					auxiliar = 2;
+					System.out.println("\tNúmero de Créditos: "+ disciplina.getNumeroCreditos());
+					break;
+				case "2":
+					disciplina.setNumeroCreditos(0);
+					auxiliar = 2;
+					System.out.println("\tNúmero de Créditos: "+ disciplina.getNumeroCreditos());
+					break;
+				default:
+					System.out.println("\tDado inválido!\n");
+			}				
+			}while(auxiliar == 1);
 		System.out.println("\n\t15- Digite o custo prática: "
 				+ "\n\t  OBS: Deve ser somente números."); // Opcional e só número
 		dado = ler.nextLine();
@@ -829,7 +837,12 @@ public class SistemaAcademico {
 	}
 
 	private static boolean validarNumCreditos(String dado) {
-		// TODO Auto-generated method stub
+		double resultado;
+		double resto;
+		int unicoCredito = 16;
+		resto = disciplina.getCargaHorariaTotal() % unicoCredito;
+		resultado = (disciplina.getCargaHorariaTotal() - resto) / unicoCredito;
+		disciplina.setNumeroCreditos(resultado);
 		return true;
 	}
 
@@ -1014,28 +1027,28 @@ public class SistemaAcademico {
 		System.out.println(".__________________________________________________________________________.");
 		System.out.println("|                                                                          |");
 		System.out.println("|                                                                          |");
-    	System.out.println("|       SISTEMA DE GERENCIAMENTO ACADEMICO                                 |");
-    	System.out.println("|        1 - Alterar Nome Completo                                         |");
-    	System.out.println("|        2 - Alterar Nome Abreviado                                        |");
-    	System.out.println("|        3 - Alterar Curso                                                 |"); 
-    	System.out.println("|        4 - Alterar Docente Responsável                                   |");
-    	System.out.println("|        5 - Alterar Docente Auxiliar                                      |");
-    	System.out.println("|        6 - Alterar Técnico Administrativo Auxiliar                       |");
-    	System.out.println("|        7 - Alterar Situação                                              |");
-    	System.out.println("|        8 - Alterar Carga Horária Prática                                 |");
-    	System.out.println("|        9 - Alterar Carga Horária Teórica                                 |");
-    	System.out.println("|       10 - Alterar Carga Horária Semanal                                 |");
-    	System.out.println("|       11 - Alterar Carga Horária Mensal                                  |");
-    	System.out.println("|       12 - Alterar Carga Horária Total                                   |");
-    	System.out.println("|       13 - Alterar Número de Créditos                                    |");
-    	System.out.println("|       14 - Alterar Custo Basico Prática                                  |");
-    	System.out.println("|       15 - Alterar Custo Basico Teórica                                  |");
-    	System.out.println("|       16 - Alterar Custo Fixo                                            |");
+		System.out.println("|       SISTEMA DE GERENCIAMENTO ACADEMICO                                 |");
+		System.out.println("|        1 - Alterar Nome Completo                                         |");
+		System.out.println("|        2 - Alterar Nome Abreviado                                        |");
+		System.out.println("|        3 - Alterar Curso                                                 |"); 
+		System.out.println("|        4 - Alterar Docente Responsável                                   |");
+		System.out.println("|        5 - Alterar Docente Auxiliar                                      |");
+		System.out.println("|        6 - Alterar Técnico Administrativo Responsável                    |");
+		System.out.println("|        7 - Alterar Técnico Administrativo Auxiliar                       |");
+		System.out.println("|        8 - Alterar Situação                                              |");
+		System.out.println("|        9 - Alterar Carga Horária Prática                                 |");
+		System.out.println("|       10 - Alterar Carga Horária Teórica                                 |");
+		System.out.println("|       11 - Alterar Carga Horária Semanal                                 |");
+		System.out.println("|       12 - Alterar Carga Horária Mensal                                  |");
+		System.out.println("|       13 - Alterar Carga Horária Total                                   |");
+		System.out.println("|       14 - Alterar Número de Créditos                                    |");
+		System.out.println("|       15 - Alterar Custo Basico Prática                                  |");
+		System.out.println("|       16 - Alterar Custo Basico Teórica                                  |");
+		System.out.println("|       17 - Alterar Custo Fixo                                            |");
 		System.out.println("|                                                                          |");
 		System.out.println("|__________________________________________________________________________|");
-		System.out.println("\tDado não alterado, pois o paramêtro passado é inválido!");
-    	System.out.printf("\tDigite um dos seguintes números para acessar: ");
-	}
+		System.out.printf("\tDigite um dos seguintes números para acessar: ");
+		}
 	private static void menuOpcao() {
 		
 		System.out.println("\n.__________________________________________________________________________.");
