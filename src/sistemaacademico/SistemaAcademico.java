@@ -422,6 +422,8 @@ public class SistemaAcademico {
 		} else {
 			System.out.println("\tDado inválido!\n");
 		}
+		
+		disciplinaDAO.cadastrar(disciplina);
 	}
 
 	private static void alterar() {
@@ -858,7 +860,7 @@ public class SistemaAcademico {
 		catch(NumberFormatException erro) {
 			validaçao = false;
 		}
-		if(testeTamanho>0 && validaçao == true) {
+		if(testeTamanho>0 && validaçao == true && disciplina.getCargaHorariaMensal() <= 5 * disciplina.getCargaHorariaSemanal()) {
 			confirmaçao = true;
 		}
 		else {

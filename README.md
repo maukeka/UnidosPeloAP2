@@ -5,7 +5,7 @@
   * [Rafael Tomaz Parreira](http://inf.ufg.br/node/1180)
 
 **Discentes:**
-  * [Eduardo Cesar Freitas da Silva Filho]()
+  * [Eduardo Cesar Freitas da Silva Filho](https://github.com/guardiaodudu)
   * [Lais Ribeiro Torres](https://github.com/laisrtorres)
   * [Marcos Paulo de Carvalho Araujo](https://github.com/2marco1paulo)
   * [Mauricio Kenichi Kanashiro](https://github.com/maukeka)
