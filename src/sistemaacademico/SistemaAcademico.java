@@ -181,7 +181,6 @@ public static void main(String[] args) {
 		
 		System.out.print("\n");
 		System.out.print("\t\t DOCENTE AUXILIAR");
-		System.out.print("\n\n");
 		
 		do {
 			menuOpcao();
@@ -220,7 +219,6 @@ public static void main(String[] args) {
 		
 		System.out.print("\n");
 		System.out.println("\t\t TÉCNICO ADMINISTRATIVO RESPONSÁVEL");
-		System.out.print("\n\n");
 		
 		do {	
 				menuOpcao();
@@ -259,9 +257,7 @@ public static void main(String[] args) {
 		}while(auxiliar == 1);
 		
 		System.out.print("\n");
-		System.out.println("\t\t TÉCNICO ADMINISTRATIVO AUXILIAR");
-		System.out.print("\n\n");
-		
+		System.out.println("\t\t TÉCNICO ADMINISTRATIVO AUXILIAR");	
 		
 		do {
 			
@@ -346,45 +342,47 @@ public static void main(String[] args) {
 						+ "\n\t  OBS: Deve possuir somente números.");
 						dado = ler.nextLine();
 						validarCargaHorariaTeorica(dado);
-						if(validarCargaHorariaTeorica(dado)==false) {
-							System.out.println("\tA somatoria da carga horária teórica com a carga horária prática não pode ser zero. Tente novamente :) ");
-						}
 			}while(validarCargaHorariaTeorica(dado)==false);
 			disciplina.setCargaHorariaTeorica(Integer.parseInt(dado));
 		}
 		validarCargaHorariaTotal(dado, disciplina);
 		}while(validarCargaHorariaTotal(dado, disciplina) == false);
-		System.out.println("Carga Horária Total: "+ disciplina.getCargaHorariaTotal());
-		System.out.println("\n\t12- Digite a carga horária semanal: "
-				+ "\n\t  OBS: Deve possuir somente números."); //Deve ser Opcional e somente números
-		dado = ler.nextLine();
-		if(validarCargaHorariaSemanal(dado)==true) {
-			disciplina.setCargaHorariaSemanal(Integer.parseInt(dado));
-		} else {
-			do {
-				System.out.println("\tDado inválido!\n");
-				System.out.println("\n\t12- Digite a carga horária semanal: "
-						+ "\n\t  OBS: Deve possuir somente números.");
-						dado = ler.nextLine();
-						validarCargaHorariaSemanal(dado);
-			}while(validarCargaHorariaSemanal(dado)==false);
-			disciplina.setCargaHorariaSemanal(Integer.parseInt(dado));
-		}
-		System.out.println("\n\t13- Digite a carga horária mensal: " // RODOLFO MEXA NISSO AÍ
-				+ "\n\t  OBS: Deve possuir somente números."); //Deve ser Opcional e somente números
-		dado = ler.nextLine();
-		if(validarCargaHorariaMensal(dado, disciplina)) {
-			disciplina.setCargaHorariaMensal(Integer.parseInt(dado));
-		} else {
-			do {
-				System.out.println("\tDado inválido!\n");
-				System.out.println("\n\t13- Digite a carga horária mensal: "
-						+ "\n\t  OBS: Deve possuir somente números.");
-						dado = ler.nextLine();
-						validarCargaHorariaMensal(dado, disciplina);
-			}while(validarCargaHorariaMensal(dado, disciplina)==false);
-			disciplina.setCargaHorariaMensal(Integer.parseInt(dado));
-		}
+		System.out.println("\tCarga Horária Total: "+ disciplina.getCargaHorariaTotal());
+		do {
+			System.out.println("\n\t12- Digite a carga horária semanal: "
+					+ "\n\t  OBS: Deve possuir somente números."); 
+			dado = ler.nextLine();
+			if(validarCargaHorariaSemanal(dado)==true) {
+				disciplina.setCargaHorariaSemanal(Integer.parseInt(dado));
+			} else {
+				do {
+					System.out.println("\tDado inválido!\n");
+					System.out.println("\n\t12- Digite a carga horária semanal: "
+							+ "\n\t  OBS: Deve possuir somente números.");
+					dado = ler.nextLine();
+					validarCargaHorariaSemanal(dado);					
+				}while(validarCargaHorariaSemanal(dado)==false);
+				disciplina.setCargaHorariaSemanal(Integer.parseInt(dado));
+			}
+			System.out.println("\n\t13- Digite a carga horária mensal: " 
+					+ "\n\t  OBS: Deve possuir somente números."); 
+			dado = ler.nextLine();
+			if(validarCargaHorariaMensal(dado, disciplina)==true) {
+				disciplina.setCargaHorariaMensal(Integer.parseInt(dado));
+			} else {
+				do {
+					System.out.println("\tDado inválido!\n");
+					System.out.println("\n\t13- Digite a carga horária mensal: "
+							+ "\n\t  OBS: Deve possuir somente números.");
+					dado = ler.nextLine();
+					validarCargaHorariaMensal(dado, disciplina);
+				}while(validarCargaHorariaMensal(dado, disciplina)==false);
+				disciplina.setCargaHorariaMensal(Integer.parseInt(dado));
+			}
+			if(disciplina.getCargaHorariaMensal() > 5*disciplina.getCargaHorariaSemanal()) {
+				System.out.println("\tA carga horária mensal não pode ser superior ao quintuplo da carga horaria semanal.");
+			}
+		}while(disciplina.getCargaHorariaMensal() > 5*disciplina.getCargaHorariaSemanal());
 		System.out.println("\n\t\tNÚMEROS DE CRÉDITOS\n\n"); 
 		do {
 			auxiliar =1;
@@ -878,7 +876,7 @@ public static void main(String[] args) {
 		catch(NumberFormatException erro) {
 			validaçao = false;
 		}
-		if(testeTamanho>0 && validaçao == true && disciplina.getCargaHorariaMensal() <= 5 * disciplina.getCargaHorariaSemanal()) {
+		if(testeTamanho>0 && validaçao == true) {
 			confirmaçao = true;
 		}
 		else {
@@ -918,6 +916,7 @@ public static void main(String[] args) {
 		boolean confirmaçao;
 		boolean validaçao;
 		int testeDeLetras;
+		double soma;
 		try {
 			testeDeLetras = Integer.parseInt(dado);
 			if(testeDeLetras >= 0) {
@@ -966,7 +965,7 @@ public static void main(String[] args) {
 	}
 
 	private static boolean validarSituacao(String dado) {
-		return Integer.parseInt(dado)>0 && Integer.parseInt(dado)<6;
+		return Integer.parseInt(dado)>=0 && Integer.parseInt(dado)<6;
 	}
 
 	private static boolean validarTecnico(String dado) {//OK
@@ -1043,6 +1042,7 @@ public static void main(String[] args) {
 			}
 	return apoio;		
 }
+	
 	private static void menuOpcaoAlterar() {
 		System.out.println(".__________________________________________________________________________.");
 		System.out.println("|                                                                          |");
@@ -1070,7 +1070,6 @@ public static void main(String[] args) {
 		System.out.printf("\tDigite um dos seguintes números para acessar: ");
 		}
 
-	
 	private static void menuOpcao() {
 		
 		System.out.println("\n.__________________________________________________________________________.");
@@ -1090,6 +1089,7 @@ public static void main(String[] args) {
 	{
 		return str.matches("[a-zA-Z\\u0020]+");
 	}
+	
 	private static void menuCurso() {
 		System.out.println(".__________________________________________________________________________.");
     	System.out.println("|                                                                          |");
