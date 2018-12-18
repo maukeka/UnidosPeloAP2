@@ -1,4 +1,35 @@
-CONVIDO A TODOS A FAZER UMA REFLEX√ÉO DO QU√ÉO EF√äMERA √â A VIDA, HOJE COM A UBERIZA√á√ÉO DOS SERVI√áOS N√ÉO H√Å MAIS SENTIDO NA CRIA√á√ÉO DE EMPREGOS, JA QUE A BUSCA POR UM SERVI√áO PR√ÅTICO E √öNICO PODE SER COMPRADO, SEGUNDO ZIGMUND BAUMAN A SOCIEDADE L√çQUIDA TENDE A CADA VEZ MAIS DESPREZAR OS SISTEMAS SOCIAIS COMUNS HUMANOS PARA UMA SUPOSTA ISOLA√á√ÉO DO SER EM SEU MUNDO CADA VEZ MAIS VIRTUAL E SEQUENCIADO.
-O SER √â E TAMB√âM PODE N√ÉO SER, TER UMA VIDA N√ÉO SIGNIFICA ESTAR VIVENDO. SEGUNDO FREUD A FOR√áA VITAL EST√Å RELACIONADA √Ä LIBIDO, ENQUANTO PENSADORES MAIS CONTEMPOR√ÇNEOS CHEGAM A RELACION√Å-LA COM O PODER FINANCEIRO OU TERRITORIAL, MAS O QUE NINGU√âM QUESTIONA √â A EXIST√äNCIA DE POSS√çVEIS DIMENS√ïES EXTRAVITAIS DE CONTROLE M√öTUO. REFLITAM! 
+# Algoritmos e ProgramaÁ„o 2
 
-SOMEBODY ONCE TOLD ME THE WORLD <-- Quem escreveu essa cal√∫nia?
+**Docentes:**
+  * [Ot·vio CalaÁa Xavier](http://inf.ufg.br/node/564)
+  * [Rafael Tomaz Parreira](http://inf.ufg.br/node/1180)
+
+**Discentes:**
+  * [Eduardo Cesar Freitas da Silva Filho]()
+  * [Lais Ribeiro Torres](https://github.com/laisrtorres)
+  * [Marcos Paulo de Carvalho Araujo](https://github.com/2marco1paulo)
+  * [Mauricio Kenichi Kanashiro](https://github.com/maukeka)
+  * [Rodolfo Pereira Lemos](https://github.com/DolphinPL)
+  * [Samuel dos Santos Nogueira](https://github.com/SanHeacles)
+  
+  **Curso:** Engenharia ElÈtrica
+  
+  ## Projeto
+DescriÁ„o do projeto: 
+
+**Disciplinas** - A classe Disciplina  que estende a classe Coisa  deve atender, dentre outras,
+‡s seguintes exigÍncias:
+	1. Uma disciplina, por ser um exemplar da classe Coisa, tem que ter um cÛdigo ˙nico, como tambÈm deve ter um nomeAbreviado e um nomeCompleto n„o vazios;
+	2. O valor do atributo situacao deve estar dentre um dos previstos na classe
+SituacaoDisciplina;
+	3. Uma disciplina pode, ou n„o, estar vinculada a um curso e, por consequÍncia, deve ser possÌvel que o atributo curso seja deixado com o valor 0 (zero) para indicar que aquela disciplina n„o se vincula a nenhum curso de maneira especÌca. Por exemplo, pode ser uma disciplina eletiva (ou dita de n˙cleo livre);
+	4. Uma disciplina deve ter, obrigatoriamente, um docente respons·vel por ela e, opcionalmente, um docente auxiliar  isto acontece em alguns cursos, onde mais de um professor È necess·ria para conduzir uma aula;
+	5. Uma disciplina pode ter atÈ dois empregados tÈcnico-administrativos tambÈm vinculados a ela, um È o respons·vel e outro o auxiliar. Ambos s„o opcionais;
+	6. O atributo numeroCreditos È opcional. Ele est· presente porque em algumas instituiÁıes as disciplinas tÍm associado a elas um n˙mero de crÈditos;
+	7. A cargaHorariaTotal deve corresponder ‡ cargaHorariaTeorica adicionada ‡
+cargaHorariaPratica, sendo que uma delas pode ser igual a 0(zero) mas, obviamente,
+n„o ambas simultaneamente;
+	8. Deve ser possÌvel denir uma cargaHorariaSemanal ou uma cargaHorariaMensal
+para a disciplina, apesar de ambos atributos serem opcionais. Se ambos forem fornecidos, ent„o deve-se vericar para que a cargaHorariaMensal n„o seja superior a CINCO VEZES a cargaHorariaSemanal, pois a maior quantidade de semanas que um mÍs pode ter È CINCO;
+	9. Todos os atributos sobre custos s„o opcionais e, portanto, n„o h· nenhuma restriÁ„o a ser aplicada sobre eles;
+	10. H·, obviamente, atributos e mÈtodos adicionais que ser„o necess·rios, mas que n„o foram inseridos pelo professor  cabe ‡ equipe identicar quais s„o estes atributos (e mÈtodos), impondo-lhes as restriÁıes necess·rias.
