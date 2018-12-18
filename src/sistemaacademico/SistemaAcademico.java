@@ -315,37 +315,41 @@ public static void main(String[] args) {
 			System.out.println("\tDado inválido!\n"); // Repetir o menu de novo caso não exista nenhuma das opções 
 		}
 		do {
-		System.out.println("\n\t10- Digite a carga horária prática: "
-				+ "\n\t  OBS: Deve possuir somente números.");
-		dado = ler.nextLine();
-		if(validarCargaHorariaPratica(dado)==true) {
-			disciplina.setCargaHorariaPratica(Integer.parseInt(dado));
-		} else {
-			do {
-				System.out.println("\tDado inválido!\n");
-				System.out.println("\n\t10- Digite a carga horária prática: "
-						+ "\n\t  OBS: Deve possuir somente números.");
-						dado = ler.nextLine();
-						validarCargaHorariaPratica(dado);
-			}while(validarCargaHorariaPratica(dado)==false);
-			disciplina.setCargaHorariaPratica(Integer.parseInt(dado));
-		}
-		System.out.println("\n\t11- Digite a carga horária teórica: "
-				+ "\n\tOBS: Deve possuir somente números.");
-		dado = ler.nextLine();
-		if(validarCargaHorariaPratica(dado)==true) {
-			disciplina.setCargaHorariaTeorica(Integer.parseInt(dado));
-		} else {
-			do {
-				System.out.println("\tDado inválido!\n");
-				System.out.println("\n\t11- Digite a carga horária teórica: "
-						+ "\n\t  OBS: Deve possuir somente números.");
-						dado = ler.nextLine();
-						validarCargaHorariaTeorica(dado);
-			}while(validarCargaHorariaTeorica(dado)==false);
-			disciplina.setCargaHorariaTeorica(Integer.parseInt(dado));
-		}
-		validarCargaHorariaTotal(dado, disciplina);
+			System.out.println("\n\t10- Digite a carga horária prática: "
+					+ "\n\t  OBS: Deve possuir somente números.");
+			dado = ler.nextLine();
+			if(validarCargaHorariaPratica(dado)==true) {
+				disciplina.setCargaHorariaPratica(Integer.parseInt(dado));
+			} else {
+				do {
+					System.out.println("\tDado inválido!\n");
+					System.out.println("\n\t10- Digite a carga horária prática: "
+							+ "\n\t  OBS: Deve possuir somente números.");
+					dado = ler.nextLine();
+					validarCargaHorariaPratica(dado);
+				}while(validarCargaHorariaPratica(dado)==false);
+				disciplina.setCargaHorariaPratica(Integer.parseInt(dado));
+			}
+			System.out.println("\n\t11- Digite a carga horária teórica: "
+					+ "\n\tOBS: Deve possuir somente números.");
+			dado = ler.nextLine();
+			if(validarCargaHorariaPratica(dado)==true) {
+				disciplina.setCargaHorariaTeorica(Integer.parseInt(dado));
+			} else {
+				do {
+					System.out.println("\tDado inválido!\n");
+					System.out.println("\n\t11- Digite a carga horária teórica: "
+							+ "\n\t  OBS: Deve possuir somente números.");
+					dado = ler.nextLine();
+					validarCargaHorariaTeorica(dado);
+				}while(validarCargaHorariaTeorica(dado)==false);
+				disciplina.setCargaHorariaTeorica(Integer.parseInt(dado));
+			}
+			validarCargaHorariaTotal(dado, disciplina);
+			double soma=disciplina.getCargaHorariaPratica()+disciplina.getCargaHorariaTeorica();
+			if(soma==0) {
+				System.out.println("A carga horária total não pode ser igual a zero. Tente novamente :)");
+			}
 		}while(validarCargaHorariaTotal(dado, disciplina) == false);
 		System.out.println("\tCarga Horária Total: "+ disciplina.getCargaHorariaTotal());
 		do {
