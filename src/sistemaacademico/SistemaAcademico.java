@@ -209,7 +209,6 @@ public class SistemaAcademico {
 						System.out.println("\tDado inválido. Números não são permitidos!\n");
 						help = 1;
 				}while(help == 1);
-				 //Somente Letras e colocar menu para selecionar o desejo
 				break;
 			case "2": 
 				Docente docente = new Docente();
@@ -359,6 +358,7 @@ public class SistemaAcademico {
 		}
 		validarCargaHorariaTotal(dado);
 		}while(validarCargaHorariaTotal(dado) == false);
+		System.out.println("Carga Horária Total: "+ disciplina.getCargaHorariaTotal());
 		System.out.println("\n\t12- Digite a carga horária semanal: "
 				+ "\n\t  OBS: Deve possuir somente números."); //Deve ser Opcional e somente números
 		dado = ler.nextLine();
