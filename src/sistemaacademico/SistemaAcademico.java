@@ -86,8 +86,7 @@ public class SistemaAcademico {
 	private static void cadastrar() {
 		String dado;Disciplina disciplina = new Disciplina();	
 		do {
-			System.out.println("\t1- Digite o código da disciplina: "
-					+ "OBS: Deve ser formado por quatro números");
+			System.out.printf("\t1- Digite o código da disciplina: \n\tOBS: deve ser formado por quatro números.\n\t");
 			dado = ler.nextLine();
 			if(validarCodigo(dado)) {
 				disciplina.setCodigo(Integer.parseInt(dado));
@@ -95,47 +94,48 @@ public class SistemaAcademico {
 				System.out.println("\tDado inválido!\n");	
 			}
 		}while(validarCodigo(dado)==false);
-		System.out.println("");
-		System.out.println("\n\t2- Digite o nome completo da disciplina: "); 
+		System.out.printf("\n");
+		System.out.printf("\n\t2- Digite o nome completo da disciplina: \n\tOBS: deve possuir pelo menos uma letra. \n\t"); 
 		dado = ler.nextLine();
 		if(validarNome(dado)==true) {
 			disciplina.setNomeCompleto(dado);
 		} 
 		else {
 			do {
-				System.out.println("\tDado inválido! Deve possuir pelo menos uma letra.\n");
-				System.out.printf("\t2- Digite o nome completo da disciplina: "); 
+				System.out.println("\tDado inválido!\n");
+				System.out.printf("\t2- Digite o nome completo da disciplina: \n\tOBS: deve possuir pelo menos uma letra.\n\t"); 
 				dado = ler.nextLine();
 				validarNome(dado);
 			}while(validarNome(dado)==false);
 			disciplina.setNomeCompleto(dado);
 		}
 		System.out.println("");
-		System.out.printf("\n\t3- Digite o nome abreviado da disciplina: "); 
+		System.out.printf("\n\t3- Digite o nome abreviado da disciplina: \n\tOBS: deve possuir pelo menos uma letra.\n\t"); 
 		dado = ler.nextLine();
 		if(validarAbreviacao(dado)==true) {
 			disciplina.setNomeAbreviado(dado);
 		} else {
 			do {
-				System.out.println("\tDado inválido! Deve possuir no máximo três caracteres com pelo menos uma letra.\n");
-				System.out.printf("\t3- Digite o nome abreviado da disciplina: ");
+				System.out.println("\tDado inválido!\n");
+				System.out.printf("\t3- Digite o nome abreviado da disciplina: \n\tOBS: deve possuir pelo menos uma letra.\n\t");
 				dado = ler.nextLine();
 				validarAbreviacao(dado);
 			}while(validarAbreviacao(dado)==false);
 			disciplina.setNomeAbreviado(dado);
 		}
-		System.out.println("\n\n\t\t\t       CURSO");
+		System.out.println("\n\n\t\t\t       CURSO\n");
 		int auxiliar = 1;
 		do {
 			menuOpcao();
 			System.out.printf("\n\t");
 			dado = ler.nextLine();
+			System.out.printf("\n");
 			switch(dado)
 			{  
 			case "1":
 				int help = 1;
 				do {
-					System.out.printf("\n\t4- Digite o nome do curso: ");
+					System.out.printf("\t4- Digite o nome do curso: \n\tOBS: deve possuir apenas letras.\n\t");
 					dado = ler.nextLine();
 					if(validarCurso(dado)) {
 						disciplina.setCurso(dado);
@@ -143,13 +143,13 @@ public class SistemaAcademico {
 						break;
 					}
 					else
-						System.out.println("\tDado inválido. Números não são permitidos!");
+						System.out.println("\tDado inválido!\n");
 					help = 1;
 				}while(help == 1);
 				auxiliar = 2;
 				break;
 			case "2":
-				System.out.println("\n\t4- Disciplina de núcleo livre!");
+				System.out.println("\t4- Disciplina de núcleo livre!");
 				disciplina.setCurso("0- NÚCLEO LIVRE");
 				auxiliar = 2;
 				break;  
@@ -162,7 +162,7 @@ public class SistemaAcademico {
 
 
 		do{
-			System.out.println("\t5- Digite o nome do docente responsável pela disciplina: "); //Somente Letras
+			System.out.printf("\t5- Digite o nome do docente responsável pela disciplina: \n\tOBS: deve possuir apenas letras.\n\t"); //Somente Letras
 			dado = ler.nextLine();
 			if(validarDocenteR(dado)) {
 				Docente docente = new Docente();
@@ -171,7 +171,7 @@ public class SistemaAcademico {
 				auxiliar = 2;
 				break;
 			} else {
-				System.out.println("\tDado inválido! Deve possuir somente letras.\n");
+				System.out.println("\tDado inválido!\n");
 				auxiliar = 1;
 
 			}
@@ -190,7 +190,7 @@ public class SistemaAcademico {
 			case "1": 
 				int help = 1;
 				do {
-					System.out.printf("\n\t6- Digite o nome do docente auxiliar da disciplina: ");
+					System.out.printf("\n\t6- Digite o nome do docente auxiliar da disciplina: \n\tOBS: deve possuir apenas letras.\n\t");
 					dado = ler.nextLine();
 					if(validarDocenteR(dado)) {
 						Docente docente = new Docente();
@@ -200,7 +200,7 @@ public class SistemaAcademico {
 						break;
 					}
 					else
-						System.out.println("\tDado inválido. Deve possuir somente letras.");
+						System.out.println("\tDado inválido.\n");
 					help = 1;
 				}while(help == 1);
 				auxiliar = 2;
