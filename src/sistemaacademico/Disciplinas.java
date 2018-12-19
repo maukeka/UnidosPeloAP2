@@ -8,11 +8,11 @@ import com.sun.javafx.collections.MappingChange.Map;
 public class Disciplinas extends Coisa{
 	
 	private List<Disciplina> disciplinas;
-	
-	
+
+
 
 	public Disciplinas() {
-			this.disciplinas = new ArrayList<>();
+		this.disciplinas = new ArrayList<>();
 	}
 
 
@@ -26,13 +26,12 @@ public class Disciplinas extends Coisa{
 
 	@Override
 	public void alterar(Disciplina disciplina) {
-		for (int posicao = 0; posicao < this.disciplinas.size(); posicao++) {
-			if(this.disciplinas.get(posicao).getCodigo() == disciplina.getCodigo()) {
-				disciplinas.remove(posicao);
-				disciplinas.add(disciplina);
+			for (int posicao = 0; posicao < this.disciplinas.size(); posicao++) {
+				if(this.disciplinas.get(posicao).getCodigo() == disciplina.getCodigo()) {
+					disciplinas.remove(posicao);
+					disciplinas.add(disciplina);
+				}
 			}
-		}
-		
 	}
 
 
@@ -45,6 +44,8 @@ public class Disciplinas extends Coisa{
 			for (Disciplina disciplina : this.disciplinas) {
 				if (disciplina.getCodigo() == Integer.parseInt(chave)) {
 					retorno.add(disciplina);
+				} else {
+					System.out.println("Não foi encontrada nenhuma disciplina com esse código");
 				}
 			}
 			break;
@@ -56,6 +57,8 @@ public class Disciplinas extends Coisa{
 				String nome = disciplina.getNomeCompleto();
 				if(VerificaNome(nome, chave) > chave.length()/2) {
 					retorno.add(disciplina);
+				} else {
+					System.out.println("Não foi encontrada nenhuma disciplina com esse nome");
 				}
 			}
 			break;
@@ -64,11 +67,13 @@ public class Disciplinas extends Coisa{
 				String nome = disciplina.getNomeAbreviado();
 				if(VerificaNome(nome, chave) > chave.length()/2) {
 					retorno.add(disciplina);
+				} else {
+					System.out.println("Não foi encontrada nenhuma disciplina com essa abreviação");
 				}
 			}
 			break;
 		}
-		
+
 		return retorno;
 	}
 
@@ -81,10 +86,12 @@ public class Disciplinas extends Coisa{
 				this.disciplinas.remove(i);
 				System.out.println("Disciplina removida");
 				break;
+			} else {
+				System.out.println("Não foi encontrada nenhuma disciplina com esse código");
 			}
 		}
 	}
-	
+
 	private int VerificaNome(String nome, String chave) {
 		int porcento = 0;
 		for (int i = 0; i < nome.length() && i < chave.length(); i++) {
