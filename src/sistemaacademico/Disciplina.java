@@ -18,7 +18,7 @@ import java.util.Iterator;
 public class Disciplina implements Serializable {
 		
 		int 							codigo;
-		int                             situacao;
+		String                             situacao;
 		int 							vinculado;
 	
 	
@@ -94,11 +94,11 @@ public class Disciplina implements Serializable {
 			this.nomeAbreviado = nomeAbreviado;	
 		}
 		
-		public int getSituacao() {
+		public String getSituacao() {
 			return situacao;
 		}
 
-		public void setSituacao(int situacao) {
+		public void setSituacao(String situacao) {
 			this.situacao = situacao;
 		}
 
