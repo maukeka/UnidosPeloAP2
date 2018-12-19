@@ -86,12 +86,13 @@ public static void main(String[] args) {
 	private static void cadastrar() {
 		String dado;Disciplina disciplina = new Disciplina();	
 		do {
-			System.out.println("\t1- Digite o código da disciplina: ");
+			System.out.println("\t1- Digite o código da disciplina: "
+					+ "OBS: Deve ser formado por quatro números");
 			dado = ler.nextLine();
 			if(validarCodigo(dado)) {
 				disciplina.setCodigo(Integer.parseInt(dado));
 			} else {
-				System.out.println("\tDado inválido! Deve ser formado por quatro números.\n");	
+				System.out.println("\tDado inválido!\n");	
 			}
 		}while(validarCodigo(dado)==false);
 		System.out.println("");
@@ -176,10 +177,11 @@ public static void main(String[] args) {
 			}
 		}while( auxiliar == 1);
 		
-		System.out.print("\n\n");
-		System.out.println("\t\t\t  DOCENTE AUXILIAR");
+		
 		
 		do {
+			System.out.print("\n\n");
+			System.out.println("\t\t\t  DOCENTE AUXILIAR");
 			menuOpcao();
 			System.out.printf("\n\t");
 			dado = ler.nextLine();
@@ -201,6 +203,7 @@ public static void main(String[] args) {
 						System.out.println("\tDado inválido. Deve possuir somente letras.");
 						help = 1;
 				}while(help == 1);
+				auxiliar = 2;
 				break;
 			case "2": 
 				Docente docente = new Docente();
@@ -214,10 +217,11 @@ public static void main(String[] args) {
 			}
 		}while(auxiliar == 1);
 		
-		System.out.print("\n\n");
-		System.out.println("\t\t    TÉCNICO ADMINISTRATIVO RESPONSÁVEL");
+		
 		
 		do {	
+			System.out.print("\n\n");
+			System.out.println("\t\t    TÉCNICO ADMINISTRATIVO RESPONSÁVEL");
 				menuOpcao();
 				System.out.printf("\n\t");
 				dado = ler.nextLine();
@@ -240,6 +244,7 @@ public static void main(String[] args) {
 						System.out.println("\tDado inválido. Deve possuir somente letras.");
 						help = 1;
 				}while(help == 1);
+				auxiliar = 2;
 				break;
 			case "2": 
 				TecnicoAdministrativo tecnicoAdministrativo = new TecnicoAdministrativo();
@@ -253,11 +258,11 @@ public static void main(String[] args) {
 			}
 		}while(auxiliar == 1);
 		
-		System.out.print("\n\n");
-		System.out.println("\t\t    TÉCNICO ADMINISTRATIVO AUXILIAR");	
+			
 		
 		do {
-			
+			System.out.print("\n\n");
+			System.out.println("\t\t    TÉCNICO ADMINISTRATIVO AUXILIAR");
 			menuOpcao();
 			System.out.printf("\n\t");
 			dado = ler.nextLine();
@@ -496,19 +501,10 @@ public static void main(String[] args) {
 			}while( auxiliar == 1);
 		
 		System.out.printf("\n");
-		do {
-			System.out.printf("\n\t17- Digite o custo fixo: "); 
-			auxiliar = 1;
-			dado = ler.nextLine();
-			if(validarCustoFixo(dado)) {
-				disciplina.setCustoBasicoFixo(Integer.parseInt(dado));
-				auxiliar = 2;
-				} else {
-					System.out.println("\tDado inválido! Deve possuir apenas números positivos.");
-					}
-			}while( auxiliar == 1);
 		
-		System.out.printf("\n");
+		disciplina.setCustoBasicoFixo(disciplina.getCustoBasicoPratica()+disciplina.getCustoBasicoTeorica());
+
+		System.out.println("\n\tCusto fixo: " + disciplina.getCustoBasicoFixo());
 		
 		disciplinaDAO.cadastrar(disciplina);
 	}
@@ -910,38 +906,11 @@ public static void main(String[] args) {
 				System.out.println("\tDado não alterado, pois o paramêtro passado é inválido!");
 			}
 			break;
-		case 17 :
-			System.out.println("\tDigite o custo fixo: ");// somente número
-			dado = ler.nextLine();
-			if(validarCustoFixo(dado)) {
-				disciplina.setCustoBasicoFixo(Integer.parseInt(dado));
-			} else {
-				System.out.println("\tDado não alterado, pois o paramêtro passado é inválido!");
-			}
-			break;
-	
+			
 		}
 		return disciplina;
 	}
 	
-	private static boolean validarCustoFixo(String dado) {//OK
-		int testeDeLetras;
-		boolean validaçao;
-		try {
-			testeDeLetras = Integer.parseInt(dado);
-			if(testeDeLetras >= 0) {
-				validaçao = true;
-			}
-			else {
-				validaçao = false;
-			}				
-		}
-		catch(NumberFormatException erro) {
-			validaçao = false;
-		}
-		return validaçao;
-	}
-
 	private static boolean validarCustoTeorica(String dado) {//OK
 		int testeDeLetras;
 		boolean validaçao;
