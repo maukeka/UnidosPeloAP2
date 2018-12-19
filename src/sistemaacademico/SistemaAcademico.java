@@ -86,7 +86,7 @@ public static void main(String[] args) {
 	private static void cadastrar() {
 		String dado;Disciplina disciplina = new Disciplina();	
 		do {
-			System.out.printf("\t1- Digite o código da disciplina: ");
+			System.out.println("\t1- Digite o código da disciplina: ");
 			dado = ler.nextLine();
 			if(validarCodigo(dado)) {
 				disciplina.setCodigo(Integer.parseInt(dado));
@@ -95,7 +95,7 @@ public static void main(String[] args) {
 			}
 		}while(validarCodigo(dado)==false);
 		System.out.println("");
-		System.out.printf("\n\t2- Digite o nome completo da disciplina: "); 
+		System.out.println("\n\t2- Digite o nome completo da disciplina: "); 
 		dado = ler.nextLine();
 		if(validarNome(dado)==true) {
 			disciplina.setNomeCompleto(dado);
@@ -161,7 +161,7 @@ public static void main(String[] args) {
 
 		
 		do{
-			System.out.printf("\t5- Digite o nome do docente responsável pela disciplina: "); //Somente Letras
+			System.out.println("\t5- Digite o nome do docente responsável pela disciplina: "); //Somente Letras
 			dado = ler.nextLine();
 			if(validarDocenteR(dado)) {
 				Docente docente = new Docente();
@@ -204,7 +204,7 @@ public static void main(String[] args) {
 				break;
 			case "2": 
 				Docente docente = new Docente();
-				docente.setNome("Não há docente auxiliar");
+				docente.setNome("\tNão há docente auxiliar");
 				disciplina.setDocenteAuxiliar(docente);
 				auxiliar = 2;
 				break;
@@ -243,7 +243,7 @@ public static void main(String[] args) {
 				break;
 			case "2": 
 				TecnicoAdministrativo tecnicoAdministrativo = new TecnicoAdministrativo();
-				tecnicoAdministrativo.setNome("Não há técnico administrativo responsável");
+				tecnicoAdministrativo.setNome("\tNão há técnico administrativo responsável");
 				disciplina.setTecnicoAdministrativoResponsavel(tecnicoAdministrativo);
 				auxiliar = 2;
 				break;
@@ -388,7 +388,7 @@ public static void main(String[] args) {
 				disciplina.setCargaHorariaPratica(Integer.parseInt(dado));
 			} else {
 				do {
-					System.out.println("\tDado inválido! Deve possuir apenas números.");
+					System.out.println("\tDado inválido! Deve possuir apenas números positivos.");
 					System.out.printf("\n\t10- Digite a carga horária prática: ");
 					dado = ler.nextLine();
 					validarCargaHorariaPratica(dado);
@@ -401,7 +401,7 @@ public static void main(String[] args) {
 				disciplina.setCargaHorariaTeorica(Integer.parseInt(dado));
 			} else {
 				do {
-					System.out.println("\tDado inválido! Deve possuir apenas números.");
+					System.out.println("\tDado inválido! Deve possuir apenas números positivos.");
 					System.out.printf("\n\t11- Digite a carga horária teórica: ");
 					dado = ler.nextLine();
 					validarCargaHorariaTeorica(dado);
@@ -422,7 +422,7 @@ public static void main(String[] args) {
 				disciplina.setCargaHorariaSemanal(Integer.parseInt(dado));
 			} else {
 				do {
-					System.out.println("\tDado inválido! Deve possuir apenas números.");
+					System.out.println("\tDado inválido! Deve possuir apenas números positivos.");
 					System.out.printf("\n\t12- Digite a carga horária semanal: ");
 					dado = ler.nextLine();
 					validarCargaHorariaSemanal(dado);					
@@ -435,7 +435,7 @@ public static void main(String[] args) {
 				disciplina.setCargaHorariaMensal(Integer.parseInt(dado));
 			} else {
 				do {
-					System.out.println("\tDado inválido! Deve possuir apenas números.");
+					System.out.println("\tDado inválido! Deve possuir apenas números positivos.");
 					System.out.printf("\n\t13- Digite a carga horária mensal: ");
 					dado = ler.nextLine();
 					validarCargaHorariaMensal(dado, disciplina);
@@ -477,7 +477,7 @@ public static void main(String[] args) {
 				disciplina.setCustoBasicoPratica(Integer.parseInt(dado));
 				auxiliar = 2;
 				} 	else {
-					System.out.println("\tDado inválido! Deve possuir apenas números.");
+					System.out.println("\tDado inválido! Deve possuir apenas números positivos.");
 					auxiliar = 1;		
 					}
 			}while (auxiliar == 1);
@@ -491,7 +491,7 @@ public static void main(String[] args) {
 				disciplina.setCustoBasicoTeorica(Integer.parseInt(dado));
 				auxiliar = 2;
 				} else {
-					System.out.println("\tDado inválido! Deve possuir apenas números.");
+					System.out.println("\tDado inválido! Deve possuir apenas números positivos.");
 					}
 			}while( auxiliar == 1);
 		
@@ -504,7 +504,7 @@ public static void main(String[] args) {
 				disciplina.setCustoBasicoFixo(Integer.parseInt(dado));
 				auxiliar = 2;
 				} else {
-					System.out.println("\tDado inválido! Deve possuir apenas números.");
+					System.out.println("\tDado inválido! Deve possuir apenas números positivos.");
 					}
 			}while( auxiliar == 1);
 		
@@ -675,7 +675,7 @@ public static void main(String[] args) {
     	System.out.printf("\n\tDigite um dos seguintes números para acessar: ");
 	}
 	
-	private static void exibirDados(List<Disciplina> disciplinas) {
+	private static void exibirDados(List<Disciplina> disciplinas) {//OK
 		if(!disciplinas.equals(null)) {
 			for(Disciplina disciplina : disciplinas) {
 				System.out.println(".__________________________________________________________________________.");
@@ -706,7 +706,7 @@ public static void main(String[] args) {
 		}
 	}
 	
-	private static void menuAlterar() {
+	private static void menuAlterar() {//OK
 		System.out.println(".__________________________________________________________________________.");
     	System.out.println("|                                                                          |");
     	System.out.println("|                                                                          |");
@@ -719,7 +719,7 @@ public static void main(String[] args) {
     	System.out.printf("\tDigite um dos seguintes números para acessar: ");
 	}
 	
-	private static Disciplina alterarDados(Disciplina disciplina) {
+	private static Disciplina alterarDados(Disciplina disciplina) {//OK
 		menuOpcaoAlterar();
 		String dado;
 		int leitura = Integer.parseInt(ler.nextLine());
@@ -924,7 +924,7 @@ public static void main(String[] args) {
 		return disciplina;
 	}
 	
-	private static boolean validarCustoFixo(String dado) {
+	private static boolean validarCustoFixo(String dado) {//OK
 		int testeDeLetras;
 		boolean validaçao;
 		try {
@@ -942,7 +942,7 @@ public static void main(String[] args) {
 		return validaçao;
 	}
 
-	private static boolean validarCustoTeorica(String dado) {
+	private static boolean validarCustoTeorica(String dado) {//OK
 		int testeDeLetras;
 		boolean validaçao;
 		try {
@@ -960,7 +960,7 @@ public static void main(String[] args) {
 		return validaçao;
 	}
 
-	private static boolean validarCustoPratica(String dado) {
+	private static boolean validarCustoPratica(String dado) {//OK
 		int testeDeLetras;
 		boolean validaçao;
 		try {
@@ -1108,7 +1108,7 @@ public static void main(String[] args) {
 		return confirmaçao;
 	}
 
-	private static boolean validarSituacao(String dado) {
+	private static boolean validarSituacao(String dado) {//OK
 		boolean validaçao;
 		try {
 			if(Integer.parseInt(dado)>=0 && Integer.parseInt(dado)<6) {
@@ -1199,7 +1199,7 @@ public static void main(String[] args) {
 	return apoio;		
 }
 	
-	private static void menuOpcaoAlterar() {
+	private static void menuOpcaoAlterar() {//OK
 		System.out.println(".__________________________________________________________________________.");
 		System.out.println("|                                                                          |");
 		System.out.println("|                                                                          |");
@@ -1226,7 +1226,7 @@ public static void main(String[] args) {
 		System.out.printf("\tDigite um dos seguintes números para acessar: ");
 		}
 
-	private static void menuOpcao() {
+	private static void menuOpcao() {//OK
 		
 		System.out.println(".__________________________________________________________________________.");
 		System.out.println("|                                                                          |");
@@ -1240,7 +1240,7 @@ public static void main(String[] args) {
     	
 	}
 	
-	public static boolean checkLetters(String str) 
+	public static boolean checkLetters(String str) //OK
 	{
 		return str.matches("[a-zA-Z\\u0020]+");
 	}
