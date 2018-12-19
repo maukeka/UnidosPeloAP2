@@ -464,12 +464,13 @@ public static void main(String[] args) {
 					System.out.println("\n\tNúmero de Créditos: "+ disciplina.getNumeroCreditos());
 					break;
 				default:
-					System.out.println("\tDado inválido!\n");
+					System.out.println("\tDado inválido!");
 			}				
 			}while(auxiliar == 1);
 		
+		System.out.printf("\n");
 		do{
-			System.out.printf("\n\n\t15- Digite o custo prática: "); 
+			System.out.printf("\n\t15- Digite o custo prática: "); 
 			auxiliar = 1;
 			dado = ler.nextLine();
 			if(validarCustoPratica(dado)) {
@@ -481,8 +482,9 @@ public static void main(String[] args) {
 					}
 			}while (auxiliar == 1);
 		
+		System.out.printf("\n");
 		do {
-			System.out.printf("\n\n\t16- Digite o custo teórica: "); 
+			System.out.printf("\n\t16- Digite o custo teórica: "); 
 			auxiliar = 1;
 			dado = ler.nextLine();
 			if(validarCustoTeorica(dado)) {
@@ -493,8 +495,9 @@ public static void main(String[] args) {
 					}
 			}while( auxiliar == 1);
 		
+		System.out.printf("\n");
 		do {
-			System.out.printf("\n\n\t17- Digite o custo fixo: "); 
+			System.out.printf("\n\t17- Digite o custo fixo: "); 
 			auxiliar = 1;
 			dado = ler.nextLine();
 			if(validarCustoFixo(dado)) {
@@ -631,21 +634,21 @@ public static void main(String[] args) {
     		exibirDados(disciplinas);
     		break;
     	case 2:
-    		System.out.printf("\n\tDigite o código da disciplina: "); //Somente número
+    		System.out.printf("\n\n\tDigite o código da disciplina: "); //Somente número
     		chave = ler.nextLine();
     		System.out.println();
     		disciplinas = disciplinaDAO.consultar("codigo", chave);
     		exibirDados(disciplinas);
     		break;
     	case 3:
-    		System.out.printf("\n\tDigite o nome completo da disciplina: "); //Somente Letras
+    		System.out.printf("\n\n\tDigite o nome completo da disciplina: "); //Somente Letras
     		chave = ler.nextLine();
     		System.out.println();
     		disciplinas = disciplinaDAO.consultar("nomeCompleto", chave);
     		exibirDados(disciplinas);
     		break;
     	case 4:
-    		System.out.printf("\n\tDigite o nome abreviado da disciplina: "); // 3 Dígitos no max e pelo menos uma letra
+    		System.out.printf("\n\n\tDigite o nome abreviado da disciplina: "); // 3 Dígitos no max e pelo menos uma letra
     		chave = ler.nextLine();
     		System.out.println();
     		disciplinas = disciplinaDAO.consultar("nomeAbreviado", chave);
