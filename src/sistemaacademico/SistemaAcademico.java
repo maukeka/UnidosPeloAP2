@@ -86,8 +86,8 @@ public static void main(String[] args) {
 	private static void cadastrar() {
 		String dado;Disciplina disciplina = new Disciplina();	
 		do {
-			System.out.println("\t1- Digite o código da disciplina: "
-					+ "\n\t  OBS: Deve ser formado apenas por quatro números.");
+			System.out.printf("\t1- Digite o código da disciplina: "
+					+ "\n\t  OBS: Deve ser formado apenas por quatro números.\n\t");
 			dado = ler.nextLine();
 			if(validarCodigo(dado)) {
 				disciplina.setCodigo(Integer.parseInt(dado));
@@ -95,7 +95,7 @@ public static void main(String[] args) {
 				System.out.println("\tDado inválido!\n");	
 			}
 		}while(validarCodigo(dado)==false);
-		System.out.println("\n\t2- Digite o nome completo da disciplina: "); 
+		System.out.printf("\n\t2- Digite o nome completo da disciplina: \n\t"); 
 		dado = ler.nextLine();
 		if(validarNome(dado)==true) {
 			disciplina.setNomeCompleto(dado);
@@ -103,22 +103,22 @@ public static void main(String[] args) {
 		else {
 			do {
 			System.out.println("\tDado inválido!\n");
-			System.out.println("\t2- Digite o nome completo da disciplina: "); 
+			System.out.printf("\t2- Digite o nome completo da disciplina: \n\t"); 
 			dado = ler.nextLine();
 			validarNome(dado);
 			}while(validarNome(dado)==false);
 			disciplina.setNomeCompleto(dado);
 		}
-		System.out.println("\n\t3- Digite o nome abreviado da disciplina: "
-				+ "\n\t  OBS: Deve possuir no máximo três caracteres com pelo menos um caracter seja uma letra."); 
+		System.out.printf("\n\t3- Digite o nome abreviado da disciplina: "
+				+ "\n\t  OBS: Deve possuir no máximo três caracteres com pelo menos um caracter seja uma letra.\n\t"); 
 		dado = ler.nextLine();
 		if(validarAbreviacao(dado)==true) {
 			disciplina.setNomeAbreviado(dado);
 		} else {
 			do {
 				System.out.println("\tDado inválido!\n");
-				System.out.println("\t3- Digite o nome abreviado da disciplina: "
-						+ "\n\t  OBS: Deve possuir no máximo três caracteres com pelo menos um caracter seja uma letra.");
+				System.out.printf("\t3- Digite o nome abreviado da disciplina: "
+						+ "\n\t  OBS: Deve possuir no máximo três caracteres com pelo menos um caracter seja uma letra.\n\t");
 						dado = ler.nextLine();
 						validarAbreviacao(dado);
 			}while(validarAbreviacao(dado)==false);
@@ -134,7 +134,7 @@ public static void main(String[] args) {
 			case "1":
 				int help = 1;
 				do {
-					System.out.println("\n\t4- Insira o nome do curso:");
+					System.out.printf("\n\t4- Insira o nome do curso:\n\t");
 					dado = ler.nextLine();
 					if(validarCurso(dado)) {
 						disciplina.setCurso(dado);
@@ -161,9 +161,9 @@ public static void main(String[] args) {
 
 		
 		do{
-			System.out.println("\t5- Digite o nome do docente responsável pela disciplina: "
+			System.out.printf("\t5- Digite o nome do docente responsável pela disciplina: "
 
-					+ "\n\t  OBS: Deve possuir somente letras."); //Somente Letras
+					+ "\n\t  OBS: Deve possuir somente letras.\n\t"); //Somente Letras
 			dado = ler.nextLine();
 			if(validarDocenteR(dado)) {
 				Docente docente = new Docente();
@@ -189,8 +189,8 @@ public static void main(String[] args) {
 			case "1": 
 				int help = 1;
 				do {
-					System.out.println("\n\t6- Digite o nome do docente auxiliar da disciplina: "
-							+ "\n\t  OBS: Deve possuir somente letras.");
+					System.out.printf("\n\t6- Digite o nome do docente auxiliar da disciplina: "
+							+ "\n\t  OBS: Deve possuir somente letras.\n\t");
 						dado = ler.nextLine();
 					if(validarDocenteR(dado)) {
 						Docente docente = new Docente();
@@ -228,8 +228,8 @@ public static void main(String[] args) {
 			case "1": 
 				int help = 1;
 				do {
-					System.out.println("\n\t7- Digite o nome do técnico administrativo responsável pela disciplina: "
-							+ "\n\t  OBS: Deve possuir somente letras.");
+					System.out.printf("\n\t7- Digite o nome do técnico administrativo responsável pela disciplina: "
+							+ "\n\t  OBS: Deve possuir somente letras.\n\t");
 						dado = ler.nextLine();
 					if(validarTecnico(dado)) {
 						TecnicoAdministrativo tecnicoAdministrativo = new TecnicoAdministrativo();
@@ -267,8 +267,8 @@ public static void main(String[] args) {
 			case "1":
 				int help = 1;
 			do {
-				System.out.println("\n\t8- Digite o nome do técnico administrativo auxiliar da disciplina: "
-						+ "\n\t  OBS: Deve possuir somente letras.");
+				System.out.printf("\n\t8- Digite o nome do técnico administrativo auxiliar da disciplina: "
+						+ "\n\t  OBS: Deve possuir somente letras.\n\t");
 					dado = ler.nextLine();
 				if(validarTecnico(dado)) {
 					TecnicoAdministrativo tecnicoAdministrativo = new TecnicoAdministrativo();
