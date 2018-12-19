@@ -468,47 +468,43 @@ public static void main(String[] args) {
 			}				
 			}while(auxiliar == 1);
 		
-		System.out.printf("\n\n\t15- Digite o custo prática: "); // Opcional e só número
-		dado = ler.nextLine();
-		if(validarCustoPratica(dado)) {
-			disciplina.setCustoBasicoPratica(Integer.parseInt(dado));
-		} else {
-			do {
-				System.out.println("\tDado inválido! Deve possuir apenas números.");
-				System.out.printf("\n\t15- Digite o custo prática: "); // Opcional e só número
-				dado = ler.nextLine();
-				validarCustoPratica(dado);
-			} while(validarCustoPratica(dado) == false);
-			disciplina.setCustoBasicoPratica(Integer.parseInt(dado));
-		}
+		do{
+			System.out.printf("\n\n\t15- Digite o custo prática: "); 
+			auxiliar = 1;
+			dado = ler.nextLine();
+			if(validarCustoPratica(dado)) {
+				disciplina.setCustoBasicoPratica(Integer.parseInt(dado));
+				auxiliar = 2;
+				} 	else {
+					System.out.println("\tDado inválido! Deve possuir apenas números.");
+					auxiliar = 1;		
+					}
+			}while (auxiliar == 1);
 		
-		System.out.printf("\n\n\t16- Digite o custo teórica: "); //Opcional e só número
-		dado = ler.nextLine();
-		if(validarCustoTeorica(dado)) {
-			disciplina.setCustoBasicoTeorica(Integer.parseInt(dado));
-		} else {
-			do {
-				System.out.println("\tDado inválido! Deve possuir apenas números.");
-				System.out.printf("\n\t16- Digite o custo teórica: "); //Opcional e só número
-				dado = ler.nextLine();
-				validarCustoTeorica(dado);
-			} while(validarCustoTeorica(dado) == false);
-			disciplina.setCustoBasicoTeorica(Integer.parseInt(dado));	
-		}
+		do {
+			System.out.printf("\n\n\t16- Digite o custo teórica: "); 
+			auxiliar = 1;
+			dado = ler.nextLine();
+			if(validarCustoTeorica(dado)) {
+				disciplina.setCustoBasicoTeorica(Integer.parseInt(dado));
+				auxiliar = 2;
+				} else {
+					System.out.println("\tDado inválido! Deve possuir apenas números.");
+					}
+			}while( auxiliar == 1);
 		
-		System.out.printf("\n\n\t17- Digite o custo fixo: "); //Opcional e só número
-		dado = ler.nextLine();
-		if(validarCustoFixo(dado)) {
-			disciplina.setCustoFixo(Integer.parseInt(dado));
-		} else {
-			do {
-				System.out.println("\tDado inválido! Deve possuir apenas números");
-				System.out.printf("\n\t17- Digite o custo fixo: "); //Opcional e só número
-				dado = ler.nextLine();
-				validarCustoFixo(dado);
-			} while(validarCustoFixo(dado) == false);
-			disciplina.setCustoFixo(Integer.parseInt(dado));
-		}
+		do {
+			System.out.printf("\n\n\t17- Digite o custo fixo: "); 
+			auxiliar = 1;
+			dado = ler.nextLine();
+			if(validarCustoFixo(dado)) {
+				disciplina.setCustoBasicoFixo(Integer.parseInt(dado));
+				auxiliar = 2;
+				} else {
+					System.out.println("\tDado inválido! Deve possuir apenas números.");
+					}
+			}while( auxiliar == 1);
+		
 		System.out.printf("\n");
 		
 		disciplinaDAO.cadastrar(disciplina);
@@ -631,24 +627,25 @@ public static void main(String[] args) {
     	switch (leitura) {
     	case 1:
     		disciplinas = disciplinaDAO.consultar("todos", null);
+			System.out.printf("\n");
     		exibirDados(disciplinas);
     		break;
     	case 2:
-    		System.out.printf("\tDigite o código da disciplina: \n\t"); //Somente número
+    		System.out.printf("\n\tDigite o código da disciplina: "); //Somente número
     		chave = ler.nextLine();
     		System.out.println();
     		disciplinas = disciplinaDAO.consultar("codigo", chave);
     		exibirDados(disciplinas);
     		break;
     	case 3:
-    		System.out.printf("\tDigite o nome completo da disciplina: \n\t"); //Somente Letras
+    		System.out.printf("\n\tDigite o nome completo da disciplina: "); //Somente Letras
     		chave = ler.nextLine();
     		System.out.println();
     		disciplinas = disciplinaDAO.consultar("nomeCompleto", chave);
     		exibirDados(disciplinas);
     		break;
     	case 4:
-    		System.out.printf("\tDigite o nome abreviado da disciplina: \n\t"); // 3 Dígitos no max e pelo menos uma letra
+    		System.out.printf("\n\tDigite o nome abreviado da disciplina: "); // 3 Dígitos no max e pelo menos uma letra
     		chave = ler.nextLine();
     		System.out.println();
     		disciplinas = disciplinaDAO.consultar("nomeAbreviado", chave);
@@ -672,7 +669,7 @@ public static void main(String[] args) {
     	System.out.println("|       5 - Sair                                                           |");
     	System.out.println("|                                                                          |");
     	System.out.println("|__________________________________________________________________________|");
-    	System.out.printf("\tDigite um dos seguintes números para acessar: ");
+    	System.out.printf("\n\tDigite um dos seguintes números para acessar: ");
 	}
 	
 	private static void exibirDados(List<Disciplina> disciplinas) {
@@ -697,11 +694,12 @@ public static void main(String[] args) {
 				System.out.println("|" + "Número de Créditos....................: " + disciplina.getNumeroCreditos());
 				System.out.println("|" + "Custo Básico Prática..................: " + "R$" + disciplina.getCustoBasicoPratica());
 				System.out.println("|" + "Custo Básico Teórica..................: " + "R$" + disciplina.getCustoBasicoTeorica());
-				System.out.println("|" + "Custo Fixo............................: " + "R$" + disciplina.getCustoFixo());
+				System.out.println("|" + "Custo Fixo............................: " + "R$" + disciplina.getCustoBasicoFixo());
 		    	System.out.println("|_____________________________________________________________________________.");
+		    	System.out.printf("\n\n");
 			}
 		} else {
-			System.out.println("\tNenhuma disciplina foi encontrada com os parâmetros informados");
+			System.out.println("\tNenhuma disciplina foi encontrada com os parâmetros informados.\n\n");
 		}
 	}
 	
@@ -913,7 +911,7 @@ public static void main(String[] args) {
 			System.out.println("\tDigite o custo fixo: ");// somente número
 			dado = ler.nextLine();
 			if(validarCustoFixo(dado)) {
-				disciplina.setCustoFixo(Integer.parseInt(dado));
+				disciplina.setCustoBasicoFixo(Integer.parseInt(dado));
 			} else {
 				System.out.println("\tDado não alterado, pois o paramêtro passado é inválido!");
 			}
@@ -924,9 +922,8 @@ public static void main(String[] args) {
 	}
 	
 	private static boolean validarCustoFixo(String dado) {
-		boolean confirmaçao;
-		boolean validaçao;
 		int testeDeLetras;
+		boolean validaçao;
 		try {
 			testeDeLetras = Integer.parseInt(dado);
 			if(testeDeLetras >= 0) {
@@ -943,9 +940,8 @@ public static void main(String[] args) {
 	}
 
 	private static boolean validarCustoTeorica(String dado) {
-		boolean confirmaçao;
-		boolean validaçao;
 		int testeDeLetras;
+		boolean validaçao;
 		try {
 			testeDeLetras = Integer.parseInt(dado);
 			if(testeDeLetras >= 0) {
@@ -962,9 +958,8 @@ public static void main(String[] args) {
 	}
 
 	private static boolean validarCustoPratica(String dado) {
-		boolean confirmaçao;
-		boolean validaçao;
 		int testeDeLetras;
+		boolean validaçao;
 		try {
 			testeDeLetras = Integer.parseInt(dado);
 			if(testeDeLetras >= 0) {

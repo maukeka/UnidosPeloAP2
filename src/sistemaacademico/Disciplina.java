@@ -46,7 +46,7 @@ public class Disciplina implements Serializable {
 	    double                          cargaHorariaPratica;
 	    double                          cargaHorariaSemanal;    // Opcional informar
 	    double                          cargaHorariaMensal;     // Opcional informar 
-	    double                          custoFixo;              // Todos são opcionais...
+	    double                          custoBasicoFixo;        // Todos são opcionais...
 	    double                          custoBasicoTeorica;     // Valores em Reais (R$)
 	    double                          custoBasicoPratica;     //
 
@@ -192,12 +192,12 @@ public class Disciplina implements Serializable {
 			this.cargaHorariaMensal = cargaHorariaMensal;
 		}
 
-		public double getCustoFixo() {
-			return custoFixo;
+		public double getCustoBasicoFixo() {
+			return custoBasicoFixo;
 		}
 
-		public void setCustoFixo(double custoFixo) {
-			this.custoFixo = custoFixo;
+		public void setCustoBasicoFixo(double custoBasicoFixo) {
+			this.custoBasicoFixo = custoBasicoFixo;
 		}
 
 		public double getCustoBasicoTeorica() {
