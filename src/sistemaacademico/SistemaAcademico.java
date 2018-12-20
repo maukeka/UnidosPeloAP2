@@ -9,7 +9,19 @@ import java.util.InputMismatchException;
 import java.util.List;
 
 /**
- * @author Wanderley de Souza Alencar                
+ * 
+ * @author 	Eduardo César Freitas da Silva Filho
+ * @author	Laís Ribeiro Torres 
+ * @author	Marcos Paulo da Carvalho Araújo
+ * @author 	Mauricio Kenichi Kanashiro
+ * @author 	Rodolfo Pereira Lemos
+ * @author 	Samuel dos Santos Nogueira
+ * 
+ * Nome.......: Sistema Acadêmico.
+ * Descrição..: Classe que interage com o usuário, recebendo os parâmetros passados e criando listas de informações de disciplinas e listas de disciplinas. 
+ * 				Em síntese, implementa todas as outras classes usadas no projeto.
+ * Observações:
+ * 
  */
 public class SistemaAcademico {
 
@@ -21,6 +33,8 @@ public class SistemaAcademico {
 	private static Disciplinas disciplinaDAO = new Disciplinas();
 
 	/**
+	 * Em síntese, implementa todas as outros métodos usados no projeto a partir da interação com o usuário.
+	 * 
 	 * @param args the command line arguments
 	 */
 
@@ -38,7 +52,7 @@ public class SistemaAcademico {
 				try {
 					leitura = menu();
 				}
-				catch(Exception e) {// trocar exception?
+				catch(Exception e) {
 
 				}
 			}while(leitura>5 || leitura<1);
@@ -165,7 +179,7 @@ public class SistemaAcademico {
 
 
 		do{
-			System.out.printf("\t5- Digite o nome do docente responsável pela disciplina: \n\tOBS: deve possuir apenas letras.\n\t"); //Somente Letras
+			System.out.printf("\t5- Digite o nome do docente responsável pela disciplina: \n\tOBS: deve possuir apenas letras.\n\t"); 
 			dado = ler.nextLine();
 			if(validarDocenteR(dado)) {
 				Docente docente = new Docente();
@@ -365,7 +379,7 @@ public class SistemaAcademico {
 
 		} else {
 			do {
-				System.out.println("\tDado inválido!"); // Repetir o menu de novo caso não exista nenhuma das opções 
+				System.out.println("\tDado inválido!"); 
 				System.out.println("\n\t\t\tSITUAÇÃO DA DISCIPLINA");
 				System.out.println(".__________________________________________________________________________.");		
 				System.out.println("|                                                                          |");
@@ -446,7 +460,7 @@ public class SistemaAcademico {
 			} else {
 				do {
 					System.out.println("\tDado inválido!");
-					System.out.printf("\n\t11- Digite a carga horária teórica:\n\tOBS: deve possuir apenas npumeros positivos.\n\t");
+					System.out.printf("\n\t11- Digite a carga horária teórica:\n\tOBS: deve possuir apenas números positivos.\n\t");
 					dado = ler.nextLine();
 					validarCargaHorariaTeorica(dado);
 				}while(validarCargaHorariaTeorica(dado)==false);
@@ -631,7 +645,7 @@ public class SistemaAcademico {
 			disciplinas = disciplinaDAO.consultar("todos", null);
 			System.out.printf("\n");
 			exibirDados(disciplinas);
-			System.out.printf("\tDigite o código da disciplina a ser alterada:\n\tOBS: deve possuir apenas números.\n\t"); //Somente números
+			System.out.printf("\tDigite o código da disciplina a ser alterada:\n\tOBS: deve possuir apenas números.\n\t"); 
 			chave = ler.nextLine();
 			System.out.printf("\n\n");
 			for(Disciplina disciplina : disciplinas) {
@@ -645,8 +659,8 @@ public class SistemaAcademico {
 		case 2: 
 			try {
 			
-			System.out.printf("\n\tDigite o código da disciplina a ser alterada:\n\tOBS: deve possuir apenas números.\n\t"); //Somente números
-			chave = ler.nextLine(); //try...catch
+			System.out.printf("\n\tDigite o código da disciplina a ser alterada:\n\tOBS: deve possuir apenas números.\n\t");
+			chave = ler.nextLine(); 
 			disciplinas = disciplinaDAO.consultar("codigo", chave);
 			
 			if(disciplinas.size() == 1) {
@@ -790,7 +804,7 @@ public class SistemaAcademico {
 		System.out.printf("\n\tDigite um dos seguintes números para acessar: ");
 	}
 
-	private static void exibirDados(List<Disciplina> disciplinas) {//OK
+	private static void exibirDados(List<Disciplina> disciplinas) {
 		if(disciplinas.size()>0) {
 			for(Disciplina disciplina : disciplinas) {
 				System.out.println("\n.__________________________________________________________________________.");
@@ -821,7 +835,7 @@ public class SistemaAcademico {
 		}
 	}
 
-	private static void menuAlterar() {//OK
+	private static void menuAlterar() {
 		System.out.println(".__________________________________________________________________________.");
 		System.out.println("|                                                                          |");
 		System.out.println("|                                                                          |");
@@ -834,7 +848,7 @@ public class SistemaAcademico {
 		System.out.printf("\n\tDigite um dos seguintes números para acessar: ");
 	}
 
-	private static Disciplina alterarDados(Disciplina disciplina) {//OK
+	private static Disciplina alterarDados(Disciplina disciplina) {
 		menuOpcaoAlterar();
 		String dado;
 		int leitura = Integer.parseInt(ler.nextLine());
@@ -945,15 +959,15 @@ public class SistemaAcademico {
 					break;
 				case 5:
 					do {
-						System.out.println("Digite a siuação da disciplina: "
-								+ "OBS: Apenas letras");
+						System.out.println("\n\tDigite a siuação da disciplina: "
+								+ "\n\tOBS: Apenas letras");
 						dado = ler.nextLine();
 						if(validarSit(dado)) {
 							disciplina.setSituacao(dado);
 							System.out.println("\tSituação da disciplina:" +dado);
 						}
 						else
-							System.out.println("Dado inválido!");
+							System.out.println("\tDado inválido!");
 						
 					
 					}while(validarCurso(dado) == false);
@@ -987,7 +1001,7 @@ public class SistemaAcademico {
 			}
 			break;
 		case 11 :
-			System.out.println("\n\n\tDigite a carga horária semanal: ");  
+			System.out.println("\n\n\tDigite a carga horária semanal: \n\tOBS: A carga horária semanal deve ser menor que a carga horário mensal.");  
 			dado = ler.nextLine();
 			if(validarCargaHorariaSemanal(dado)) {
 				disciplina.setCargaHorariaSemanal(Integer.parseInt(dado));
@@ -997,7 +1011,7 @@ public class SistemaAcademico {
 			break;
 
 		case 12 :
-			System.out.println("\n\n\tDigite a carga horária mensal: ");// somente número
+			System.out.println("\n\n\tDigite a carga horária mensal: \n\tOBS: A carga horária mensal não pode ser superior ao quintuplo da carga horária semanal.");
 			dado = ler.nextLine();
 			if(validarCargaHorariaMensal(dado, disciplina) ) {
 				disciplina.setCargaHorariaMensal(Integer.parseInt(dado));
@@ -1008,7 +1022,7 @@ public class SistemaAcademico {
 
 		case 13 :
 			try {
-				System.out.println("\n\n\tDigite o número de créditos:");// somente número
+				System.out.println("\n\n\tDigite o número de créditos:");
 				dado = ler.nextLine();
 				if(validarNumCreditos(dado, disciplina)) {
 					disciplina.setNumeroCreditos(Integer.parseInt(dado));
@@ -1016,14 +1030,14 @@ public class SistemaAcademico {
 					System.out.println("\tDado não alterado, pois o paramêtro passado é inválido!");
 				}
 			} catch (NumberFormatException e) {
-				System.out.println("Dado inválido! Essa opção aceita apenas números.");
+				System.out.println("\tDado inválido! Essa opção aceita apenas números.");
 			} catch (Exception e) {
-				System.out.println("Dado inválido! Essa opção aceita apenas números.");
+				System.out.println("\tDado inválido! Essa opção aceita apenas números.");
 			}
 			break;
 
 		case 14 :
-			System.out.println("\n\n\tDigite o custo prática: ");// somente número
+			System.out.println("\n\n\tDigite o custo prática: ");
 			dado = ler.nextLine();
 			if(validarCustoPratica(dado)) {
 				disciplina.setCustoBasicoPratica(Integer.parseInt(dado));
@@ -1034,7 +1048,7 @@ public class SistemaAcademico {
 			break;
 
 		case 15 :
-			System.out.println("\n\n\tDigite o custo teórica: ");// somente número
+			System.out.println("\n\n\tDigite o custo teórica: ");
 			dado = ler.nextLine();
 			if(validarCustoTeorica(dado)) {
 				disciplina.setCustoBasicoTeorica(Integer.parseInt(dado));
@@ -1048,7 +1062,7 @@ public class SistemaAcademico {
 		return disciplina;
 	}
 
-	private static boolean validarCustoTeorica(String dado) {//OK
+	private static boolean validarCustoTeorica(String dado) {
 		int testeDeLetras;
 		boolean validaçao;
 		try {
@@ -1066,7 +1080,7 @@ public class SistemaAcademico {
 		return validaçao;
 	}
 
-	private static boolean validarCustoPratica(String dado) {//OK
+	private static boolean validarCustoPratica(String dado) {
 		int testeDeLetras;
 		boolean validaçao;
 		try {
@@ -1084,7 +1098,7 @@ public class SistemaAcademico {
 		return validaçao;
 	}
 
-	private static boolean validarNumCreditos(String dado, Disciplina disciplina) {//OK
+	private static boolean validarNumCreditos(String dado, Disciplina disciplina) {
 		double resultado;
 		double resto;
 		int unicoCredito = 16;
@@ -1094,7 +1108,7 @@ public class SistemaAcademico {
 		return true;
 	}
 
-	private static boolean validarCargaHorariaTotal(String dado, Disciplina disciplina) {//OK
+	private static boolean validarCargaHorariaTotal(String dado, Disciplina disciplina) {
 		double cargaPratica = disciplina.getCargaHorariaPratica();
 		double cargaTeorica = disciplina.getCargaHorariaTeorica();
 		double cargaTotal = cargaPratica + cargaTeorica;
@@ -1109,7 +1123,7 @@ public class SistemaAcademico {
 		return confirmaçao;
 	}
 
-	private static boolean validarCargaHorariaMensal(String dado, Disciplina disciplina) {//OK
+	private static boolean validarCargaHorariaMensal(String dado, Disciplina disciplina) {
 		int testeTamanho = dado.length();
 		boolean confirmaçao;
 		boolean validaçao;
@@ -1136,7 +1150,7 @@ public class SistemaAcademico {
 		return confirmaçao;
 	}
 
-	private static boolean validarCargaHorariaSemanal(String dado) {//OK
+	private static boolean validarCargaHorariaSemanal(String dado) {
 		int testeTamanho = dado.length();
 		boolean confirmaçao;
 		boolean validaçao;
@@ -1162,7 +1176,7 @@ public class SistemaAcademico {
 		return confirmaçao;
 	}
 
-	private static boolean validarCargaHorariaTeorica(String dado) {//OK
+	private static boolean validarCargaHorariaTeorica(String dado) {
 		int testeTamanho = dado.length();
 		boolean confirmaçao;
 		boolean validaçao;
@@ -1189,7 +1203,7 @@ public class SistemaAcademico {
 		return confirmaçao;
 	}
 
-	private static boolean validarCargaHorariaPratica(String dado) {//OK
+	private static boolean validarCargaHorariaPratica(String dado) {
 		int testeTamanho = dado.length();
 		boolean confirmaçao;
 		boolean validaçao;
@@ -1215,7 +1229,7 @@ public class SistemaAcademico {
 		return confirmaçao;
 	}
 
-	private static boolean validarSituacao(String dado) {//OK
+	private static boolean validarSituacao(String dado) {
 		boolean validaçao;
 		try {
 			if(Integer.parseInt(dado)>=0 && Integer.parseInt(dado)<6) {
@@ -1231,35 +1245,35 @@ public class SistemaAcademico {
 		return validaçao;
 	}
 
-	private static boolean validarTecnico(String dado) {//OK
+	private static boolean validarTecnico(String dado) {
 		return dado.matches("[a-zA-Z\\u0020\u00e1\u00e0\u00e2\u00e3\u00e4\u00c1\u00c0\u00c2\u00c3\u00c4"
 				+ "\u00e9\u00e8\u00ea\u00ea\u00c9\u00c8\u00ca\u00cb\u00ed\u00ec\u00ee\u00ef\u00cd\u00cc\u00ce"
 				+ "\u00cf\u00f3\u00f2\u00f4\u00f5\u00f6\u00d3\u00d2\u00d4\u00d5\u00d6\u00fa\u00f9\u00fb\u00fc"
 				+ "\u00da\u00d9\u00db\u00e7\u00c7]+") && !dado.equals(null) && !dado.equals(" ");
 	}
 
-	private static boolean validarDocenteR(String dado) {//OK
+	private static boolean validarDocenteR(String dado) {
 		return dado.matches("[a-zA-Z\\u0020\u00e1\u00e0\u00e2\u00e3\u00e4\u00c1\u00c0\u00c2\u00c3\u00c4"
 				+ "\u00e9\u00e8\u00ea\u00ea\u00c9\u00c8\u00ca\u00cb\u00ed\u00ec\u00ee\u00ef\u00cd\u00cc\u00ce"
 				+ "\u00cf\u00f3\u00f2\u00f4\u00f5\u00f6\u00d3\u00d2\u00d4\u00d5\u00d6\u00fa\u00f9\u00fb\u00fc"
 				+ "\u00da\u00d9\u00db\u00e7\u00c7]+") && !dado.equals(null) && !dado.equals(" ");
 	}
 
-	private static boolean validarCurso(String dado) {//OK
+	private static boolean validarCurso(String dado) {
 		return dado.matches("[a-zA-Z\\u0020\u00e1\u00e0\u00e2\u00e3\u00e4\u00c1\u00c0\u00c2\u00c3\u00c4"
 				+ "\u00e9\u00e8\u00ea\u00ea\u00c9\u00c8\u00ca\u00cb\u00ed\u00ec\u00ee\u00ef\u00cd\u00cc\u00ce"
 				+ "\u00cf\u00f3\u00f2\u00f4\u00f5\u00f6\u00d3\u00d2\u00d4\u00d5\u00d6\u00fa\u00f9\u00fb\u00fc"
 				+ "\u00da\u00d9\u00db\u00e7\u00c7]+") && !dado.equals(null) && !dado.equals(" ");
 	}
 	
-	private static boolean validarSit(String dado) {//OK
+	private static boolean validarSit(String dado) {
 		return dado.matches("[a-zA-Z\\u0020\u00e1\u00e0\u00e2\u00e3\u00e4\u00c1\u00c0\u00c2\u00c3\u00c4"
 				+ "\u00e9\u00e8\u00ea\u00ea\u00c9\u00c8\u00ca\u00cb\u00ed\u00ec\u00ee\u00ef\u00cd\u00cc\u00ce"
 				+ "\u00cf\u00f3\u00f2\u00f4\u00f5\u00f6\u00d3\u00d2\u00d4\u00d5\u00d6\u00fa\u00f9\u00fb\u00fc"
 				+ "\u00da\u00d9\u00db\u00e7\u00c7]+") && !dado.equals(null) && !dado.equals(" ");
 	}
 
-	private static boolean validarAbreviacao(String dado) {//OK
+	private static boolean validarAbreviacao(String dado) {
 		int testeTamanho = dado.length();
 		boolean confirmacao;
 		boolean validaçao;
@@ -1280,7 +1294,7 @@ public class SistemaAcademico {
 		return confirmacao;
 	}
 
-	private static boolean validarNome(String dado) {//OK
+	private static boolean validarNome(String dado) {
 		boolean confirmaçao;
 		int testeTamanho;
 		testeTamanho = dado.length();
@@ -1302,7 +1316,7 @@ public class SistemaAcademico {
 		return confirmaçao;
 	}
 
-	private static boolean validarCodigo(String dado) {//OK
+	private static boolean validarCodigo(String dado) {
 
 		boolean apoio = true;
 
@@ -1322,7 +1336,7 @@ public class SistemaAcademico {
 		return apoio;		
 	}
 
-	private static void menuOpcaoAlterar() {//OK
+	private static void menuOpcaoAlterar() {
 		System.out.println(".__________________________________________________________________________.");
 		System.out.println("|                                                                          |");
 		System.out.println("|                                                                          |");
@@ -1347,7 +1361,7 @@ public class SistemaAcademico {
 		System.out.printf("\tDigite um dos seguintes números para acessar: ");
 	}
 
-	private static void menuOpcao() {//OK
+	private static void menuOpcao() {
 
 		System.out.println(".__________________________________________________________________________.");
 		System.out.println("|                                                                          |");
@@ -1361,7 +1375,7 @@ public class SistemaAcademico {
 
 	}
 
-	public static boolean checkLetters(String str) //OK
+	public static boolean checkLetters(String str) 
 	{
 		return str.matches("[a-zA-Z\\u0020\u00e1\u00e0\u00e2\u00e3\u00e4\u00c1\u00c0\u00c2\u00c3\u00c4"
 				+ "\u00e9\u00e8\u00ea\u00ea\u00c9\u00c8\u00ca\u00cb\u00ed\u00ec\u00ee\u00ef\u00cd\u00cc\u00ce"

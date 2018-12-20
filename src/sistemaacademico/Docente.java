@@ -1,34 +1,54 @@
 package sistemaacademico;
+
 /**
- * @author Laís Ribeiro Torres, Maurício Kenichi Kanashiro, Marcos Paulo de Carvalho Araújo, Rodolfo Pereira Lemos, Samuel dos Santos Nogueira, Eduardo Cesar Freitas da Silva Filho
- */
-/*
+ * 
+ * @author 	Eduardo César Freitas da Silva Filho
+ * @author	Laís Ribeiro Torres 
+ * @author	Marcos Paulo da Carvalho Araújo
+ * @author 	Mauricio Kenichi Kanashiro
+ * @author 	Rodolfo Pereira Lemos
+ * @author 	Samuel dos Santos Nogueira
+ * 
 * Nome.......: Docente
-* Objetivo...: Representar um(a) empregado(a) que exerce funÃ§Ã£o docente.
-* Observacoes:
-*/
+* Objetivo...: Representar um(a) empregado(a) que exerce funçãoo de docente.
+* Observacoes: Os demais métodos não foram ultilizados pois não se trata de nosso trabalho.
+ * 
+ */
+
 public class Docente extends Empregado {
 	
 	/**
-	 * @author Laís Ribeiro Torres , Maurício Kenichi Kanashiro, Marcos Paulo de Carvalho Araújo, Rodolfo Pereira Lemos, Samuel dos Santos Nogueira, Eduardo Cesar Freitas da Silva Filho
-	 */
-	/*
+	 * 
+	 * @author 	Eduardo César Freitas da Silva Filho
+	 * @author	Laís Ribeiro Torres 
+	 * @author	Marcos Paulo da Carvalho Araújo
+	 * @author 	Mauricio Kenichi Kanashiro
+	 * @author 	Rodolfo Pereira Lemos
+	 * @author 	Samuel dos Santos Nogueira
+	 * 
 	* Nome.......: getNome
-	* Objetivo...: capturar o nome
+	* Objetivo...: Pega o nome do "Docente" passado pelo usuário.
 	* Observacoes:
-	*/
+	 * 
+	 */
 	public String getNome() {
 		return nome;
 	}
 
 	/**
-	 * @author Laís Ribeiro Torres, Maurício Kenichi Kanashiro, Marcos Paulo de Carvalho Araújo, Rodolfo Pereira Lemos, Samuel dos Santos Nogueira, Eduardo Cesar Freitas da Silva Filho
-	 */
-	/*
+	 * 
+	 * @author 	Eduardo César Freitas da Silva Filho
+	 * @author	Laís Ribeiro Torres 
+	 * @author	Marcos Paulo da Carvalho Araújo
+	 * @author 	Mauricio Kenichi Kanashiro
+	 * @author 	Rodolfo Pereira Lemos
+	 * @author 	Samuel dos Santos Nogueira
+	 * 
 	* Nome.......: setNome
-	* Objetivo...: Definir o nome
+	* Objetivo...: Implementa o nome do "Docente" passado pelo usuário.
 	* Observacoes:
-	*/
+	 * 
+	 */
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
@@ -36,29 +56,30 @@ public class Docente extends Empregado {
 	
 	String nome;
     @Override
+ 
     public void cadastrar() {
         
     	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
+
     public void alterar(DocumentoIdentificacao documento) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
+
     public void excluir(DocumentoIdentificacao documento) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
+
     public Pessoa consultar(DocumentoIdentificacao documento) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-   //
-    // A equipe responsÃ¡vel deverÃ¡ verificar se hÃ¡ necessidade de outros
-    // atributos e mÃ©todos para inseri-los.
-    // 
+
     
 }

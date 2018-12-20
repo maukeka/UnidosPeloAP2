@@ -10,7 +10,7 @@ package sistemaacademico;
 * Objetivo...: Representar um curso na instituição de ensino
 * Observacoes:
 */
-public class Curso extends Coisa {
+public class Curso extends Coisa{
  
     int                             situacao;  
     double                          cargaHorariaTotal;      
