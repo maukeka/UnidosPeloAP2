@@ -123,9 +123,10 @@ public class SistemaAcademico {
 			}while(validarAbreviacao(dado)==false);
 			disciplina.setNomeAbreviado(dado);
 		}
-		System.out.println("\n\n\t\t\t       CURSO\n");
+		
 		int auxiliar = 1;
 		do {
+			System.out.println("\n\n\t\t\t       CURSO\n");
 			menuOpcao();
 			System.out.printf("\n\t");
 			dado = ler.nextLine();
@@ -340,9 +341,21 @@ public class SistemaAcademico {
 				System.out.println("\tSituação da disciplina: concluída");
 				break;
 			case 5:
-				disciplina.setSituacao("Outra");
-				System.out.println("\tSituação da disciplina: outra");
+				do {
+					System.out.println("Digite a siuação da disciplina: "
+							+ "OBS: Apenas letras");
+					dado = ler.nextLine();
+					if(validarSit(dado)) {
+						disciplina.setSituacao(dado);
+						System.out.println("\tSituação da disciplina:" +dado);
+					}
+					else
+						System.out.println("Dado inválido!");
+					
+				
+				}while(validarCurso(dado) == false);
 				break;
+
 			default:
 				break;
 			}
@@ -390,9 +403,21 @@ public class SistemaAcademico {
 				System.out.println("\tSituação da disciplina: concluída");
 				break;
 			case 5:
-				disciplina.setSituacao("Outra");
-				System.out.println("\tSituação da disciplina: outra");
+				do {
+					System.out.println("Digite a siuação da disciplina: "
+							+ "OBS: Apenas letras");
+					dado = ler.nextLine();
+					if(validarSit(dado)) {
+						disciplina.setSituacao(dado);
+						System.out.println("\tSituação da disciplina:" +dado);
+					}
+					else
+						System.out.println("Dado inválido!");
+					
+				
+				}while(validarCurso(dado) == false);
 				break;
+				
 			default:
 				break;
 			}
@@ -912,8 +937,21 @@ public class SistemaAcademico {
 					disciplina.setSituacao("Concluída");
 					break;
 				case 5:
-					disciplina.setSituacao("Outra");
+					do {
+						System.out.println("Digite a siuação da disciplina: "
+								+ "OBS: Apenas letras");
+						dado = ler.nextLine();
+						if(validarSit(dado)) {
+							disciplina.setSituacao(dado);
+							System.out.println("\tSituação da disciplina:" +dado);
+						}
+						else
+							System.out.println("Dado inválido!");
+						
+					
+					}while(validarCurso(dado) == false);
 					break;
+				
 				default:
 					break;
 				}
@@ -1186,15 +1224,31 @@ public class SistemaAcademico {
 	}
 
 	private static boolean validarTecnico(String dado) {//OK
-		return dado.matches("[a-zA-Z\\u0020]+") && !dado.equals(null) && !dado.equals(" ");
+		return dado.matches("[a-zA-Z\\u0020\u00e1\u00e0\u00e2\u00e3\u00e4\u00c1\u00c0\u00c2\u00c3\u00c4"
+				+ "\u00e9\u00e8\u00ea\u00ea\u00c9\u00c8\u00ca\u00cb\u00ed\u00ec\u00ee\u00ef\u00cd\u00cc\u00ce"
+				+ "\u00cf\u00f3\u00f2\u00f4\u00f5\u00f6\u00d3\u00d2\u00d4\u00d5\u00d6\u00fa\u00f9\u00fb\u00fc"
+				+ "\u00da\u00d9\u00db\u00e7\u00c7]+") && !dado.equals(null) && !dado.equals(" ");
 	}
 
 	private static boolean validarDocenteR(String dado) {//OK
-		return dado.matches("[a-zA-Z\\u0020]+") && !dado.equals(null) && !dado.equals(" ");
+		return dado.matches("[a-zA-Z\\u0020\u00e1\u00e0\u00e2\u00e3\u00e4\u00c1\u00c0\u00c2\u00c3\u00c4"
+				+ "\u00e9\u00e8\u00ea\u00ea\u00c9\u00c8\u00ca\u00cb\u00ed\u00ec\u00ee\u00ef\u00cd\u00cc\u00ce"
+				+ "\u00cf\u00f3\u00f2\u00f4\u00f5\u00f6\u00d3\u00d2\u00d4\u00d5\u00d6\u00fa\u00f9\u00fb\u00fc"
+				+ "\u00da\u00d9\u00db\u00e7\u00c7]+") && !dado.equals(null) && !dado.equals(" ");
 	}
 
 	private static boolean validarCurso(String dado) {//OK
-		return dado.matches("[a-zA-Z\\u0020]+") && !dado.equals(null) && !dado.equals(" ");
+		return dado.matches("[a-zA-Z\\u0020\u00e1\u00e0\u00e2\u00e3\u00e4\u00c1\u00c0\u00c2\u00c3\u00c4"
+				+ "\u00e9\u00e8\u00ea\u00ea\u00c9\u00c8\u00ca\u00cb\u00ed\u00ec\u00ee\u00ef\u00cd\u00cc\u00ce"
+				+ "\u00cf\u00f3\u00f2\u00f4\u00f5\u00f6\u00d3\u00d2\u00d4\u00d5\u00d6\u00fa\u00f9\u00fb\u00fc"
+				+ "\u00da\u00d9\u00db\u00e7\u00c7]+") && !dado.equals(null) && !dado.equals(" ");
+	}
+	
+	private static boolean validarSit(String dado) {//OK
+		return dado.matches("[a-zA-Z\\u0020\u00e1\u00e0\u00e2\u00e3\u00e4\u00c1\u00c0\u00c2\u00c3\u00c4"
+				+ "\u00e9\u00e8\u00ea\u00ea\u00c9\u00c8\u00ca\u00cb\u00ed\u00ec\u00ee\u00ef\u00cd\u00cc\u00ce"
+				+ "\u00cf\u00f3\u00f2\u00f4\u00f5\u00f6\u00d3\u00d2\u00d4\u00d5\u00d6\u00fa\u00f9\u00fb\u00fc"
+				+ "\u00da\u00d9\u00db\u00e7\u00c7]+") && !dado.equals(null) && !dado.equals(" ");
 	}
 
 	private static boolean validarAbreviacao(String dado) {//OK
