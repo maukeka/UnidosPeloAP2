@@ -2,8 +2,12 @@ package sistemaacademico;
 
 public class documentacao {
 	/**
-	 * @author Laís Rainha, Japa top, Marcos focado, Dolphin, Mrs Monjo, GuardiaoDudu   
-	 * este é um teste!!!           
+	 * @author Laís Ribeiro Torres, Maurício Kenichi Kanashiro, Marcos Paulo de Carvalho Araújo, Rodolfo, Samuel, Eduardo Cesar Freitas da Silva Filho           
 	 */
+	/*
+	* Nome.......: Classe
+	* Objetivo...: objetivo da classe
+	* Observacoes:
+	*/
 
 }
