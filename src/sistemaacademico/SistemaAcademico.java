@@ -85,7 +85,7 @@ public class SistemaAcademico {
 	}
 
 	private static void cadastrar() {
-		System.out.println("\tVocê entrou no menu de CADASTRAR disciplinas!\n");
+		System.out.println("\t\t\t   MENU CADASTRAR\n");
 		String dado;Disciplina disciplina = new Disciplina();	
 		do {
 			System.out.printf("\t1- Digite o código da disciplina: \n\tOBS: deve ser formado por quatro números.\n\t");
@@ -612,7 +612,7 @@ public class SistemaAcademico {
 	}
 
 	private static void alterar() {
-		System.out.println("\t      Você entrou no menu de ALTERAR disciplinas!");
+		System.out.println("\t\t\t    MENU ALTERAR");
 		ler = new Scanner(System.in);
 		int leitura = -1;
 		List<Disciplina> disciplinas;
@@ -664,7 +664,7 @@ public class SistemaAcademico {
 	}
 
 	private static void excluir() {
-		System.out.println("\t       Você entrou no menu de EXCLUIR disciplinas!");
+		System.out.println("\t\t\t    MENU EXCLUIR");
 		ler = new Scanner(System.in);
 		int leitura;
 		List<Disciplina> disciplinas;
@@ -726,7 +726,7 @@ public class SistemaAcademico {
 		int leitura;
 		List<Disciplina> disciplinas;
 		String chave;
-		System.out.println("\t       Você entrou no menu de CONSULTAR disciplinas!");
+		System.out.println("\t\t           MENU CONSULTAR");
 
 		do {
 			try {
