@@ -301,7 +301,7 @@ public class SistemaAcademico {
 			}
 		}while(auxiliar == 1);
 
-		System.out.println("\n\n\n\t\t\tSITUAÇÃO DA DISCIPLINA");
+		System.out.println("\n\t\t\tSITUAÇÃO DA DISCIPLINA");
 		System.out.println(".__________________________________________________________________________.");		
 		System.out.println("|                                                                          |");
 		System.out.println("|                                                                          |");
@@ -412,7 +412,7 @@ public class SistemaAcademico {
 						System.out.println("\n\t    Situação da disciplina:" +dado);
 					}
 					else
-						System.out.println("\tDado inválido!\n");
+						System.out.println("\tDado inválido!");
 					
 				
 				}while(validarCurso(dado) == false);
@@ -430,7 +430,7 @@ public class SistemaAcademico {
 				disciplina.setCargaHorariaPratica(Integer.parseInt(dado));
 			} else {
 				do {
-					System.out.println("\tDado inválido!\n");
+					System.out.println("\tDado inválido!");
 					System.out.printf("\n\t10- Digite a carga horária prática:\n\tOBS: deve possuir apenas números positivos.\n\t");
 					dado = ler.nextLine();
 					validarCargaHorariaPratica(dado);
@@ -461,6 +461,7 @@ public class SistemaAcademico {
 			do {
 				System.out.printf("\n\n\t CARGA HORÁRIA SEMANAL E MENSAL\n");
 				menuOpcao();
+				System.out.printf("\n\t");
 				dado = ler.nextLine();
 				switch(dado)
 				{  
