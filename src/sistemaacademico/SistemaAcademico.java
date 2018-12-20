@@ -222,7 +222,7 @@ public class SistemaAcademico {
 
 
 		do {	
-			System.out.print("\n\n");
+			System.out.print("\n");
 			System.out.println("\t\t    TÉCNICO ADMINISTRATIVO RESPONSÁVEL");
 			menuOpcao();
 			System.out.printf("\n\t");
@@ -284,7 +284,7 @@ public class SistemaAcademico {
 						break;
 					}
 					else
-						System.out.println("\tDado inválido.\n");
+						System.out.println("\tDado inválido.");
 					help = 1;
 				}while(help == 1);
 				auxiliar = 2;
@@ -296,12 +296,12 @@ public class SistemaAcademico {
 				auxiliar = 2;
 				break;
 			default:
-				System.out.println("\tDado inválido!\n");
+				System.out.println("\tDado inválido!");
 				auxiliar = 1;
 			}
 		}while(auxiliar == 1);
 
-		System.out.println("\n\t\t\tSITUAÇÃO DA DISCIPLINA");
+		System.out.println("\n\n\t\t\tSITUAÇÃO DA DISCIPLINA");
 		System.out.println(".__________________________________________________________________________.");		
 		System.out.println("|                                                                          |");
 		System.out.println("|                                                                          |");
@@ -314,7 +314,7 @@ public class SistemaAcademico {
 		System.out.println("|       5 - Outra                                                          |");
 		System.out.println("|                                                                          |");
 		System.out.println("|__________________________________________________________________________|");
-		System.out.printf("\n\t9- Digite a situação da disciplina: ");
+		System.out.printf("\n\t9- Digite a situação da disciplina: \n\t");
 		dado = ler.nextLine();
 
 		if(validarSituacao(dado)==true) {
@@ -348,10 +348,10 @@ public class SistemaAcademico {
 					dado = ler.nextLine();
 					if(validarSit(dado)) {
 						disciplina.setSituacao(dado);
-						System.out.println("\n\t    Situação da disciplina:" +dado);
+						System.out.println("\n\t    Situação da disciplina: " +dado);
 					}
 					else
-						System.out.println("\tDado inválido!\n");
+						System.out.println("\tDado inválido!");
 					
 				
 				}while(validarCurso(dado) == false);
@@ -363,7 +363,7 @@ public class SistemaAcademico {
 
 		} else {
 			do {
-				System.out.println("\tDado inválido!\n"); // Repetir o menu de novo caso não exista nenhuma das opções 
+				System.out.println("\tDado inválido!"); // Repetir o menu de novo caso não exista nenhuma das opções 
 				System.out.println("\n\t\t\tSITUAÇÃO DA DISCIPLINA");
 				System.out.println(".__________________________________________________________________________.");		
 				System.out.println("|                                                                          |");
@@ -377,7 +377,7 @@ public class SistemaAcademico {
 				System.out.println("|       5 - Outra                                                          |");
 				System.out.println("|                                                                          |");
 				System.out.println("|__________________________________________________________________________|");
-				System.out.printf("\n\t9- Digite a situação da disciplina: ");
+				System.out.printf("\n\t9- Digite a situação da disciplina: \n\t");
 				dado = ler.nextLine();
 			} while(validarSituacao(dado) == false);
 
@@ -443,7 +443,7 @@ public class SistemaAcademico {
 				disciplina.setCargaHorariaTeorica(Integer.parseInt(dado));
 			} else {
 				do {
-					System.out.println("\tDado inválido!\n");
+					System.out.println("\tDado inválido!");
 					System.out.printf("\n\t11- Digite a carga horária teórica:\n\tOBS: deve possuir apenas npumeros positivos.\n\t");
 					dado = ler.nextLine();
 					validarCargaHorariaTeorica(dado);
@@ -466,7 +466,7 @@ public class SistemaAcademico {
 				switch(dado)
 				{  
 				case "1":
-					System.out.printf("\n\n\t12- Digite a carga horária semanal:\n\tOBS: deve possuir apenas números positivos.\n\t"); 
+					System.out.printf("\n\t12- Digite a carga horária semanal:\n\tOBS: deve possuir apenas números positivos.\n\t"); 
 					dado = ler.nextLine();
 					if(validarCargaHorariaSemanal(dado)==true) {
 						disciplina.setCargaHorariaSemanal(Integer.parseInt(dado));
@@ -499,7 +499,7 @@ public class SistemaAcademico {
 					auxiliar = 2;
 					break;
 				case "2":
-					System.out.println("\n\t12-Não Cadastrado!");
+					System.out.println("\n\t12-Não Cadastrado!\n\t13-Não Cadastrado!");
 					disciplina.setCargaHorariaSemanal(0);
 					auxiliar = 2;
 					break;  
@@ -520,13 +520,13 @@ public class SistemaAcademico {
 			case "1": 
 				validarNumCreditos(dado, disciplina);
 				auxiliar = 2;
-				System.out.println("\n\tNúmero de Créditos: "+ disciplina.getNumeroCreditos());
+				System.out.println("\n\t14- Número de Créditos: "+ disciplina.getNumeroCreditos());
 				break;
 			case "2":
 				
 				disciplina.setNumeroCreditos(0);
 				auxiliar = 2;
-				System.out.println("\n\tNúmero de Créditos: "+ disciplina.getNumeroCreditos());
+				System.out.println("\n\t14- Número de Créditos: "+ disciplina.getNumeroCreditos());
 				break;
 			default:
 				System.out.println("\tDado inválido!\n");
@@ -543,7 +543,7 @@ public class SistemaAcademico {
 			case "1":
 				int help = 1;
 				do {
-					System.out.printf("\n\t14- Digite o custo da aula prática:\n\tOBS: deve possuir apenas números.\n\t");
+					System.out.printf("\n\t15- Digite o custo da aula prática:\n\tOBS: deve possuir apenas números.\n\t");
 					dado = ler.nextLine();
 					if(validarCustoPratica(dado)) {
 						disciplina.setCustoBasicoPratica(Integer.parseInt(dado));
@@ -557,7 +557,7 @@ public class SistemaAcademico {
 				auxiliar = 2;
 				break;
 			case "2":
-				System.out.println("\n\t14- Não Cadastrado");
+				System.out.println("\n\t15- Não Cadastrado");
 				disciplina.setCustoBasicoPratica(0);
 				auxiliar = 2;
 				break;  
@@ -577,7 +577,7 @@ public class SistemaAcademico {
 			case "1":
 				int help = 1;
 				do {
-					System.out.printf("\n\t15- Digite o custo da aula teórica:\n\tOBS: deve possuir apenas números.\n\t");
+					System.out.printf("\n\t16- Digite o custo da aula teórica:\n\tOBS: deve possuir apenas números.\n\t");
 					dado = ler.nextLine();
 					if(validarCustoTeorica(dado)) {
 						disciplina.setCustoBasicoTeorica(Integer.parseInt(dado));
@@ -591,7 +591,7 @@ public class SistemaAcademico {
 				auxiliar = 2;
 				break;
 			case "2":
-				System.out.println("\n\t15- Não Cadastrado");
+				System.out.println("\n\t16- Não Cadastrado");
 				disciplina.setCustoBasicoTeorica(0);
 				auxiliar = 2;
 				break;  
@@ -600,9 +600,6 @@ public class SistemaAcademico {
 				auxiliar = 1;
 			}
 		}while( auxiliar == 1);
-
-
-		System.out.printf("\n");
 
 		disciplina.setCustoBasicoFixo(disciplina.getCustoBasicoPratica()+disciplina.getCustoBasicoTeorica());
 
