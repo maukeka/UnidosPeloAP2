@@ -10,7 +10,7 @@ package sistemaacademico;
 public class Docente extends Empregado {
 	
 	/**
-	 * @author Laís Ribeiro Torres, Maurício Kenichi Kanashiro, Marcos Paulo de Carvalho Araújo, Rodolfo Pereira Lemos, Samuel dos Santos Nogueira, Eduardo Cesar Freitas da Silva Filho
+	 * @author Laís Ribeiro Torres , Maurício Kenichi Kanashiro, Marcos Paulo de Carvalho Araújo, Rodolfo Pereira Lemos, Samuel dos Santos Nogueira, Eduardo Cesar Freitas da Silva Filho
 	 */
 	/*
 	* Nome.......: getNome

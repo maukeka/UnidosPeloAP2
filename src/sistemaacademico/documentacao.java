@@ -6,7 +6,7 @@ public class documentacao {
 	 */
 	/*
 	* Nome.......: Classe
-	* Objetivo...: objetivo da classe
+	* Objetivo...: objetiv o da classe
 	* Observacoes:
 	*/
 
