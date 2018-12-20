@@ -58,7 +58,7 @@ public class Disciplinas extends Coisa{
 				if(VerificaNome(nome, chave) > chave.length()/2) {
 					retorno.add(disciplina);
 				} else {
-					System.out.println("Não foi encontrada nenhuma disciplina com esse nome");
+					System.out.println("Não foi encontrada nenhuma disciplina com esse código");
 				}
 			}
 			break;
@@ -68,13 +68,13 @@ public class Disciplinas extends Coisa{
 				if(VerificaNome(nome, chave) > chave.length()/2) {
 					retorno.add(disciplina);
 				} else {
-					System.out.println("Não foi encontrada nenhuma disciplina com essa abreviação");
+					System.out.println("Não foi encontrada nenhuma disciplina com esse código");
 				}
 			}
 			break;
 		}
-
 		return retorno;
+		
 	}
 
 
