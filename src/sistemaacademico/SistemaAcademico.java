@@ -1374,7 +1374,11 @@ public class SistemaAcademico {
 		System.out.println("|__________________________________________________________________________|");	
 
 	}
-
+	/**
+	 * Método que permite acentos e espaços passados pelo usuário
+	 * @param str
+	 * @return
+	 */
 	public static boolean checkLetters(String str) 
 	{
 		return str.matches("[a-zA-Z\\u0020\u00e1\u00e0\u00e2\u00e3\u00e4\u00c1\u00c0\u00c2\u00c3\u00c4"
