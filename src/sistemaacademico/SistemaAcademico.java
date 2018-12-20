@@ -110,14 +110,14 @@ public class SistemaAcademico {
 			disciplina.setNomeCompleto(dado);
 		}
 		System.out.println("");
-		System.out.printf("\n\t3- Digite o nome abreviado da disciplina: \n\tOBS: deve possuir pelo menos uma letra.\n\t"); 
+		System.out.printf("\n\t3- Digite o nome abreviado da disciplina: \n\tOBS: deve possuir três caracteres pelo menos uma letra.\n\t"); 
 		dado = ler.nextLine();
 		if(validarAbreviacao(dado)==true) {
 			disciplina.setNomeAbreviado(dado);
 		} else {
 			do {
 				System.out.println("\tDado inválido!\n");
-				System.out.printf("\t3- Digite o nome abreviado da disciplina: \n\tOBS: deve possuir pelo menos uma letra.\n\t");
+				System.out.printf("\t3- Digite o nome abreviado da disciplina: \n\tOBS: deve possuir três caracteres com pelo menos uma letra.\n\t");
 				dado = ler.nextLine();
 				validarAbreviacao(dado);
 			}while(validarAbreviacao(dado)==false);
@@ -186,12 +186,13 @@ public class SistemaAcademico {
 			menuOpcao();
 			System.out.printf("\n\t");
 			dado = ler.nextLine();
+			System.out.printf("\n");
 
 			switch (dado) {
 			case "1": 
 				int help = 1;
 				do {
-					System.out.printf("\n\t6- Digite o nome do docente auxiliar da disciplina: \n\tOBS: deve possuir apenas letras.\n\t");
+					System.out.printf("\t6- Digite o nome do docente auxiliar da disciplina: \n\tOBS: deve possuir apenas letras.\n\t");
 					dado = ler.nextLine();
 					if(validarDocenteR(dado)) {
 						Docente docente = new Docente();
@@ -226,13 +227,13 @@ public class SistemaAcademico {
 			menuOpcao();
 			System.out.printf("\n\t");
 			dado = ler.nextLine();
-
+			System.out.printf("\n");
 
 			switch (dado) {
 			case "1": 
 				int help = 1;
 				do {
-					System.out.printf("\n\t7- Digite o nome do técnico administrativo responsável pela disciplina: ");
+					System.out.printf("\t7- Digite o nome do técnico administrativo responsável pela disciplina:\n\tOBS: deve possuir apenas letras.\n\t");
 					dado = ler.nextLine();
 					if(validarTecnico(dado)) {
 						TecnicoAdministrativo tecnicoAdministrativo = new TecnicoAdministrativo();
@@ -242,7 +243,7 @@ public class SistemaAcademico {
 						break;
 					}
 					else
-						System.out.println("\tDado inválido. Deve possuir somente letras.");
+						System.out.println("\tDado inválido.\n");
 					help = 1;
 				}while(help == 1);
 				auxiliar = 2;
@@ -267,12 +268,13 @@ public class SistemaAcademico {
 			menuOpcao();
 			System.out.printf("\n\t");
 			dado = ler.nextLine();
+			System.out.printf("\n");
 
 			switch (dado) {
 			case "1":
 				int help = 1;
 				do {
-					System.out.printf("\n\t8- Digite o nome do técnico administrativo auxiliar da disciplina: ");
+					System.out.printf("\t8- Digite o nome do técnico administrativo auxiliar da disciplina:\n\tOBS: deve possuir apenas letras.\n\t");
 					dado = ler.nextLine();
 					if(validarTecnico(dado)) {
 						TecnicoAdministrativo tecnicoAdministrativo = new TecnicoAdministrativo();
@@ -282,7 +284,7 @@ public class SistemaAcademico {
 						break;
 					}
 					else
-						System.out.println("\tDado inválido. Deve possuir somente letras.");
+						System.out.println("\tDado inválido.\n");
 					help = 1;
 				}while(help == 1);
 				auxiliar = 2;
@@ -299,7 +301,7 @@ public class SistemaAcademico {
 			}
 		}while(auxiliar == 1);
 
-		System.out.println("\n\n\t\t\tSITUAÇÃO DA DISCIPLINA");
+		System.out.println("\n\n\n\t\t\tSITUAÇÃO DA DISCIPLINA");
 		System.out.println(".__________________________________________________________________________.");		
 		System.out.println("|                                                                          |");
 		System.out.println("|                                                                          |");
@@ -322,35 +324,34 @@ public class SistemaAcademico {
 			switch (situacaoDisci) {
 			case 0:  
 				disciplina.setSituacao("Desconhecida");
-				System.out.println("\tSituação da disciplina: desconhecida");
+				System.out.println("\n\t    Situação da disciplina: desconhecida");
 				break;
 			case 1: 
 				disciplina.setSituacao("Aberta");
-				System.out.println("\tSituação da disciplina: aberta");
+				System.out.println("\n\t    Situação da disciplina: aberta");
 				break;
 			case 2:
 				disciplina.setSituacao("Ativa");
-				System.out.println("\tSituação da disciplina: ativa");
+				System.out.println("\n\t    Situação da disciplina: ativa");
 				break;
 			case 3:
 				disciplina.setSituacao("Inativa");
-				System.out.println("\tSituação da disciplina: inativa");
+				System.out.println("\n\t    Situação da disciplina: inativa");
 				break;
 			case 4:
 				disciplina.setSituacao("Concluída");
-				System.out.println("\tSituação da disciplina: concluída");
+				System.out.println("\n\t    Situação da disciplina: concluída");
 				break;
 			case 5:
 				do {
-					System.out.println("Digite a siuação da disciplina: "
-							+ "OBS: Apenas letras");
+					System.out.println("\n\tDigite a siuação da disciplina: \n\tOBS: deve possuir apenas letras.\n\t");
 					dado = ler.nextLine();
 					if(validarSit(dado)) {
 						disciplina.setSituacao(dado);
-						System.out.println("\tSituação da disciplina:" +dado);
+						System.out.println("\n\t    Situação da disciplina:" +dado);
 					}
 					else
-						System.out.println("Dado inválido!");
+						System.out.println("\tDado inválido!\n");
 					
 				
 				}while(validarCurso(dado) == false);
@@ -362,7 +363,7 @@ public class SistemaAcademico {
 
 		} else {
 			do {
-				System.out.println("\tDado inválido!"); // Repetir o menu de novo caso não exista nenhuma das opções 
+				System.out.println("\tDado inválido!\n"); // Repetir o menu de novo caso não exista nenhuma das opções 
 				System.out.println("\n\t\t\tSITUAÇÃO DA DISCIPLINA");
 				System.out.println(".__________________________________________________________________________.");		
 				System.out.println("|                                                                          |");
@@ -384,35 +385,34 @@ public class SistemaAcademico {
 			switch (situacaoDisci) {
 			case 0:  
 				disciplina.setSituacao("Desconhecida");
-				System.out.println("\tSituação da disciplina: desconhecida");
+				System.out.println("\n\t    Situação da disciplina: desconhecida");
 				break;
 			case 1: 
 				disciplina.setSituacao("Aberta");
-				System.out.println("\tSituação da disciplina: aberta");
+				System.out.println("\n\t    Situação da disciplina: aberta");
 				break;
 			case 2:
 				disciplina.setSituacao("Ativa");
-				System.out.println("\tSituação da disciplina: ativa");
+				System.out.println("\n\t    Situação da disciplina: ativa");
 				break;
 			case 3:
 				disciplina.setSituacao("Inativa");
-				System.out.println("\tSituação da disciplina: inativa");
+				System.out.println("\n\t    Situação da disciplina: inativa");
 				break;
 			case 4:
 				disciplina.setSituacao("Concluída");
-				System.out.println("\tSituação da disciplina: concluída");
+				System.out.println("\n\t    Situação da disciplina: concluída");
 				break;
 			case 5:
 				do {
-					System.out.println("Digite a siuação da disciplina: "
-							+ "OBS: Apenas letras");
+					System.out.printf("\n\tDigite a siuação da disciplina:\n\tOBS: deve possuir apenas letras.\n\t");
 					dado = ler.nextLine();
 					if(validarSit(dado)) {
 						disciplina.setSituacao(dado);
-						System.out.println("\tSituação da disciplina:" +dado);
+						System.out.println("\n\t    Situação da disciplina:" +dado);
 					}
 					else
-						System.out.println("Dado inválido!");
+						System.out.println("\tDado inválido!\n");
 					
 				
 				}while(validarCurso(dado) == false);
@@ -424,27 +424,27 @@ public class SistemaAcademico {
 		}
 		System.out.printf("\n");
 		do {
-			System.out.printf("\n\t10- Digite a carga horária prática: ");
+			System.out.printf("\n\t10- Digite a carga horária prática:\n\tOBS: deve possuir apenas números positivos.\n\t");
 			dado = ler.nextLine();
 			if(validarCargaHorariaPratica(dado)==true) {
 				disciplina.setCargaHorariaPratica(Integer.parseInt(dado));
 			} else {
 				do {
-					System.out.println("\tDado inválido! Deve possuir apenas números positivos.");
-					System.out.printf("\n\t10- Digite a carga horária prática: ");
+					System.out.println("\tDado inválido!\n");
+					System.out.printf("\n\t10- Digite a carga horária prática:\n\tOBS: deve possuir apenas números positivos.\n\t");
 					dado = ler.nextLine();
 					validarCargaHorariaPratica(dado);
 				}while(validarCargaHorariaPratica(dado)==false);
 				disciplina.setCargaHorariaPratica(Integer.parseInt(dado));
 			}
-			System.out.printf("\n\n\t11- Digite a carga horária teórica: ");
+			System.out.printf("\n\n\t11- Digite a carga horária teórica:\n\tOBS: deve possuir apenas números positivos.\n\t");
 			dado = ler.nextLine();
 			if(validarCargaHorariaPratica(dado)==true) {
 				disciplina.setCargaHorariaTeorica(Integer.parseInt(dado));
 			} else {
 				do {
-					System.out.println("\tDado inválido! Deve possuir apenas números positivos.");
-					System.out.printf("\n\t11- Digite a carga horária teórica: ");
+					System.out.println("\tDado inválido!\n");
+					System.out.printf("\n\t11- Digite a carga horária teórica:\n\tOBS: deve possuir apenas npumeros positivos.\n\t");
 					dado = ler.nextLine();
 					validarCargaHorariaTeorica(dado);
 				}while(validarCargaHorariaTeorica(dado)==false);
@@ -459,36 +459,34 @@ public class SistemaAcademico {
 		System.out.println("\n\t    Carga horária total: "+ disciplina.getCargaHorariaTotal());
 		do {
 			do {
-				System.out.printf("\n\t CARGA HORÁRIA SEMANAL E MENSAL\n");
+				System.out.printf("\n\n\t CARGA HORÁRIA SEMANAL E MENSAL\n");
 				menuOpcao();
 				dado = ler.nextLine();
 				switch(dado)
 				{  
 				case "1":
-					System.out.printf("\n\n\t12- Digite a carga horária semanal: "); 
+					System.out.printf("\n\n\t12- Digite a carga horária semanal:\n\tOBS: deve possuir apenas números positivos.\n\t"); 
 					dado = ler.nextLine();
 					if(validarCargaHorariaSemanal(dado)==true) {
 						disciplina.setCargaHorariaSemanal(Integer.parseInt(dado));
 					} else {
 						do {
-							System.out.println("\tDado inválido! Deve possuir apenas números positivos.");
-							System.out.printf("\n\t12- Digite a carga horária semanal: ");
+							System.out.println("\tDado inválido!\n");
+							System.out.printf("\t12- Digite a carga horária semanal:\n\tOBS: deve possuir apenas números positivos.\n\t");
 							dado = ler.nextLine();
 							validarCargaHorariaSemanal(dado);
 
 						}while(validarCargaHorariaSemanal(dado)==false);
 						disciplina.setCargaHorariaSemanal(Integer.parseInt(dado));
 					}
-					System.out.printf("\n\n\t13- Digite a carga horária mensal: "
-							+ "\n Obs: A carga horária mensal deve ser maior que a carga horária semanal."); 
+					System.out.printf("\n\n\t13- Digite a carga horária mensal:\n\tOBS: deve possuir apenas números positivos.\n\t"); 
 					dado = ler.nextLine();
 					if(validarCargaHorariaMensal(dado, disciplina)==true) {
 						disciplina.setCargaHorariaMensal(Integer.parseInt(dado));
 					} else {
 						do {
-							System.out.println("\tDado inválido! Deve possuir apenas números positivos.");
-							System.out.printf("\n\t13- Digite a carga horária mensal: "
-									+ "\n Obs: A carga horária mensal deve ser maior que a carga horária semanal.");
+							System.out.println("\tDado inválido!\n");
+							System.out.printf("\t13- Digite a carga horária mensal:\n\tOBS: deve possuir apenas números positivos.\n\t");
 							dado = ler.nextLine();
 							validarCargaHorariaMensal(dado, disciplina);
 						}while(validarCargaHorariaMensal(dado, disciplina)==false);
@@ -530,7 +528,7 @@ public class SistemaAcademico {
 				System.out.println("\n\tNúmero de Créditos: "+ disciplina.getNumeroCreditos());
 				break;
 			default:
-				System.out.println("\tDado inválido!");
+				System.out.println("\tDado inválido!\n");
 			}  
 		}while(auxiliar == 1);
 		System.out.printf("\n");
@@ -544,14 +542,14 @@ public class SistemaAcademico {
 			case "1":
 				int help = 1;
 				do {
-					System.out.printf("\n\t14- Digite o custo da aula prática: ");
+					System.out.printf("\n\t14- Digite o custo da aula prática:\n\tOBS: deve possuir apenas números.\n\t");
 					dado = ler.nextLine();
 					if(validarCustoPratica(dado)) {
 						disciplina.setCustoBasicoPratica(Integer.parseInt(dado));
 						help = 2;
 					}
 					else {
-						System.out.println("\tDado inválido. Apenas números são permitidos!");
+						System.out.println("\tDado inválido.");
 						help = 1;
 					}
 				}while(help == 1);
@@ -567,6 +565,7 @@ public class SistemaAcademico {
 				auxiliar = 1;
 			}
 		}while( auxiliar == 1);
+		System.out.printf("\n");
 		do {
 			System.out.println("\n\tCUSTO AULA TEÓRICA");
 			menuOpcao();
@@ -577,21 +576,21 @@ public class SistemaAcademico {
 			case "1":
 				int help = 1;
 				do {
-					System.out.printf("\n\t14- Digite o custo da aula teórica: ");
+					System.out.printf("\n\t15- Digite o custo da aula teórica:\n\tOBS: deve possuir apenas números.\n\t");
 					dado = ler.nextLine();
 					if(validarCustoTeorica(dado)) {
 						disciplina.setCustoBasicoTeorica(Integer.parseInt(dado));
 						help = 2;
 					}
 					else {
-						System.out.println("\tDado inválido. Apenas números são permitidos!");
+						System.out.println("\tDado inválido.");
 						help = 1;
 					}
 				}while(help == 1);
 				auxiliar = 2;
 				break;
 			case "2":
-				System.out.println("\n\t14- Não Cadastrado");
+				System.out.println("\n\t15- Não Cadastrado");
 				disciplina.setCustoBasicoTeorica(0);
 				auxiliar = 2;
 				break;  
@@ -606,7 +605,7 @@ public class SistemaAcademico {
 
 		disciplina.setCustoBasicoFixo(disciplina.getCustoBasicoPratica()+disciplina.getCustoBasicoTeorica());
 
-		System.out.println("\n\tCusto fixo: " + disciplina.getCustoBasicoFixo());
+		System.out.println("\n\t    Custo fixo: " + disciplina.getCustoBasicoFixo());
 
 		disciplinaDAO.cadastrar(disciplina);
 	}
@@ -629,7 +628,7 @@ public class SistemaAcademico {
 		case 1: 
 			disciplinas = disciplinaDAO.consultar("todos", null);
 			exibirDados(disciplinas);
-			System.out.printf("\tDigite o código da disciplina a ser alterada:\n\t"); //Somente números
+			System.out.printf("\tDigite o código da disciplina a ser alterada:\n\tOBS: deve possuir apenas números.\n\t"); //Somente números
 			chave = ler.nextLine();
 			for(Disciplina disciplina : disciplinas) {
 				if(disciplina.getCodigo() == Integer.parseInt(chave)) {
@@ -642,7 +641,7 @@ public class SistemaAcademico {
 		case 2: 
 			try {
 			
-			System.out.printf("\tDigite o código da disciplina a ser alterada: \n\t"); //Somente números
+			System.out.printf("\tDigite o código da disciplina a ser alterada:\n\tOBS: deve possuir apenas números.\n\t"); //Somente números
 			chave = ler.nextLine(); //try...catch
 			disciplinas = disciplinaDAO.consultar("codigo", chave);
 			
@@ -651,9 +650,9 @@ public class SistemaAcademico {
 				disciplinaDAO.alterar(disciplinaAlterada);
 			}
 		} catch (NumberFormatException e) {
-			System.out.println("Dado inválido! Esta opção só aceita números.");
+			System.out.println("\tDado inválido!\n");
 		} catch (Exception e) {
-			System.out.println("Dado inválido! Esta opção só aceita números.");
+			System.out.println("\tDado inválido!\n");
 		}
 		break;
 		}
@@ -683,20 +682,20 @@ public class SistemaAcademico {
 			disciplinas = disciplinaDAO.consultar("todos", null);
 			exibirDados(disciplinas);
 			try {
-			System.out.printf("\tDigite o código da disciplina a ser excluída: \n\t"); // Somente número
+			System.out.printf("\tDigite o código da disciplina a ser excluída: \n\tOBS: deve possuir apenas números.\n\t"); // Somente número
 			chave = Integer.parseInt(ler.nextLine());
 			disciplinaDAO.excluir(chave);
 			} catch (NumberFormatException e) {
-				System.out.println("Dado inválido!");
+				System.out.println("Dado inválido!\n");
 			}
 			break;
 		case 2:
 			try {
-				System.out.printf("\tDigite o código da disciplina a ser excluída: \n\t"); // Somente número
+				System.out.printf("\tDigite o código da disciplina a ser excluída: \n\tOBS: deve possuir apenas números.\n\t"); // Somente número
 				chave = Integer.parseInt(ler.nextLine());
 				disciplinaDAO.excluir(chave);
 				} catch (NumberFormatException e) {
-					System.out.println("Dado inválido!");
+					System.out.println("\tDado inválido!\n");
 				}
 			break;
 		}
@@ -742,21 +741,21 @@ public class SistemaAcademico {
 			exibirDados(disciplinas);
 			break;
 		case 2:
-			System.out.printf("\n\n\tDigite o código da disciplina: "); //Somente número
+			System.out.printf("\n\n\tDigite o código da disciplina:\n\tOBS: deve possuir apenas números.\n\t"); //Somente número
 			chave = ler.nextLine();
 			System.out.println();
 			disciplinas = disciplinaDAO.consultar("codigo", chave);
 			exibirDados(disciplinas);
 			break;
 		case 3:
-			System.out.printf("\n\n\tDigite o nome completo da disciplina: "); //Somente Letras
+			System.out.printf("\n\n\tDigite o nome completo da disciplina:\n\tOBS: deve possuir apenas letras.\n\t"); //Somente Letras
 			chave = ler.nextLine();
 			System.out.println();
 			disciplinas = disciplinaDAO.consultar("nomeCompleto", chave);
 			exibirDados(disciplinas);
 			break;
 		case 4:
-			System.out.printf("\n\n\tDigite o nome abreviado da disciplina: "); // 3 Dígitos no max e pelo menos uma letra
+			System.out.printf("\n\n\tDigite o nome abreviado da disciplina:\n\tOBS: deve possuir três caracteres com pelo menos uma letra.\n\t"); // 3 Dígitos no max e pelo menos uma letra
 			chave = ler.nextLine();
 			System.out.println();
 			disciplinas = disciplinaDAO.consultar("nomeAbreviado", chave);
