@@ -480,7 +480,7 @@ public class SistemaAcademico {
 						}while(validarCargaHorariaSemanal(dado)==false);
 						disciplina.setCargaHorariaSemanal(Integer.parseInt(dado));
 					}
-					System.out.printf("\n\n\t13- Digite a carga horária mensal:\n\tOBS: deve possuir apenas números positivos.\n\t"); 
+					System.out.printf("\n\n\t13- Digite a carga horária mensal:\n\tOBS: deve ser possuir apenas números positivos.\n\t"); 
 					dado = ler.nextLine();
 					if(validarCargaHorariaMensal(dado, disciplina)==true) {
 						disciplina.setCargaHorariaMensal(Integer.parseInt(dado));
@@ -604,6 +604,7 @@ public class SistemaAcademico {
 		disciplina.setCustoBasicoFixo(disciplina.getCustoBasicoPratica()+disciplina.getCustoBasicoTeorica());
 
 		System.out.println("\n\t    Custo fixo: " + disciplina.getCustoBasicoFixo());
+		System.out.printf("\n\n");
 
 		disciplinaDAO.cadastrar(disciplina);
 	}
@@ -1110,6 +1111,7 @@ public class SistemaAcademico {
 				validaçao = true;
 			}
 			else {
+				System.out.println("\tCarga horária mensal deve ser maior que a carga horaria semanal.");
 				validaçao = false;
 			}				
 		}
